@@ -1,7 +1,9 @@
 let FPS;
 
-setFPS();
-
 function setFPS() {
-    let ;
+    let nowDate = Date.now();
+
+    console.log(nowDate);
 }
+
+setFPS();
