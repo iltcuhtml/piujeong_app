@@ -16,7 +16,7 @@ function getFPS() {
 *for drawing circle in the canvas
 */
 function draw() {
-    ctx.drawImage(circleImage, 0, 0, 1, 1, circle.x, circle.y, circle.size, circle.size);
+    // ctx.drawImage(circleImage, 0, 0, 1, 1, circle.x, circle.y, circle.size, circle.size);
 }
 
 /**
