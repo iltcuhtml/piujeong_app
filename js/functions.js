@@ -26,8 +26,8 @@ function debug() {
     ctx.font = "16px Arial";
     ctx.fillStyle = "white";
     
-    ctx.fillText(`${FPS}`, 10, 30);
+    ctx.fillText(`FPS : ${FPS}`, 10, 30);
     
-    ctx.fillText(`${canvas.width}`, 10, 90);
-    ctx.fillText(`${canvas.height}`, 10, 120);
+    ctx.fillText(`Canvas Width : ${canvas.width}`, 10, 90);
+    ctx.fillText(`Canvas Height : ${canvas.height}`, 10, 120);
 }
