@@ -15,7 +15,7 @@ const gap = 10;                                 // set the gap size
 let cycle = 0;                                  // init circle's moving cycle
 
 let circleImage = new Image();                  // set circle image as image
-    circleImage.src = "../images/circle.svg";   // load circle image
+    circleImage.src = "/images/circle.svg";     // load circle image
 
 let circle = {                                  // /* set circle */
     x : canvas.width <= canvas.height ?         // set circle's x position as the middle of the screen
