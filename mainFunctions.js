@@ -4,14 +4,14 @@
 *@returns FPS value
 */
 function getFPS() {
-    let FPS = 0;
-    const dateBefore = Date.now();
+    let _FPS = 0;
+    const _dateBefore = Date.now();
 
-    if (Date.now() < dateBefore + 1000) {
-        FPS++;
+    if (Date.now() < _dateBefore + 1000) {
+        _FPS++;
     }
 
-    return FPS;
+    return _FPS;
 }
 
 /**
