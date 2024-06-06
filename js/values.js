@@ -14,11 +14,6 @@ const gap = 32;                                 // set the gap size
 
 let cycle = 15;                                 // init circle's moving cycle
 
-const circleImage = document.getElementById(`circle`);
-
-// circleImage = new Image();                      // set circle image as image
-// circleImage.src = "/images/circle.svg";         // load circle image
-
 let circle = {                                  // /* set circle */
     x : canvas.width <= canvas.height ?         // set circle's x position as the middle of the screen
         canvas.width * 3 / 8 + gap: 

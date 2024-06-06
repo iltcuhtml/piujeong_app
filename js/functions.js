@@ -13,10 +13,11 @@ function getFPS() {
 }
 
 /**
-*for drawing circle in the canvas
+*for loading circle image
 */
-function draw() {
-    ctx.drawImage(circleImage, 0, 0, 1, 1, circle.x, circle.y, circle.size, circle.size);
+function loadCircleImage() {
+    circleImage = new Image();
+    circleImage.src = "image/circle.svg";
 }
 
 /**

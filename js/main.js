@@ -4,7 +4,7 @@
 function main() {
     ctx.reset();
     
-    getFPS();               // set FPS
+    getFPS();
 
     if (FPS !== -1) {
         if (circle.isMovingUP) {
@@ -19,14 +19,15 @@ function main() {
             circle.isMovingUP = false;
         }
 
-        draw();             // draw the circle if FPS is set
+        ctx.drawImage(circleImage, 0, 0, 1, 1, circle.x, circle.y, circle.size, circle.size);
     }
 
     if (debugMod) {
-        debug();            // show debug info if debugMod is on
+        debug();
     }
 
     requestAnimationFrame(main);
 }
 
+loadCircleImage();
 main();
