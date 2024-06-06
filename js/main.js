@@ -17,5 +17,4 @@ function main() {
     requestAnimationFrame(main);
 }
 
-loadImage();
 main();
