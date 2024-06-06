@@ -2,10 +2,12 @@
 *main function
 */
 function main() {
-    if (FPS === 0) {
-        // ;
+    getFPS();
+
+    if (FPS !== -1) {
+        draw();
     }
-    
+
     if (debugMod) {
         debug();
     }
@@ -13,4 +15,5 @@ function main() {
     requestAnimationFrame(main);
 }
 
+loadImages();
 main();

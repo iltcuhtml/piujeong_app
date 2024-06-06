@@ -7,4 +7,5 @@ const ctx = canvas.getContext(`2d`);        //  \
 
 let debugMod = true;                        // set debugMod
 
-let FPS_counter, FPS = 0;                   // init FPS_counter and FPS
+let dateBefore = Date.now();                // set dateBefore
+let FPS_Counter = 0, FPS = -1;              // init FPS_Counter and FPS
