@@ -11,3 +11,5 @@ function getFPS() {
 }
 
 console.log(getFPS());
+
+console.log("WTF");
