@@ -2,18 +2,18 @@
 *main function
 */
 function main() {
-    getFPS();
+    getFPS();               // set FPS
 
     if (FPS !== -1) {
-        draw();
+        draw();             // draw the circle if FPS is set
     }
 
     if (debugMod) {
-        debug();
+        debug();            // show debug info if debugMod is on
     }
 
     requestAnimationFrame(main);
 }
 
-loadImages();
+loadImage();
 main();

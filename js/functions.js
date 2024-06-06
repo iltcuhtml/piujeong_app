@@ -13,26 +13,19 @@ function getFPS() {
 }
 
 /**
-*for loading images
+*for loading circle image
 */
-function loadImages() {
-    whiteCircle = new Image(), whiteCircle.src = "../images/whiteCircle.svg";
+function loadImage() {
+    circleImage = new Image(), circleImage.src = "../images/whiteCircle.svg";
 }
 
 /**
-*for moving image in the canvas
-*/
-function moveImage(_x, _y) {
-    ctx.drawImage(whiteCircle, 0, 0, 1, 1, _x, _y, 100, 100);
-}
-
-/**
-*for drawing things in the canvas
+*for drawing circle in the canvas
 */
 function draw() {
     ctx.reset();
 
-    moveImage(100, 100);
+    ctx.drawImage(circleImage, 0, 0, 1, 1, circle.x, circle.y, circle.size, circle.size);
 }
 
 /**
