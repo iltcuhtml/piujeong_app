@@ -23,8 +23,6 @@ function loadImage() {
 *for drawing circle in the canvas
 */
 function draw() {
-    ctx.reset();
-
     ctx.drawImage(circleImage, 0, 0, 1, 1, circle.x, circle.y, circle.size, circle.size);
 }
 

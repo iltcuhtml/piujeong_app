@@ -2,6 +2,8 @@
 *main function
 */
 function main() {
+    ctx.reset();
+    
     getFPS();               // set FPS
 
     if (FPS !== -1) {
