@@ -17,4 +17,4 @@ function main() {
     requestAnimationFrame(main);
 }
 
-main();
+window.onload = main();
