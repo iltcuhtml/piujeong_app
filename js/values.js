@@ -10,12 +10,14 @@ let debugMod = true;                            // set debugMod
 let dateBefore = Date.now();                    // set dateBefore
 let FPS_Counter = 0, FPS = -1;                  // init FPS_Counter and FPS
 
-const gap = 10;                                 // set the gap size
+const gap = 32;                                 // set the gap size
 
-let cycle = 0;                                  // init circle's moving cycle
+let cycle = 15;                                 // init circle's moving cycle
 
-circleImage = new Image();                      // set circle image as image
-circleImage.src = "/images/circle.png";         // load circle image
+const circleImage = document.getElementById(`circle`);
+
+// circleImage = new Image();                      // set circle image as image
+// circleImage.src = "/images/circle.svg";         // load circle image
 
 let circle = {                                  // /* set circle */
     x : canvas.width <= canvas.height ?         // set circle's x position as the middle of the screen
@@ -28,5 +30,7 @@ let circle = {                                  // /* set circle */
 
     size : canvas.width <= canvas.height ?      // set circle's size
            canvas.width / 4  - gap * 2 : 
-           canvas.height / 8 - gap * 2
+           canvas.height / 8 - gap * 2,
+
+    isMovingUP : true                           // set circle's direction
 };
