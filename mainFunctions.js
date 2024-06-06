@@ -3,7 +3,7 @@
 *
 *@returns FPS value
 */
-function getFPS() {
+async function getFPS() {
     let _FPS = 0;
     const _dateBefore = Date.now();
 
@@ -11,7 +11,7 @@ function getFPS() {
         _FPS++;
     }
 
-    return _FPS;
+    return await _FPS;
 }
 
 /**
