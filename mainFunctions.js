@@ -4,10 +4,9 @@
 *@returns FPS value
 */
 function getFPS() {
-    let FPS = 0;
-    let dateBefore = Date.now();
+    const dateBefore = Date.now();
 
-    while (Date.now < dateBefore + 1000) {
+    if (Date.now() < dateBefore + 1000) {
         FPS++;
     }
 
@@ -21,9 +20,9 @@ function debug() {
     ctx.font = "16px Arial";
     ctx.fillStyle = "white";
     
-    ctx.fillText(`${FPS}`, 10, 10);
-    ctx.fillText(`${getFPS()}`, 10, 30);
+    ctx.fillText(`${FPS}`, 10, 30);
+    ctx.fillText(`${getFPS()}`, 10, 60);
     
-    ctx.fillText(`${canvas.width}`, 10, 50);
-    ctx.fillText(`${canvas.height}`, 10, 70);
+    ctx.fillText(`${canvas.width}`, 10, 90);
+    ctx.fillText(`${canvas.height}`, 10, 120);
 }

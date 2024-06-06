@@ -1,11 +1,9 @@
-const FPS  = getFPS(); // set FPS
-
 /**
 *main function
 */
 function main() {
     console.log(getFPS());
-
+    
     if (debugMod) {
         debug();
     }
@@ -13,5 +11,6 @@ function main() {
     requestAnimationFrame(main);
 }
 
-console.log(FPS);
+FPS = getFPS();
+
 main();
