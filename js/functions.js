@@ -16,7 +16,7 @@ function getFPS() {
 *for loading circle image
 */
 function loadImage() {
-    circleImage = new Image(), circleImage.src = "../images/whiteCircle.svg";
+    circleImage = new Image(), circleImage.src = "../images/circle.svg";
 }
 
 /**
