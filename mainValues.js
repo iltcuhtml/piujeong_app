@@ -1,5 +1,3 @@
-const FPS  = getFPS(); // set FPS
-
 canvas = document.getElementById(`canvas`); //  /
                                             //  |
 canvas.width = screen.width;                // /

@@ -1,4 +1,4 @@
-/*main function*/
+const FPS  = getFPS(); // set FPS
 
 function main() {
     console.log(getFPS());
