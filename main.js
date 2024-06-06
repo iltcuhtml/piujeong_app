@@ -10,4 +10,4 @@ function getFPS() {
     return FPS;
 }
 
-console(getFPS());
+console.log(getFPS());
