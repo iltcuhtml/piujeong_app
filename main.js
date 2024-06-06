@@ -7,9 +7,10 @@ function getFPS() {
         FPS++;
     }
 
+    console.log(dateBefore);
+    console.log(Date.now());
+
     return FPS;
 }
 
 console.log(getFPS());
-
-console.log("WTF");
