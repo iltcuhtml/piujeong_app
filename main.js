@@ -1,16 +1,9 @@
+const FPS  = getFPS();
 
-function getFPS() {
-    let FPS = 0;
-    let dateBefore = Date.now();
+function main() {
+    console.log(getFPS());
 
-    while (Date.now === dateBefore + 1000) {
-        FPS++;
-    }
-
-    console.log(dateBefore);
-    console.log(Date.now());
-
-    return FPS;
+    requestAnimationFrame(main);
 }
-
-console.log(getFPS());
+console.log(FPS);
+main();
