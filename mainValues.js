@@ -5,4 +5,4 @@ canvas.height = screen.height;              // \  Set Canvas
                                             //  |
 const ctx = canvas.getContext(`2d`);        //  \
 
-let debugMod = true; // set debugMod
+let debugMod = true;                        // set debugMod

@@ -1,3 +1,8 @@
+/**
+*for get FPS value
+*
+*@returns FPS value
+*/
 function getFPS() {
     let FPS = 0;
     let dateBefore = Date.now();
@@ -9,8 +14,12 @@ function getFPS() {
     return FPS;
 }
 
+/**
+*for debugging
+*/
 function debug() {
-    ctx.font = "10px Arial";
+    ctx.font = "16px Arial";
+    ctx.fillStyle = "white";
     
     ctx.fillText(`${FPS}`, 10, 10);
     ctx.fillText(`${getFPS()}`, 10, 30);

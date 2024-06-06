@@ -1,5 +1,8 @@
 const FPS  = getFPS(); // set FPS
 
+/**
+*main function
+*/
 function main() {
     console.log(getFPS());
 
