@@ -1,7 +1,7 @@
 canvas = document.getElementById(`canvas`);     // set canvas
 
-canvas.width = screen.width;                    // set canvas width as screen width
-canvas.height = screen.height;                  // set canvas height as screen height
+canvas.width = window.innerWidth;               // set canvas width as innerWidth
+canvas.height = window.innerHeight;             // set canvas height as innerWidth
 
 const ctx = canvas.getContext(`2d`);            // set ctx
 
