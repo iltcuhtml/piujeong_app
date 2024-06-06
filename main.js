@@ -1,9 +1,13 @@
-let FPS;
 
-function setFPS() {
-    let nowDate = Date.now();
+function getFPS() {
+    let FPS = 0;
+    let dateBefore = Date.now();
 
-    console.log(nowDate);
+    while (Date.now === dateBefore + 1000) {
+        FPS++;
+    }
+
+    return FPS;
 }
 
-setFPS();
+console(getFPS());
