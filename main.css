@@ -22,7 +22,7 @@ body {
 #timeInput {
     position: absolute;
     top: 20px;
-    left: 225px;
+    left: 230px;
 
     font-size: 20px;
     text-align: center;
@@ -50,7 +50,7 @@ body {
 #start {
     position: absolute;
     top: 20px;
-    left: 300px;
+    left: 310px;
 
     font-size: 20px;
     text-align: center;
