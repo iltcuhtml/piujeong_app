@@ -7,19 +7,41 @@ function main() {
     getFPS();
 
     if (FPS !== -1) {
-        if (circle.isMovingUP) {
-            circle.y -= (canvas.height - gap * 2 - circle.size) / FPS / (cycle / 2);
+        if (isStarted) {
+            label.style.visibility = "hidden";
+            timeInput.style.visibility = "hidden";
+            startButton.style.visibility = "hidden";
+            stopButton.style.visibility = "visible";
+
+            if (circleObj.isMovingUP === 1) {
+                drawText("Breathe In");
+            } else {
+                drawText("Breathe Out");
+            }
+
+            circleObj.draw();
+            circleObj.move();
+            circleObj.setDirection();
+
+            stopButton.onclick = () => {
+                circleObj = new circle;
+        
+                isStarted = false;
+            }
         } else {
-            circle.y += (canvas.height - gap * 2 - circle.size) / FPS / (cycle / 2);
-        }
+            label.style.visibility = "visible";
+            timeInput.style.visibility = "visible";
+            startButton.style.visibility = "visible";
+            stopButton.style.visibility = "hidden";
 
-        if (circle.y + circle.size> canvas.height - gap) {
-            circle.isMovingUP = true;
-        } else if (circle.y < gap) {
-            circle.isMovingUP = false;
-        }
+            startButton.onclick = () => {
+                if (!isStarted) {
+                    cycle = parseInt(timeInput.value);
 
-        ctx.drawImage(circleImage, 0, 0, 1, 1, circle.x, circle.y, circle.size, circle.size);
+                    isStarted = true;
+                }
+            }
+        }        
     }
 
     if (debugMod) {
@@ -30,4 +52,5 @@ function main() {
 }
 
 loadCircleImage();
+
 main();

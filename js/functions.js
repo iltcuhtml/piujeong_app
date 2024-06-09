@@ -21,14 +21,24 @@ function loadCircleImage() {
 }
 
 /**
+*for drawing text
+*/
+function drawText(text) {
+    ctx.fillStyle = "gray";
+    ctx.font = "64px Arial";
+    ctx.textAlign = "center";
+    ctx.fillText(text, canvas.width / 2, canvas.height / 2);
+}
+
+/**
 *for debugging
 */
 function debug() {
     ctx.font = "16px Arial";
     ctx.fillStyle = "white";
     
-    ctx.fillText(`FPS : ${FPS}`, 10, 30);
+    if (FPS !== -1) ctx.fillText(`FPS : ${FPS}`, 10, 130);
     
-    ctx.fillText(`Canvas Width : ${canvas.width}`, 10, 90);
-    ctx.fillText(`Canvas Height : ${canvas.height}`, 10, 120);
+    ctx.fillText(`Canvas Width : ${canvas.width}`, 10, 190);
+    ctx.fillText(`Canvas Height : ${canvas.height}`, 10, 220);
 }

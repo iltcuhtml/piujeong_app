@@ -7,3 +7,82 @@ body {
     top: 0px;
     left: 0px;
 }
+
+#label {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+
+    color: white;
+    font-size: 20px;
+
+    visibility: visible;
+}
+
+#timeInput {
+    position: absolute;
+    top: 20px;
+    left: 225px;
+
+    font-size: 20px;
+    text-align: center;
+
+    width: 60px;
+    height: 25px;
+
+    border: 1px solid gray;
+    border-radius: 15px;
+
+    visibility: visible;
+}
+  
+#timeInput:focus {
+    border: 1px solid Gold;
+    outline: 1px solid Gold;
+}
+
+#timeInput::-webkit-outer-spin-button,
+#timeInput::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#start {
+    position: absolute;
+    top: 20px;
+    left: 300px;
+
+    font-size: 20px;
+    text-align: center;
+
+    width: 60px;
+    height: 30px;
+
+    border: 1px solid gray;
+    border-radius: 15px;
+
+    visibility: visible;
+}
+
+#stop {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+
+    font-size: 20px;
+    text-align: center;
+
+    width: 60px;
+    height: 30px;
+    
+    border: 1px solid gray;
+    border-radius: 15px;
+
+    visibility: hidden;
+}
+
+button:active {
+    border: 1px solid Gold;
+    outline: 1px solid Gold;
+}
+
