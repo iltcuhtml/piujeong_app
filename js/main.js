@@ -35,7 +35,7 @@ function main() {
             stopButton.style.visibility = "hidden";
 
             startButton.onclick = () => {
-                if (parseInt(timeInput.value) >= 1) {
+                if (parseInt(timeInput.value) > 0) {
                     cycle = parseInt(timeInput.value);
 
                     isStarted = true;

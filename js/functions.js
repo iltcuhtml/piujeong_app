@@ -24,8 +24,8 @@ function loadCircleImage() {
 *for drawing text
 */
 function drawText(text) {
-    ctx.fillStyle = "gray";
     ctx.font = "64px Arial";
+    ctx.fillStyle = "gray";
     ctx.textAlign = "center";
     ctx.fillText(text, canvas.width / 2, canvas.height / 2);
 }
@@ -36,6 +36,7 @@ function drawText(text) {
 function debug() {
     ctx.font = "16px Arial";
     ctx.fillStyle = "white";
+    ctx.textAlign = "start";
     
     if (FPS !== -1) ctx.fillText(`FPS : ${FPS}`, 10, 130);
     
