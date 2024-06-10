@@ -10,35 +10,35 @@ body {
 
 #label {
     position: absolute;
-    top: 25px;
-    left: 20px;
+    top: 1vw;
+    left: 1vw;
 
     color: white;
-    font-size: 50px;
+    font-size: 2vw;
 
     visibility: visible;
 }
 
 #timeInput {
     position: absolute;
-    top: 25px;
-    left: 950px;
+    top: 1vw;
+    left: 38vw;
 
-    font-size: 50px;
+    font-size: 2vw;
     text-align: center;
 
-    width: 150px;
-    height: 75px;
+    width: 6vw;
+    height: 3vw;
 
-    border: 1px solid gray;
-    border-radius: 25px;
+    border: 0.1vw solid gray;
+    border-radius: 1vw;
 
     visibility: visible;
 }
   
 #timeInput:focus {
-    border: 1px solid Gold;
-    outline: 1px solid Gold;
+    border: 0.1vw solid Gold;
+    outline: 0.1vw solid Gold;
 }
 
 #timeInput::-webkit-outer-spin-button,
@@ -49,39 +49,39 @@ body {
 
 #start {
     position: absolute;
-    top: 25px;
-    left: 1125px;
+    top: 1vw;
+    left: 45vw;
 
-    font-size: 50px;
+    font-size: 2vw;
     text-align: center;
 
-    width: 150px;
-    height: 75px;
+    width: 6vw;
+    height: 3vw;
 
-    border: 1px solid gray;
-    border-radius: 25px;
+    border: 0.1vw solid gray;
+    border-radius: 1vw;
 
     visibility: visible;
 }
 
 #stop {
     position: absolute;
-    top: 25px;
-    left: 25px;
+    top: 1vw;
+    left: 1vw;
 
-    font-size: 50px;
+    font-size: 2vw;
     text-align: center;
 
-    width: 150px;
-    height: 75px;
+    width: 6vw;
+    height: 3vw;
     
-    border: 1px solid gray;
-    border-radius: 25px;
+    border: 0.1vw solid gray;
+    border-radius: 1vw;
 
     visibility: hidden;
 }
 
 button:active {
-    border: 1px solid Gold;
-    outline: 1px solid Gold;
+    border: 0.1vw solid Gold;
+    outline: 0.1vw solid Gold;
 }
