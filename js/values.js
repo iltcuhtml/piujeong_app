@@ -1,8 +1,4 @@
 canvas = document.getElementById("canvas"); // set canvas
-
-canvas.width = window.innerWidth;           // set canvas width as innerWidth
-canvas.height = window.innerHeight;         // set canvas height as innerWidth
-
 const ctx = canvas.getContext("2d");        // set ctx as canvas
 
 const timeInput = document.getElementById("timeInput"); // set timeInput
