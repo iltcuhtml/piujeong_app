@@ -3,43 +3,43 @@
 */
 class circle {
     constructor() {                                             // /* init circle */
-        this.x = canvas.width <= canvas.height ?                // set circle's x position as the middle of the screen
-                canvas.width * 3 / 8 + gap: 
-                canvas.width / 2 - canvas.height / 16 + gap,
+        this.x = canvas.width / 2,                              // set circle's x position as the middle of the screen
 
-        this.y = canvas.width <= canvas.height ?                // set circle's y position as the bottom of the screen
-                canvas.height - canvas.width / 4 - gap: 
-                canvas.height * 7 / 8 - gap, 
+        this.y = canvas.height
+                 - Math.min(canvas.width, canvas.height) / 16
+                 - gap,                                         // set circle's y position as the bottom of the screen
 
-        this.size = Math.min(canvas.width, canvas.height) / 4,  // set circle's size
+        this.size = Math.min(canvas.width, canvas.height) / 16, // set circle's size
 
-        this.isMovingUP = 1,                                    // set circle's direction
-
-        this.alpha = 0.5;
+        this.alpha = 1;
     }
 
     /**
     *for drawing the circle
     */
-    draw() {               
-        ctx.drawImage(circleImage, 0, 0, 1, 1, this.x, this.y, this.size, this.size);
+    draw() {
+        ctx.fillStyle = "#660099";
+
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
     }
 
     /**
     *for moving the circle
     */
     move() {
-        this.y -= (canvas.height - gap * 2 - this.size) / FPS / (cycle / 2) * this.isMovingUP;
-    }
+        this.x = canvas.width / 2;
 
-    /**
-    *for setting the direction of the circle
-    */
-    setDirection() {
-        if (this.y + this.size > canvas.height - gap) {
-            this.isMovingUP = 1;
-        } else if (this.y < gap) {
-            this.isMovingUP = -1;
+        if (elapsed <= upTime) {
+            this.y = (canvas.height - this.size - gap)
+                     - (canvas.height - gap * 2 - this.size * 2) * (elapsed / upTime);
+        } else if (elapsed <= upTime + downTime) {
+            this.y = (gap + this.size)
+                     + (canvas.height - gap * 2 - this.size * 2) * ((elapsed - upTime) / downTime);
+        } else {
+            startTime = timeStamp;
         }
+
+        this.size = Math.min(canvas.width, canvas.height) / 16;
     }
 };

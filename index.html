@@ -14,8 +14,23 @@
     <body>
         <canvas id="canvas"></canvas>
 
-        <label for="timeInput" id="label">Enter The Time Of The Cycle (seconds) : </label>
-        <input type="number" id="timeInput" value="30">
+        <label id="timeSetText">Set The Time (Second)</label>
+
+        <label id="allTimeSet">All In One</label>
+        <label id="upTimeSet">Length Of Time<br>To Move Up</label>
+        <label id="downTimeSet">Length Of Time<br>To Move Down</label>
+
+        <input type="number" id="allTimeInput" value="5">
+        <input type="number" id="upTimeInput" value="5">
+        <input type="number" id="downTimeInput" value="5">
+
+        <label id="backgroundColorSetText">Set The Background Color</label>
+
+        <select id="backgroundColor">
+            <option value="skyblue">Skyblue</option>
+            <option value="white">White</option>
+        </select>
+
         <button type="button" id="start">Start</button>
 
         <button type="button" id="stop">Stop</button>

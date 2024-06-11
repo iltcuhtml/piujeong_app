@@ -1,32 +1,105 @@
-body {
-    background-color: black;
-}
-
 #canvas {
     position: absolute;
     top: 0px;
     left: 0px;
-
-    width: 100%;
-    height: 100%;
 }
 
-#label {
+#timeSetText {
     position: absolute;
-    top: 1vw;
-    left: 1vw;
+    top: 20vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
 
     color: white;
-    font-size: 2vw;
+    font-size: 3vw;
 
     visibility: visible;
 }
 
-#timeInput {
+#allTimeSet {
     position: absolute;
-    top: 1vw;
-    left: 38vw;
+    top: 27.5vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
 
+    color: white;
+    font-size: 1.5vw;
+
+    visibility: visible;
+}
+
+#upTimeSet {
+    position: absolute;
+    top: 27.5vh;
+    left: 35vw;
+    transform: translate(-50%, -50%);
+
+    color: white;
+    font-size: 1.5vw;
+
+    visibility: visible;
+}
+
+#downTimeSet {
+    position: absolute;
+    top: 27.5vh;
+    left: 65vw;
+    transform: translate(-50%, -50%);
+
+    color: white;
+    font-size: 1.5vw;
+
+    visibility: visible;
+}
+
+#allTimeInput {
+    position: absolute;
+    top: 35vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+
+    background-color: white;
+    color: black;
+    font-size: 2vw;
+    text-align: center;
+
+    width: 6vh;
+    height: 3vw;
+
+    border: 0.1vw solid gray;
+    border-radius: 1vw;
+
+    visibility: visible;
+}
+
+#upTimeInput {
+    position: absolute;
+    top: 35vh;
+    left: 35vw;
+    transform: translate(-50%, -50%);
+
+    background-color: white;
+    color: black;
+    font-size: 2vw;
+    text-align: center;
+
+    width: 6vw;
+    height: 3vw;
+
+    border: 0.1vw solid gray;
+    border-radius: 1vw;
+
+    visibility: visible;
+}
+
+#downTimeInput {
+    position: absolute;
+    top: 35vh;
+    left: 65vw;
+    transform: translate(-50%, -50%);
+
+    background-color: white;
+    color: black;
     font-size: 2vw;
     text-align: center;
 
@@ -39,30 +112,65 @@ body {
     visibility: visible;
 }
   
-#timeInput:focus {
+input:focus {
     border: 0.1vw solid Gold;
     outline: 0.1vw solid Gold;
 }
 
-#timeInput::-webkit-outer-spin-button,
-#timeInput::-webkit-inner-spin-button {
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-#start {
+#backgroundColorSetText {
     position: absolute;
-    top: 1vw;
-    left: 45vw;
+    top: 52.5vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
 
-    font-size: 2vw;
+    color: white;
+    font-size: 3vw;
+
+    visibility: visible;
+}
+
+#backgroundColor {
+    position: absolute;
+    top: 60vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+
+    background-color: white;
+    color: black;
+    font-size: 1.5vw;
     text-align: center;
 
-    width: 6vw;
-    height: 3vw;
+    width: 8vw;
+    height: 4vw;
 
     border: 0.1vw solid gray;
     border-radius: 1vw;
+
+    visibility: visible;
+}
+
+#start {
+    position: absolute;
+    top: 75vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+
+    background-color: white;
+    color: black;
+    font-size: 3vw;
+    text-align: center;
+
+    width: 12vw;
+    height: 6vw;
+
+    border: 0.1vw solid gray;
+    border-radius: 3vw;
 
     visibility: visible;
 }
@@ -72,11 +180,13 @@ body {
     top: 1vw;
     left: 1vw;
 
+    background-color: white;
+    color: black;
     font-size: 2vw;
     text-align: center;
 
-    width: 6vw;
-    height: 3vw;
+    width: 8vw;
+    height: 4vw;
     
     border: 0.1vw solid gray;
     border-radius: 1vw;
