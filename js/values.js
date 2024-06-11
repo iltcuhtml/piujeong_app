@@ -21,4 +21,4 @@ let isStarted = false;
 
 let cycle = 15; // init circle's moving cycle as 15
 
-let circleObj = new circle; // set circle_Obj as new circle
+let circleObj = []; // init circle_Obj as empty array
