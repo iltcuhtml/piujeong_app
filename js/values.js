@@ -11,10 +11,10 @@ let debugMod = false;    // set debugMod as true
 let dateBefore = Date.now();    // set dateBefore
 let FPS_Counter = 0, FPS = -1;  // init FPS_Counter as 0 and FPS as -1
 
-const gap = 32; // set the gap size as 32
+const gap = canvas.height / 25; // set the gap size as 4% of the canvas height
 
 let isStarted = false;
 
 let cycle = 15; // init circle's moving cycle as 15
 
-let circleObj = new circle; // set circle_Obj as new circle
+let circleObj = []; // init circle_Obj as empty array

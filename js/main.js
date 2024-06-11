@@ -19,12 +19,13 @@ function main() {
                 drawText("Breathe Out");
             }
 
-            circleObj.draw();
-            circleObj.move();
-            circleObj.setDirection();
+            ctx.globalAlpha = circleObj[1].alpha;
+            circleObj[1].draw();
+            circleObj[1].move();
+            circleObj[1].setDirection();
 
             stopButton.onclick = () => {
-                circleObj = new circle;
+                circleObj = [];
         
                 isStarted = false;
             }
@@ -39,6 +40,8 @@ function main() {
                     cycle = parseInt(timeInput.value);
 
                     isStarted = true;
+
+                    circleObj.push(new circle);
                 }
             }
         }        
