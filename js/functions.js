@@ -128,7 +128,7 @@ function mainScreen() {
         circleObj[i].draw();
         circleObj[i].move();
 
-        circleObj[i].alpha -= 0.01;
+        // circleObj[i].alpha -= 0.01;
 
         if (circleObj[i].alpha <= 0) {
             circleObj.splice(i, 1);

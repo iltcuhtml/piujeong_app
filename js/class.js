@@ -18,7 +18,7 @@ class circle {
     *for drawing the circle
     */
     draw() {
-        ctx.fillStyle = "#9933ff";
+        ctx.fillStyle = "#e900ff";
 
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.fill();
