@@ -12,20 +12,20 @@
 //     }
 // }
 
-/**
-*for drawing text
-*/
-function drawText(text) {
-    if (document.body.style.backgroundColor === "skyblue") {
-        ctx.fillStyle = "white";
-    } else {    
-        ctx.fillStyle = "gray";
-    }
+// /**
+// *for drawing text
+// */
+// function drawText(text) {
+//     if (document.body.style.backgroundColor === "skyblue") {
+//         ctx.fillStyle = "white";
+//     } else {    
+//         ctx.fillStyle = "gray";
+//     }
         
-    ctx.font = "64px Arial";
-    ctx.textAlign = "center";
-    ctx.fillText(text, canvas.width / 2, canvas.height / 2);
-}
+//     ctx.font = "64px Arial";
+//     ctx.textAlign = "center";
+//     ctx.fillText(text, canvas.width / 2, canvas.height / 2);
+// }
 
 /**
 *for showing title screen
@@ -110,16 +110,16 @@ function mainScreen() {
 
     stopButton.style.visibility = "visible";
     
-    if (elapsed <= upTime) {
-        drawText("Breathe In");
-    } else {
-        drawText("Breathe Out");
-    }
+    // if (elapsed <= upTime) {
+    //     drawText("Breathe In");
+    // } else {
+    //     drawText("Breathe Out");
+    // }
 
     ctx.fillStyle = "#7fff00";
 
-    ctx.fillRect(gap, gap - canvas.height / 256, canvas.width - gap * 2, canvas.height / 256);
-    ctx.fillRect(gap, canvas.height - gap, canvas.width - gap * 2, canvas.height / 256);
+    ctx.fillRect(gap * 1.5, gap - canvas.height / 128, canvas.width - gap * 3, canvas.height / 128);
+    ctx.fillRect(gap, canvas.height - gap, canvas.width - gap * 3, canvas.height / 128);
 
     for (let i = 0; i < circleObj.length; i++) {
 
@@ -128,7 +128,7 @@ function mainScreen() {
         circleObj[i].draw();
         circleObj[i].move();
 
-        // circleObj[i].alpha -= 0.01;
+        circleObj[i].alpha -= 0.01;
 
         if (circleObj[i].alpha <= 0) {
             circleObj.splice(i, 1);

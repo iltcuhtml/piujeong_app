@@ -1,4 +1,4 @@
-document.body.style.backgroundColor = "skyblue";    // set body color as skyblue
+document.body.style.backgroundColor = "white";    // set body color as skyblue
 
 canvas = document.getElementById("canvas"); // set canvas
 const ctx = canvas.getContext("2d");        // set ctx as canvas
