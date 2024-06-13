@@ -1,14 +1,16 @@
-// document.body.style.backgroundColor = "whitesmoke";    // set body color as skyblue
+document.body.style.backgroundColor = "whitesmoke";    // set body color as skyblue
 
 canvas = document.getElementById("canvas"); // set canvas
 const ctx = canvas.getContext("2d");        // set ctx as canvas
 
+const title = document.getElementById("title"); // set title
+
 // const allTimeSet = document.getElementById("allTimeSet");   // set allTimeSet
-const inTimeSet = document.getElementById("inTimeSet");     // set inTimeSet
+const inTimeSet = document.getElementById("inTimeSet"); // set inTimeSet
 const exTimeSet = document.getElementById("exTimeSet"); // set exTimeSet
 
 // const allTimeInput = document.getElementById("allTimeInput");   // set allTimeInput
-const inTimeInput = document.getElementById("inTimeInput");     // set inTimeInput
+const inTimeInput = document.getElementById("inTimeInput"); // set inTimeInput
 const exTimeInput = document.getElementById("exTimeInput"); // set exTimeInput
 
 // const backgroundColorSetText = document.getElementById("backgroundColorSetText");   // set backgroundColorSetText

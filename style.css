@@ -1,13 +1,19 @@
-body {
-    background-color: black;
-}
-
 #canvas {
     position: absolute;
     top: 0px;
     left: 0px;
+}
 
-    background-color: whitesmoke;
+#title {
+    position: absolute;
+    top: 15vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+
+    color: black;
+    font-size: 8vw;
+
+    visibility: visible;
 }
 
 /* #allTimeSet {
@@ -16,7 +22,7 @@ body {
     left: 50vw;
     transform: translate(-50%, -50%);
 
-    color: whitesmoke;
+    color: black;
     font-size: 1vw;
 
     visibility: visible;
@@ -24,11 +30,11 @@ body {
 
 #inTimeSet {
     position: absolute;
-    top: 30vh;
+    top: calc(50vh - 4vw);
     left: 35vw;
     transform: translate(-50%, -50%);
 
-    color: whitesmoke;
+    color: black;
     font-size: 4vw;
 
     visibility: visible;
@@ -36,11 +42,11 @@ body {
 
 #exTimeSet {
     position: absolute;
-    top: 30vh;
+    top: calc(50vh - 4vw);
     left: 65vw;
     transform: translate(-50%, -50%);
 
-    color: whitesmoke;
+    color: black;
     font-size: 4vw;
 
     visibility: visible;
@@ -68,7 +74,7 @@ body {
 
 #inTimeInput {
     position: absolute;
-    top: calc(30vh + 8vw);
+    top: calc(50vh + 4vw);
     left: 35vw;
     transform: translate(-50%, -50%);
 
@@ -88,7 +94,7 @@ body {
 
 #exTimeInput {
     position: absolute;
-    top: calc(30vh + 8vw);
+    top: calc(50vh + 4vw);
     left: 65vw;
     transform: translate(-50%, -50%);
 
@@ -123,7 +129,7 @@ input::-webkit-inner-spin-button {
     left: 50vw;
     transform: translate(-50%, -50%);
 
-    color: whitesmoke;
+    color: black;
     font-size: 3vw;
 
     visibility: visible;

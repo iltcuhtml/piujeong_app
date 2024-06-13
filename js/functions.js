@@ -17,7 +17,7 @@
 // */
 // function drawText(text) {
 //     if (document.body.style.backgroundColor === "skyblue") {
-//         ctx.fillStyle = "white";
+//         ctx.fillStyle = "whitesmoke";
 //     } else {    
 //         ctx.fillStyle = "gray";
 //     }
@@ -96,16 +96,21 @@ function mainScreen() {
 */
 function style() {
     if (canvas.width < canvas.height) {
+        title.style.fontSize = "8vw";
+
+        inTimeSet.style.top = "calc(50vh - 4vw)";
         inTimeSet.style.fontSize = "4vw";
+
+        exTimeSet.style.top = "calc(50vh - 4vw)";
         exTimeSet.style.fontSize = "4vw";
 
-        inTimeInput.style.top = "calc(30vh + 8vw)";
+        inTimeInput.style.top = "calc(50vh + 4vw)";
         inTimeInput.style.fontSize = "4vw";
         inTimeInput.style.width = "16vw";
         inTimeInput.style.height = "8vw";
         inTimeInput.style.borderRadius = "4vw";
 
-        exTimeInput.style.top = "calc(30vh + 8vw)";
+        exTimeInput.style.top = "calc(50vh + 4vw)";
         exTimeInput.style.fontSize = "4vw";
         exTimeInput.style.width = "16vw";
         exTimeInput.style.height = "8vw";
@@ -121,16 +126,21 @@ function style() {
         stopButton.style.height = "6vw";
         stopButton.style.borderRadius = "3vw";
     } else {
+        title.style.fontSize = "4vw";
+
+        inTimeSet.style.top = "calc(50vh - 2vw)";
         inTimeSet.style.fontSize = "2vw";
+
+        exTimeSet.style.top = "calc(50vh - 2vw)";
         exTimeSet.style.fontSize = "2vw";
 
-        inTimeInput.style.top = "calc(30vh + 4vw)";
+        inTimeInput.style.top = "calc(50vh + 2vw)";
         inTimeInput.style.fontSize = "2vw";
         inTimeInput.style.width = "8vw";
         inTimeInput.style.height = "4vw";
         inTimeInput.style.borderRadius = "4vw";
 
-        exTimeInput.style.top = "calc(30vh + 4vw)";
+        exTimeInput.style.top = "calc(50vh + 2vw)";
         exTimeInput.style.fontSize = "2vw";
         exTimeInput.style.width = "8vw";
         exTimeInput.style.height = "4vw";
@@ -148,6 +158,8 @@ function style() {
     }
 
     if (isStarted) {
+        title.style.visibility = "hidden";
+
         // allTimeSet.style.visibility = "hidden";
         inTimeSet.style.visibility = "hidden";
         exTimeSet.style.visibility = "hidden";
@@ -163,6 +175,8 @@ function style() {
 
         stopButton.style.visibility = "visible";
     } else {
+        title.style.visibility = "visible";
+
         // allTimeSet.style.visibility = "visible";
         inTimeSet.style.visibility = "visible";
         exTimeSet.style.visibility = "visible";
@@ -179,12 +193,16 @@ function style() {
         stopButton.style.visibility = "hidden";
     
         if (document.body.style.backgroundColor === "skyblue") {    
-            // allTimeSet.style.color = "white";
-            inTimeSet.style.color = "white";
-            exTimeSet.style.color = "white";
+            title.style.color = "whitesmoke";
+            
+            // allTimeSet.style.color = "whitesmoke";
+            inTimeSet.style.color = "whitesmoke";
+            exTimeSet.style.color = "whitesmoke";
     
-            // backgroundColorSetText.style.color = "white";
-        } else {    
+            // backgroundColorSetText.style.color = "whitesmoke";
+        } else {
+            title.style.color = "black";
+
             // allTimeSet.style.color = "black";
             inTimeSet.style.color = "black";
             exTimeSet.style.color = "black";
@@ -201,7 +219,7 @@ function debug() {
     ctx.font = "16px Arial";
 
     if (document.body.style.backgroundColor === "skyblue") {
-        ctx.fillStyle = "white";
+        ctx.fillStyle = "whitesmoke";
     } else {    
         ctx.fillStyle = "black";
     }
