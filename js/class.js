@@ -6,10 +6,10 @@ class circle {
         this.x = canvas.width / 2,                              // set circle's x position as the middle of the screen
 
         this.y = canvas.height
-                 - Math.min(canvas.width, canvas.height) / 16
+                 - canvas.width / 8
                  - gap,                                         // set circle's y position as the bottom of the screen
 
-        this.size = Math.min(canvas.width, canvas.height) / 16, // set circle's size
+        this.size = canvas.width / 8,                           // set circle's size
 
         this.alpha = 1;
     }

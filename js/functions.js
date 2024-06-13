@@ -33,16 +33,16 @@
 function titleScreen() {
     timeSetText.style.visibility = "visible";
 
-    allTimeSet.style.visibility = "visible";
+    // allTimeSet.style.visibility = "visible";
     upTimeSet.style.visibility = "visible";
     downTimeSet.style.visibility = "visible";
 
-    allTimeInput.style.visibility = "visible";
+    // allTimeInput.style.visibility = "visible";
     upTimeInput.style.visibility = "visible";
     downTimeInput.style.visibility = "visible";
 
-    backgroundColorSetText.style.visibility = "visible";
-    backgroundColor.style.visibility = "visible";
+    // backgroundColorSetText.style.visibility = "visible";
+    // backgroundColor.style.visibility = "visible";
 
     startButton.style.visibility = "visible";
 
@@ -51,29 +51,29 @@ function titleScreen() {
     if (document.body.style.backgroundColor === "skyblue") {
         timeSetText.style.color = "white";
 
-        allTimeSet.style.color = "white";
+        // allTimeSet.style.color = "white";
         upTimeSet.style.color = "white";
         downTimeSet.style.color = "white";
 
-        backgroundColorSetText.style.color = "white";
+        // backgroundColorSetText.style.color = "white";
     } else {
         timeSetText.style.color = "black";
 
-        allTimeSet.style.color = "black";
+        // allTimeSet.style.color = "black";
         upTimeSet.style.color = "black";
         downTimeSet.style.color = "black";
 
-        backgroundColorSetText.style.color = "black";
+        // backgroundColorSetText.style.color = "black";
     }
 
-    allTimeInput.oninput = () => {
-        upTimeInput.value = allTimeInput.value;
-        downTimeInput.value = allTimeInput.value;
-    }
+    // allTimeInput.oninput = () => {
+    //     upTimeInput.value = allTimeInput.value;
+    //     downTimeInput.value = allTimeInput.value;
+    // }
 
-    backgroundColor.oninput = () => {
-        document.body.style.backgroundColor = backgroundColor.value;
-    }
+    // backgroundColor.oninput = () => {
+    //     document.body.style.backgroundColor = backgroundColor.value;
+    // }
 
     startButton.onclick = () => {
         if (parseInt(upTimeInput.value) > 0 && parseInt(downTimeInput.value) > 0) {
@@ -95,16 +95,16 @@ function titleScreen() {
 function mainScreen() {
     timeSetText.style.visibility = "hidden";
 
-    allTimeSet.style.visibility = "hidden";
+    // allTimeSet.style.visibility = "hidden";
     upTimeSet.style.visibility = "hidden";
     downTimeSet.style.visibility = "hidden";
 
-    allTimeInput.style.visibility = "hidden";
+    // allTimeInput.style.visibility = "hidden";
     upTimeInput.style.visibility = "hidden";
     downTimeInput.style.visibility = "hidden";
 
-    backgroundColorSetText.style.visibility = "hidden";
-    backgroundColor.style.visibility = "hidden";
+    // backgroundColorSetText.style.visibility = "hidden";
+    // backgroundColor.style.visibility = "hidden";
 
     startButton.style.visibility = "hidden";
 
@@ -118,8 +118,8 @@ function mainScreen() {
 
     ctx.fillStyle = "#7fff00";
 
-    ctx.fillRect(gap * 1.5, gap - canvas.height / 128, canvas.width - gap * 3, canvas.height / 128);
-    ctx.fillRect(gap, canvas.height - gap, canvas.width - gap * 3, canvas.height / 128);
+    ctx.fillRect(gap, gap - canvas.width / 16, canvas.width / 2, canvas.width / 16);
+    ctx.fillRect(gap, canvas.height - gap, canvas.width / 2, canvas.width / 16);
 
     for (let i = 0; i < circleObj.length; i++) {
 

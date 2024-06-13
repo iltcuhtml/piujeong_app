@@ -2,10 +2,10 @@
 *main function
 */
 function main(_timeStamp) {
-    canvas.width = window.innerWidth;   // set canvas width as innerWidth
+    canvas.width = canvas.height / 2; // window.innerWidth;   // set canvas width as innerWidth
     canvas.height = window.innerHeight; // set canvas height as innerWidth
 
-    gap = Math.min(canvas.width, canvas.height) / 5;    // set the gap size as canvas height / 5
+    gap = canvas.width / 4;    // set the gap size as canvas height / 4
 
     timeStamp = _timeStamp;
     elapsed = timeStamp - startTime;
