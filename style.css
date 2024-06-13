@@ -10,18 +10,6 @@ body {
     background-color: whitesmoke;
 }
 
-#timeSetText {
-    position: absolute;
-    top: 17.5vh;
-    left: 50vw;
-    transform: translate(-50%, -50%);
-
-    color: whitesmoke;
-    font-size: 3vw;
-
-    visibility: visible;
-}
-
 /* #allTimeSet {
     position: absolute;
     top: 27.5vh;
@@ -34,26 +22,26 @@ body {
     visibility: visible;
 } */
 
-#upTimeSet {
+#inTimeSet {
     position: absolute;
-    top: 27.5vh;
+    top: 30vh;
     left: 35vw;
     transform: translate(-50%, -50%);
 
     color: whitesmoke;
-    font-size: 1vw;
+    font-size: 4vw;
 
     visibility: visible;
 }
 
-#downTimeSet {
+#exTimeSet {
     position: absolute;
-    top: 27.5vh;
+    top: 30vh;
     left: 65vw;
     transform: translate(-50%, -50%);
 
     color: whitesmoke;
-    font-size: 1vw;
+    font-size: 4vw;
 
     visibility: visible;
 }
@@ -78,42 +66,42 @@ body {
     visibility: visible;
 } */
 
-#upTimeInput {
+#inTimeInput {
     position: absolute;
-    top: 35vh;
+    top: calc(30vh + 8vw);
     left: 35vw;
     transform: translate(-50%, -50%);
 
     background-color: whitesmoke;
     color: black;
-    font-size: 1.5vw;
+    font-size: 4vw;
     text-align: center;
 
-    width: 5vw;
-    height: 2.5vw;
+    width: 16vw;
+    height: 8vw;
 
     border: 0.1vw solid gray;
-    border-radius: 1vw;
+    border-radius: 4vw;
 
     visibility: visible;
 }
 
-#downTimeInput {
+#exTimeInput {
     position: absolute;
-    top: 35vh;
+    top: calc(30vh + 8vw);
     left: 65vw;
     transform: translate(-50%, -50%);
 
     background-color: whitesmoke;
     color: black;
-    font-size: 1.5vw;
+    font-size: 4vw;
     text-align: center;
 
-    width: 5vw;
-    height: 2.5vw;
+    width: 16vw;
+    height: 8vw;
 
     border: 0.1vw solid gray;
-    border-radius: 1vw;
+    border-radius: 4vw;
 
     visibility: visible;
 }
@@ -163,39 +151,39 @@ input::-webkit-inner-spin-button {
 
 #start {
     position: absolute;
-    top: 77.5vh;
+    top: 75vh;
     left: 50vw;
     transform: translate(-50%, -50%);
 
     background-color: whitesmoke;
     color: black;
-    font-size: 2vw;
+    font-size: 8vw;
     text-align: center;
 
-    width: 8vw;
-    height: 4vw;
+    width: 32vw;
+    height: 16vw;
 
     border: 0.1vw solid gray;
-    border-radius: 3vw;
+    border-radius: 8vw;
 
     visibility: visible;
 }
 
 #stop {
     position: absolute;
-    top: 1vw;
-    left: 1vw;
+    top: 2vw;
+    left: 2vw;
 
     background-color: whitesmoke;
     color: black;
-    font-size: 2vw;
+    font-size: 3vw;
     text-align: center;
 
-    width: 8vw;
-    height: 4vw;
+    width: 12vw;
+    height: 6vw;
     
     border: 0.1vw solid gray;
-    border-radius: 1vw;
+    border-radius: 3vw;
 
     visibility: hidden;
 }

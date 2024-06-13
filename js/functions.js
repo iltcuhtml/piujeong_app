@@ -31,44 +31,9 @@
 *for showing title screen
 */
 function titleScreen() {
-    timeSetText.style.visibility = "visible";
-
-    // allTimeSet.style.visibility = "visible";
-    upTimeSet.style.visibility = "visible";
-    downTimeSet.style.visibility = "visible";
-
-    // allTimeInput.style.visibility = "visible";
-    upTimeInput.style.visibility = "visible";
-    downTimeInput.style.visibility = "visible";
-
-    // backgroundColorSetText.style.visibility = "visible";
-    // backgroundColor.style.visibility = "visible";
-
-    startButton.style.visibility = "visible";
-
-    stopButton.style.visibility = "hidden";
-
-    if (document.body.style.backgroundColor === "skyblue") {
-        timeSetText.style.color = "white";
-
-        // allTimeSet.style.color = "white";
-        upTimeSet.style.color = "white";
-        downTimeSet.style.color = "white";
-
-        // backgroundColorSetText.style.color = "white";
-    } else {
-        timeSetText.style.color = "black";
-
-        // allTimeSet.style.color = "black";
-        upTimeSet.style.color = "black";
-        downTimeSet.style.color = "black";
-
-        // backgroundColorSetText.style.color = "black";
-    }
-
     // allTimeInput.oninput = () => {
-    //     upTimeInput.value = allTimeInput.value;
-    //     downTimeInput.value = allTimeInput.value;
+    //     inTimeInput.value = allTimeInput.value;
+    //     exTimeInput.value = allTimeInput.value;
     // }
 
     // backgroundColor.oninput = () => {
@@ -76,11 +41,11 @@ function titleScreen() {
     // }
 
     startButton.onclick = () => {
-        if (parseInt(upTimeInput.value) > 0 && parseInt(downTimeInput.value) > 0) {
+        if (parseInt(inTimeInput.value) > 0 && parseInt(exTimeInput.value) > 0) {
             startTime = timeStamp;
 
-            upTime = parseInt(upTimeInput.value) * 1000;
-            downTime = parseInt(downTimeInput.value) * 1000;
+            inTime = parseInt(inTimeInput.value) * 1000;
+            exTime = parseInt(exTimeInput.value) * 1000;
 
             circleObj.push(new circle);
 
@@ -92,25 +57,8 @@ function titleScreen() {
 /**
 *for showing main screen
 */
-function mainScreen() {
-    timeSetText.style.visibility = "hidden";
-
-    // allTimeSet.style.visibility = "hidden";
-    upTimeSet.style.visibility = "hidden";
-    downTimeSet.style.visibility = "hidden";
-
-    // allTimeInput.style.visibility = "hidden";
-    upTimeInput.style.visibility = "hidden";
-    downTimeInput.style.visibility = "hidden";
-
-    // backgroundColorSetText.style.visibility = "hidden";
-    // backgroundColor.style.visibility = "hidden";
-
-    startButton.style.visibility = "hidden";
-
-    stopButton.style.visibility = "visible";
-    
-    // if (elapsed <= upTime) {
+function mainScreen() {    
+    // if (elapsed <= inTime) {
     //     drawText("Breathe In");
     // } else {
     //     drawText("Breathe Out");
@@ -118,11 +66,10 @@ function mainScreen() {
 
     ctx.fillStyle = "#7fff00";
 
-    ctx.fillRect(gap, gap - canvas.width / 16, canvas.width / 2, canvas.width / 16);
-    ctx.fillRect(gap, canvas.height - gap, canvas.width / 2, canvas.width / 16);
+    ctx.fillRect(canvas.width * 0.5 - unit * 1.25, unit * 0.75, unit * 2.5, unit * 0.25);
+    ctx.fillRect(canvas.width * 0.5 - unit * 1.25, canvas.height - unit, unit * 2.5, unit * 0.25);
 
     for (let i = 0; i < circleObj.length; i++) {
-
         ctx.globalAlpha = circleObj[i].alpha;
             
         circleObj[i].draw();
@@ -141,6 +88,109 @@ function mainScreen() {
         circleObj = [];
         
         isStarted = false;
+    }
+}
+
+/**
+*for controling css
+*/
+function style() {
+    if (canvas.width < canvas.height) {
+        inTimeSet.style.fontSize = "4vw";
+        exTimeSet.style.fontSize = "4vw";
+
+        inTimeInput.style.top = "calc(30vh + 8vw)";
+        inTimeInput.style.fontSize = "4vw";
+        inTimeInput.style.width = "16vw";
+        inTimeInput.style.height = "8vw";
+        inTimeInput.style.borderRadius = "4vw";
+
+        exTimeInput.style.top = "calc(30vh + 8vw)";
+        exTimeInput.style.fontSize = "4vw";
+        exTimeInput.style.width = "16vw";
+        exTimeInput.style.height = "8vw";
+        exTimeInput.style.borderRadius = "4vw";
+
+        startButton.style.fontSize = "8vw";
+        startButton.style.width = "32vw";
+        startButton.style.height = "16vw";
+        startButton.style.borderRadius = "8vw";
+
+        stopButton.style.fontSize = "3vw";
+        stopButton.style.width = "12vw";
+        stopButton.style.height = "6vw";
+        stopButton.style.borderRadius = "3vw";
+    } else {
+        inTimeSet.style.fontSize = "2vw";
+        exTimeSet.style.fontSize = "2vw";
+
+        inTimeInput.style.top = "calc(30vh + 4vw)";
+        inTimeInput.style.fontSize = "2vw";
+        inTimeInput.style.width = "8vw";
+        inTimeInput.style.height = "4vw";
+        inTimeInput.style.borderRadius = "4vw";
+
+        exTimeInput.style.top = "calc(30vh + 4vw)";
+        exTimeInput.style.fontSize = "2vw";
+        exTimeInput.style.width = "8vw";
+        exTimeInput.style.height = "4vw";
+        exTimeInput.style.borderRadius = "2vw";
+
+        startButton.style.fontSize = "4vw";
+        startButton.style.width = "16vw";
+        startButton.style.height = "8vw";
+        startButton.style.borderRadius = "4vw";
+
+        stopButton.style.fontSize = "1.5vw";
+        stopButton.style.width = "6vw";
+        stopButton.style.height = "3vw";
+        stopButton.style.borderRadius = "1.5vw";
+    }
+
+    if (isStarted) {
+        // allTimeSet.style.visibility = "hidden";
+        inTimeSet.style.visibility = "hidden";
+        exTimeSet.style.visibility = "hidden";
+
+        // allTimeInput.style.visibility = "hidden";
+        inTimeInput.style.visibility = "hidden";
+        exTimeInput.style.visibility = "hidden";
+
+        // backgroundColorSetText.style.visibility = "hidden";
+        // backgroundColor.style.visibility = "hidden";
+
+        startButton.style.visibility = "hidden";
+
+        stopButton.style.visibility = "visible";
+    } else {
+        // allTimeSet.style.visibility = "visible";
+        inTimeSet.style.visibility = "visible";
+        exTimeSet.style.visibility = "visible";
+    
+        // allTimeInput.style.visibility = "visible";
+        inTimeInput.style.visibility = "visible";
+        exTimeInput.style.visibility = "visible";
+    
+        // backgroundColorSetText.style.visibility = "visible";
+        // backgroundColor.style.visibility = "visible";
+    
+        startButton.style.visibility = "visible";
+    
+        stopButton.style.visibility = "hidden";
+    
+        if (document.body.style.backgroundColor === "skyblue") {    
+            // allTimeSet.style.color = "white";
+            inTimeSet.style.color = "white";
+            exTimeSet.style.color = "white";
+    
+            // backgroundColorSetText.style.color = "white";
+        } else {    
+            // allTimeSet.style.color = "black";
+            inTimeSet.style.color = "black";
+            exTimeSet.style.color = "black";
+    
+            // backgroundColorSetText.style.color = "black";
+        }
     }
 }
 
@@ -167,6 +217,6 @@ function debug() {
 
     ctx.fillText(`isStarted : ${isStarted}`, 10, 450);
 
-    ctx.fillText(`upTime : ${upTime}`, 10, 500);
-    ctx.fillText(`downTime : ${downTime}`, 10, 550);
+    ctx.fillText(`inTime : ${inTime}`, 10, 500);
+    ctx.fillText(`exTime : ${exTime}`, 10, 550);
 }

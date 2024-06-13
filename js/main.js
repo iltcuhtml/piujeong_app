@@ -2,10 +2,10 @@
 *main function
 */
 function main(_timeStamp) {
-    canvas.width = canvas.height / 2; // window.innerWidth;   // set canvas width as innerWidth
+    canvas.width = window.innerWidth;   // set canvas width as innerWidth
     canvas.height = window.innerHeight; // set canvas height as innerWidth
 
-    gap = canvas.width / 4;    // set the gap size as canvas height / 4
+    unit = canvas.width < canvas.height ? canvas.width / 4 : canvas.height / 8;    // set the unit
 
     timeStamp = _timeStamp;
     elapsed = timeStamp - startTime;
@@ -13,6 +13,8 @@ function main(_timeStamp) {
     ctx.reset();
     
     // getFPS();
+
+    style();
 
     if (isStarted) {
         mainScreen();

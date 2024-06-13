@@ -2,16 +2,16 @@
 *for making circles
 */
 class circle {
-    constructor() {                                             // /* init circle */
-        this.x = canvas.width / 2,                              // set circle's x position as the middle of the screen
+    constructor() {                 // /* init circle */
+        this.x = canvas.width / 2;  // set circle's x position as the middle of the screen
 
         this.y = canvas.height
                  - canvas.width / 8
-                 - gap,                                         // set circle's y position as the bottom of the screen
+                 - unit;            // set circle's y position as the bottom of the screen
 
-        this.size = canvas.width / 8,                           // set circle's size
+        this.size = unit / 4;       // set circle's size
 
-        this.alpha = 1;
+        this.alpha = 1;             // set circle's aplha value as 1
     }
 
     /**
@@ -30,16 +30,16 @@ class circle {
     move() {
         this.x = canvas.width / 2;
 
-        if (elapsed <= upTime) {
-            this.y = (canvas.height - this.size - gap)
-                     - (canvas.height - gap * 2 - this.size * 2) * (elapsed / upTime);
-        } else if (elapsed <= upTime + downTime) {
-            this.y = (gap + this.size)
-                     + (canvas.height - gap * 2 - this.size * 2) * ((elapsed - upTime) / downTime);
+        if (elapsed <= inTime) {
+            this.y = (canvas.height - this.size - unit)
+                     - (canvas.height - unit * 2 - this.size * 2) * (elapsed / inTime);
+        } else if (elapsed <= inTime + exTime) {
+            this.y = (unit + this.size)
+                     + (canvas.height - unit * 2 - this.size * 2) * ((elapsed - inTime) / exTime);
         } else {
             startTime = timeStamp;
         }
 
-        this.size = Math.min(canvas.width, canvas.height) / 16;
+        this.size = unit / 4;
     }
 };
