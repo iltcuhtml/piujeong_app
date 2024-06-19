@@ -63,10 +63,10 @@ function titleScreen() {
 function mainScreen() {
     switch (playLev) {
         case 1:
-            if (elapsed <= inTime) break;
+            if (elapsed <= inTime - 100) break;
 
         case 2:
-            if (playLev === 2 && elapsed <= inTime + exTime) break;
+            if (playLev === 2 && elapsed <= inTime + exTime - 100) break;
 
             sfx.pause();
             sfx.currentTime = 0;
