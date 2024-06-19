@@ -30,7 +30,7 @@
 
 #inTimeSet {
     position: absolute;
-    top: calc(50vh - 4vw);
+    top: calc(40vh - 4vw);
     left: 35vw;
     transform: translate(-50%, -50%);
 
@@ -42,7 +42,7 @@
 
 #exTimeSet {
     position: absolute;
-    top: calc(50vh - 4vw);
+    top: calc(40vh - 4vw);
     left: 65vw;
     transform: translate(-50%, -50%);
 
@@ -74,7 +74,7 @@
 
 #inTimeInput {
     position: absolute;
-    top: calc(50vh + 4vw);
+    top: calc(40vh + 4vw);
     left: 35vw;
     transform: translate(-50%, -50%);
 
@@ -94,7 +94,7 @@
 
 #exTimeInput {
     position: absolute;
-    top: calc(50vh + 4vw);
+    top: calc(40vh + 4vw);
     left: 65vw;
     transform: translate(-50%, -50%);
 
@@ -110,17 +110,6 @@
     border-radius: 4vw;
 
     visibility: visible;
-}
-  
-input:focus {
-    border: 0.1vw solid Gold;
-    outline: 0.1vw solid Gold;
-}
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
 }
 
 /* #backgroundColorSetText {
@@ -154,6 +143,45 @@ input::-webkit-inner-spin-button {
 
     visibility: visible;
 } */
+
+#volumeSet {
+    position: absolute;
+    top: calc(60vh - 2vw);
+    left: 50vw;
+    transform: translate(-50%, -50%);
+
+    color: black;
+    font-size: 4vw;
+
+    visibility: visible;
+}
+
+#volumeInput {
+    position: absolute;
+    top: calc(60vh + 2vw);
+    left: 50vw;
+    transform: translate(-50%, -50%);
+
+    background-color: whitesmoke;
+    color: black;
+    font-size: 4vw;
+    text-align: center;
+
+    border-radius: 4vw;
+
+    visibility: visible;
+}
+
+input:focus {
+    border: 0.1vw solid Gold;
+    outline: 0.1vw solid Gold;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
 #start {
     position: absolute;

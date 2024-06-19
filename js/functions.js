@@ -51,23 +51,46 @@ function titleScreen() {
 
             isStarted = true;
         }
+
+        sfx.volume = parseInt(volumeInput.value) / 100;
     }
 }
 
 /**
 *for showing main screen
 */
-function mainScreen() {    
+function mainScreen() {
+    switch (playLev) {
+        case 1:
+            if (elapsed <= inTime) break;
+
+        case 2:
+            if (playLev === 2 && elapsed <= inTime + exTime) break;
+
+            sfx.pause();
+            sfx.currentTime = 0;
+        
+            sfx.play();
+            
+            if (playLev === 1) {
+                playLev = 2;
+            } else {
+                playLev = 1;
+            }
+    }
+
     // if (elapsed <= inTime) {
     //     drawText("Breathe In");
     // } else {
     //     drawText("Breathe Out");
     // }
 
-    ctx.fillStyle = "#7fff00";
+    ctx.fillStyle = "#60ff60";
 
     ctx.fillRect(canvas.width * 0.5 - unit * 1.25, unit * 0.75, unit * 2.5, unit * 0.25);
     ctx.fillRect(canvas.width * 0.5 - unit * 1.25, canvas.height - unit, unit * 2.5, unit * 0.25);
+    
+    // circleObj.push(new circle);
 
     for (let i = 0; i < circleObj.length; i++) {
         ctx.globalAlpha = circleObj[i].alpha;
@@ -75,7 +98,8 @@ function mainScreen() {
         circleObj[i].draw();
         circleObj[i].move();
 
-        // circleObj[i].alpha -= 0.01;
+        // circleObj[i].alpha -= 1 / 16;
+        // circleObj[i].size -= unit / 64;
 
         if (circleObj[i].alpha <= 0) {
             circleObj.splice(i, 1);
@@ -98,23 +122,30 @@ function style() {
     if (canvas.width < canvas.height) {
         title.style.fontSize = "8vw";
 
-        inTimeSet.style.top = "calc(50vh - 4vw)";
+        inTimeSet.style.top = "calc(40vh - 4vw)";
         inTimeSet.style.fontSize = "4vw";
 
-        exTimeSet.style.top = "calc(50vh - 4vw)";
+        exTimeSet.style.top = "calc(40vh - 4vw)";
         exTimeSet.style.fontSize = "4vw";
 
-        inTimeInput.style.top = "calc(50vh + 4vw)";
+        inTimeInput.style.top = "calc(40vh + 4vw)";
         inTimeInput.style.fontSize = "4vw";
         inTimeInput.style.width = "16vw";
         inTimeInput.style.height = "8vw";
         inTimeInput.style.borderRadius = "4vw";
 
-        exTimeInput.style.top = "calc(50vh + 4vw)";
+        exTimeInput.style.top = "calc(40vh + 4vw)";
         exTimeInput.style.fontSize = "4vw";
         exTimeInput.style.width = "16vw";
         exTimeInput.style.height = "8vw";
         exTimeInput.style.borderRadius = "4vw";
+
+        volumeSet.style.top = "calc(60vh - 2vw)";
+        volumeSet.style.fontSize = "4vw";
+
+        volumeInput.style.top = "calc(60vh + 2vw)";
+        volumeInput.style.fontSize = "4vw";
+        volumeInput.style.borderRadius = "4vw";
 
         startButton.style.fontSize = "8vw";
         startButton.style.width = "32vw";
@@ -128,23 +159,30 @@ function style() {
     } else {
         title.style.fontSize = "4vw";
 
-        inTimeSet.style.top = "calc(50vh - 2vw)";
+        inTimeSet.style.top = "calc(40vh - 2vw)";
         inTimeSet.style.fontSize = "2vw";
 
-        exTimeSet.style.top = "calc(50vh - 2vw)";
+        exTimeSet.style.top = "calc(40vh - 2vw)";
         exTimeSet.style.fontSize = "2vw";
 
-        inTimeInput.style.top = "calc(50vh + 2vw)";
+        inTimeInput.style.top = "calc(40vh + 2vw)";
         inTimeInput.style.fontSize = "2vw";
         inTimeInput.style.width = "8vw";
         inTimeInput.style.height = "4vw";
         inTimeInput.style.borderRadius = "4vw";
 
-        exTimeInput.style.top = "calc(50vh + 2vw)";
+        exTimeInput.style.top = "calc(40vh + 2vw)";
         exTimeInput.style.fontSize = "2vw";
         exTimeInput.style.width = "8vw";
         exTimeInput.style.height = "4vw";
         exTimeInput.style.borderRadius = "2vw";
+
+        volumeSet.style.top = "calc(60vh - 1vw)";
+        volumeSet.style.fontSize = "2vw";
+
+        volumeInput.style.top = "calc(60vh + 1vw)";
+        volumeInput.style.fontSize = "2vw";
+        volumeInput.style.borderRadius = "2vw";
 
         startButton.style.fontSize = "4vw";
         startButton.style.width = "16vw";
@@ -171,6 +209,10 @@ function style() {
         // backgroundColorSetText.style.visibility = "hidden";
         // backgroundColor.style.visibility = "hidden";
 
+        volumeSet.style.visibility = "hidden";
+
+        volumeInput.style.visibility = "hidden";
+
         startButton.style.visibility = "hidden";
 
         stopButton.style.visibility = "visible";
@@ -187,6 +229,10 @@ function style() {
     
         // backgroundColorSetText.style.visibility = "visible";
         // backgroundColor.style.visibility = "visible";
+
+        volumeSet.style.visibility = "visible";
+
+        volumeInput.style.visibility = "visible";
     
         startButton.style.visibility = "visible";
     

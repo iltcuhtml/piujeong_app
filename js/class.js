@@ -18,8 +18,9 @@ class circle {
     *for drawing the circle
     */
     draw() {
-        ctx.fillStyle = "#e900ff";
+        ctx.fillStyle = "#ff80ff";
 
+        ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.fill();
     }
@@ -31,15 +32,15 @@ class circle {
         this.x = canvas.width / 2;
 
         if (elapsed <= inTime) {
-            this.y = (canvas.height - this.size - unit)
-                     - (canvas.height - unit * 2 - this.size * 2) * (elapsed / inTime);
+            this.y = (canvas.height - unit / 4 - unit)
+                     - (canvas.height - unit * 2 - unit / 2) * (elapsed / inTime);
+                     //+ Math.sin(this.alpha * Math.PI) * unit / 4
         } else if (elapsed <= inTime + exTime) {
-            this.y = (unit + this.size)
-                     + (canvas.height - unit * 2 - this.size * 2) * ((elapsed - inTime) / exTime);
+            this.y = (unit + unit / 4)
+                     + (canvas.height - unit * 2 - unit / 2) * ((elapsed - inTime) / exTime);
+                     //- Math.sin(this.alpha * Math.PI) * unit / 4
         } else {
             startTime = timeStamp;
         }
-
-        this.size = unit / 4;
     }
 };

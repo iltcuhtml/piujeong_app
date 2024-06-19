@@ -16,6 +16,10 @@ const exTimeInput = document.getElementById("exTimeInput"); // set exTimeInput
 // const backgroundColorSetText = document.getElementById("backgroundColorSetText");   // set backgroundColorSetText
 // const backgroundColor = document.getElementById("backgroundColor");                 // set backgroundColor
 
+const volumeSet = document.getElementById("volumeSet"); // set volumeSet
+
+const volumeInput = document.getElementById("volumeInput"); // set volumeInput
+
 const startButton = document.getElementById("start");   // set startButton
 
 const stopButton = document.getElementById("stop");   // set stopButton
@@ -32,3 +36,9 @@ let isStarted = false;
 let inTime = 5, exTime = 5; // init circle's up & down moving time as 5
 
 let circleObj = []; // set circle_Obj as empty object
+
+const sfx = new Audio();        // init sfx as new Audio
+      sfx.src = "sfx/sfx.wav";  // set sfx adress as sfx.wav
+      sfx.volume = 0.75;        // set sfx volume as 0.75
+
+let playLev = 1;    // set playLev as 1
