@@ -52,6 +52,7 @@ function titleScreen() {
             isStarted = true;
         }
 
+        playLev = 1;
         sfx.volume = parseInt(volumeInput.value) / 100;
     }
 }
