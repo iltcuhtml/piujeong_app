@@ -37,6 +37,9 @@ let inTime = 5, exTime = 5; // init circle's up & down moving time as 5
 
 let circleObj = []; // set circle_Obj as empty object
 
+const boardImg = new Image();               // init boardImg as new Image
+      boardImg.src = "images/board.svg";    // set boardImg as board.svg
+
 const circleImg = new Image();              // init circleImg as new Image
       circleImg.src = "images/circle.svg";  // set circleImg as circle.svg
 

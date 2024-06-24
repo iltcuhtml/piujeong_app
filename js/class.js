@@ -24,10 +24,24 @@ class circle {
         // ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
         // ctx.fill();
 
-        ctx.drawImage(circleImg, 0, 0, 1, 1, 
-            this.x - this.radius, this.y - this.radius, 
-            this.radius * 2, this.radius * 2);
-        // drawRotatedCircle(circleImg, degrees);
+        if (elapsed <= inTime) {
+            drawRotatedImage(circleImg, 0, 0, 1, 1,
+                this.x, this.y,
+                this.radius * 2, this.radius * 2,
+                (elapsed / inTime) * Math.PI - Math.PI * 35 / 180);
+
+        } else if (elapsed <= inTime + exTime) {
+            drawRotatedImage(circleImg, 0, 0, 1, 1,
+                this.x, this.y,
+                this.radius * 2, this.radius * 2,
+                ((elapsed - inTime) / exTime + 1) * Math.PI - Math.PI * 35 / 180);
+
+        } else {
+            drawRotatedImage(circleImg, 0, 0, 1, 1,
+                this.x, this.y,
+                this.radius * 2, this.radius * 2,
+                - Math.PI * 35 / 180);
+        }
     }
 
     /**
@@ -40,10 +54,12 @@ class circle {
             this.y = (canvas.height - unit / 4 - unit)
                      - (canvas.height - unit * 2 - unit / 2) * (elapsed / inTime);
                      //+ Math.sin(this.alpha * Math.PI) * unit / 4
+
         } else if (elapsed <= inTime + exTime) {
             this.y = (unit + unit / 4)
                      + (canvas.height - unit * 2 - unit / 2) * ((elapsed - inTime) / exTime);
                      //- Math.sin(this.alpha * Math.PI) * unit / 4
+                     
         } else {
             startTime = timeStamp;
         }

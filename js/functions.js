@@ -27,18 +27,16 @@
 //     ctx.fillText(text, canvas.width / 2, canvas.height / 2);
 // }
 
-function drawRotatedCircle(degrees) {
-    var w = image.width * scale;
-    var h = image.height * scale;
-
+/**
+*for drawing rotated image
+*/
+function drawRotatedImage(img, sx, sy, sW, sH, dx, dy, dW, dH, rotation) {
     ctx.save();
     
-    ctx.translate(canvas.width / 2, canvas.height / 2);
-    ctx.rotate(degrees * Math.PI / 180);
+    ctx.translate(dx, dy);
+    ctx.rotate(rotation);
     
-    ctx.drawImage(circleImg, 0, 0, 1, 1, 
-        this.x - this.radius, this.y - this.radius, 
-        this.radius * 2, this.radius * 2);
+    ctx.drawImage(img, sx, sy, sW, sH, -(dW / 2), -(dH / 2), dW, dH);
     
     ctx.restore();
 }
@@ -100,11 +98,21 @@ function mainScreen() {
     //     drawText("Breathe Out");
     // }
 
-    ctx.fillStyle = "#60ff60";
+    // ctx.fillStyle = "#60ff60";
 
-    ctx.fillRect(canvas.width * 0.5 - unit * 1.25, unit * 0.75, unit * 2.5, unit * 0.25);
-    ctx.fillRect(canvas.width * 0.5 - unit * 1.25, canvas.height - unit, unit * 2.5, unit * 0.25);
+    // ctx.fillRect(canvas.width * 0.5 - unit * 1.25, unit * 0.75, unit * 2.5, unit * 0.25);
+    // ctx.fillRect(canvas.width * 0.5 - unit * 1.25, canvas.height - unit, unit * 2.5, unit * 0.25);
     
+    drawRotatedImage(boardImg, 0, 0, 773, 128,
+                     canvas.width * 0.5, unit * 0.875,
+                     unit * 2.5, unit * 0.25,
+                     Math.PI);
+
+    drawRotatedImage(boardImg, 0, 0, 773, 128,
+                     canvas.width * 0.5, canvas.height - unit * 0.875,
+                     unit * 2.5, unit * 0.25,
+                     0);
+
     // circleObj.push(new circle);
 
     for (let i = 0; i < circleObj.length; i++) {
