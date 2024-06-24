@@ -9,7 +9,7 @@ class circle {
                  - canvas.width / 8
                  - unit;            // set circle's y position as the bottom of the screen
 
-        this.size = unit / 4;       // set circle's size
+        this.radius = unit / 4;       // set circle's radius
 
         this.alpha = 1;             // set circle's aplha value as 1
     }
@@ -18,11 +18,16 @@ class circle {
     *for drawing the circle
     */
     draw() {
-        ctx.fillStyle = "#ff80ff";
+        // ctx.fillStyle = "#ff80ff";
 
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fill();
+        // ctx.beginPath();
+        // ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        // ctx.fill();
+
+        ctx.drawImage(circleImg, 0, 0, 1, 1, 
+            this.x - this.radius, this.y - this.radius, 
+            this.radius * 2, this.radius * 2);
+        // drawRotatedCircle(circleImg, degrees);
     }
 
     /**

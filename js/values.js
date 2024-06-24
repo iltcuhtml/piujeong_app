@@ -37,6 +37,9 @@ let inTime = 5, exTime = 5; // init circle's up & down moving time as 5
 
 let circleObj = []; // set circle_Obj as empty object
 
+const circleImg = new Image();              // init circleImg as new Image
+      circleImg.src = "images/circle.svg";  // set circleImg as circle.svg
+
 const sfx = new Audio();        // init sfx as new Audio
       sfx.src = "sfx/sfx.wav";  // set sfx adress as sfx.wav
       sfx.volume = 0.75;        // set sfx volume as 0.75

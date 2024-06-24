@@ -27,6 +27,22 @@
 //     ctx.fillText(text, canvas.width / 2, canvas.height / 2);
 // }
 
+function drawRotatedCircle(degrees) {
+    var w = image.width * scale;
+    var h = image.height * scale;
+
+    ctx.save();
+    
+    ctx.translate(canvas.width / 2, canvas.height / 2);
+    ctx.rotate(degrees * Math.PI / 180);
+    
+    ctx.drawImage(circleImg, 0, 0, 1, 1, 
+        this.x - this.radius, this.y - this.radius, 
+        this.radius * 2, this.radius * 2);
+    
+    ctx.restore();
+}
+
 /**
 *for showing title screen
 */
@@ -61,23 +77,21 @@ function titleScreen() {
 *for showing main screen
 */
 function mainScreen() {
-    switch (playLev) {
-        case 1:
-            if (elapsed <= inTime - 100) break;
-
-        case 2:
-            if (playLev === 2 && elapsed <= inTime + exTime - 100) break;
-
-            sfx.pause();
-            sfx.currentTime = 0;
+    if (playLev === 1 && elapsed <= inTime - 100) {
+        sfx.pause();
+        sfx.currentTime = 0;
         
-            sfx.play();
-            
-            if (playLev === 1) {
-                playLev = 2;
-            } else {
-                playLev = 1;
-            }
+        sfx.play();
+
+        playLev = 2;
+    } else if (playLev === 2 && 
+               inTime - 100 < elapsed && elapsed <= inTime + exTime - 100) {
+        sfx.pause();
+        sfx.currentTime = 0;
+        
+        sfx.play();
+
+        playLev = 1;
     }
 
     // if (elapsed <= inTime) {
@@ -95,12 +109,17 @@ function mainScreen() {
 
     for (let i = 0; i < circleObj.length; i++) {
         ctx.globalAlpha = circleObj[i].alpha;
+
+        // ctx.translate(150, 75);
+        // ctx.rotate(Math.PI / 2);
+        // ctx.translate(-150, -75);
+
             
         circleObj[i].draw();
         circleObj[i].move();
 
         // circleObj[i].alpha -= 1 / 16;
-        // circleObj[i].size -= unit / 64;
+        // circleObj[i].radius -= unit / 64;
 
         if (circleObj[i].alpha <= 0) {
             circleObj.splice(i, 1);
@@ -274,14 +293,25 @@ function debug() {
     ctx.textAlign = "start";
     
     ctx.fillText(`Canvas Width : ${canvas.width}`, 10, 200);
-    ctx.fillText(`Canvas Height : ${canvas.height}`, 10, 250);
+    ctx.fillText(`Canvas Height : ${canvas.height}`, 10, 220);
 
-    ctx.fillText(`timeStamp : ${timeStamp}`, 10, 300);
-    ctx.fillText(`startTime : ${startTime}`, 10, 350);
-    ctx.fillText(`elapsed : ${elapsed}`, 10, 400);
+    ctx.fillText(`timeStamp : ${timeStamp}`, 10, 260);
+    ctx.fillText(`startTime : ${startTime}`, 10, 280);
+    ctx.fillText(`elapsed : ${elapsed}`, 10, 300);
 
-    ctx.fillText(`isStarted : ${isStarted}`, 10, 450);
+    ctx.fillText(`isStarted : ${isStarted}`, 10, 340);
 
-    ctx.fillText(`inTime : ${inTime}`, 10, 500);
-    ctx.fillText(`exTime : ${exTime}`, 10, 550);
+    ctx.fillText(`inTime : ${inTime}`, 10, 380);
+    ctx.fillText(`exTime : ${exTime}`, 10, 400);
+
+    if (circleObj[0] !== undefined) {
+        ctx.fillText(`circleObj[0].x : ${circleObj[0].x}`, 10, 440);
+        ctx.fillText(`circleObj[0].y : ${circleObj[0].y}`, 10, 460);
+        ctx.fillText(`circleObj[0].radius : ${circleObj[0].radius}`, 10, 480);
+        ctx.fillText(`circleObj[0].alpha : ${circleObj[0].alpha}`, 10, 500);
+    }
+
+    ctx.fillText(`sfx.volume : ${sfx.volume}`, 10, 540);
+
+    ctx.fillText(`playLev : ${playLev}`, 10, 580);
 }
