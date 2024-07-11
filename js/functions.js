@@ -103,12 +103,12 @@ function mainScreen() {
     // ctx.fillRect(canvas.width * 0.5 - unit * 1.25, unit * 0.75, unit * 2.5, unit * 0.25);
     // ctx.fillRect(canvas.width * 0.5 - unit * 1.25, canvas.height - unit, unit * 2.5, unit * 0.25);
     
-    drawRotatedImage(boardImg, 0, 0, 773, 128,
+    drawRotatedImage(boardImg, 0, 0, 1966, 359,
                      canvas.width * 0.5, unit * 0.875,
                      unit * 2.5, unit * 0.25,
                      Math.PI);
 
-    drawRotatedImage(boardImg, 0, 0, 773, 128,
+    drawRotatedImage(boardImg, 0, 0, 1966, 359,
                      canvas.width * 0.5, canvas.height - unit * 0.875,
                      unit * 2.5, unit * 0.25,
                      0);

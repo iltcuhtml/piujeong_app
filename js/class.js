@@ -25,19 +25,19 @@ class circle {
         // ctx.fill();
 
         if (elapsed <= inTime) {
-            drawRotatedImage(circleImg, 0, 0, 1, 1,
+            drawRotatedImage(circleImg, 0, 0, 1730, 1730,
                 this.x, this.y,
                 this.radius * 2, this.radius * 2,
                 (elapsed / inTime) * Math.PI - Math.PI * 35 / 180);
 
         } else if (elapsed <= inTime + exTime) {
-            drawRotatedImage(circleImg, 0, 0, 1, 1,
+            drawRotatedImage(circleImg, 0, 0, 1730, 1730,
                 this.x, this.y,
                 this.radius * 2, this.radius * 2,
                 ((elapsed - inTime) / exTime + 1) * Math.PI - Math.PI * 35 / 180);
 
         } else {
-            drawRotatedImage(circleImg, 0, 0, 1, 1,
+            drawRotatedImage(circleImg, 0, 0, 1730, 1730,
                 this.x, this.y,
                 this.radius * 2, this.radius * 2,
                 - Math.PI * 35 / 180);
