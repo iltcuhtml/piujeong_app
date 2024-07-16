@@ -18,11 +18,11 @@ class circle {
     *for drawing the circle
     */
     draw() {
-        ctx.fillStyle = "#ff80ff";
+        // ctx.fillStyle = "#ff80ff";
 
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fill();
+        // ctx.beginPath();
+        // ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        // ctx.fill();
 
         if (elapsed <= inTime) {
             drawRotatedImage(circleImg, 0, 0, 1730, 1730,
