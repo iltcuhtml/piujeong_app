@@ -33,7 +33,7 @@ let timeStamp = 0, startTime = 0, elapsed = 0;  // init timeStamp, startTime and
 
 let isStarted = false;
 
-let inTime = 5, exTime = 5; // init circle's up & down moving time as 5
+let inTime = 3, exTime = 3; // init circle's up & down moving time as 3
 
 let circleObj = []; // set circle_Obj as empty object
 
