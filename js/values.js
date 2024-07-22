@@ -5,16 +5,11 @@ const ctx = canvas.getContext("2d");        // set ctx as canvas
 
 const title = document.getElementById("title"); // set title
 
-// const allTimeSet = document.getElementById("allTimeSet");   // set allTimeSet
 const inTimeSet = document.getElementById("inTimeSet"); // set inTimeSet
 const exTimeSet = document.getElementById("exTimeSet"); // set exTimeSet
 
-// const allTimeInput = document.getElementById("allTimeInput");   // set allTimeInput
 const inTimeInput = document.getElementById("inTimeInput"); // set inTimeInput
 const exTimeInput = document.getElementById("exTimeInput"); // set exTimeInput
-
-// const backgroundColorSetText = document.getElementById("backgroundColorSetText");   // set backgroundColorSetText
-// const backgroundColor = document.getElementById("backgroundColor");                 // set backgroundColor
 
 const volumeSet = document.getElementById("volumeSet"); // set volumeSet
 
@@ -25,9 +20,6 @@ const startButton = document.getElementById("start");   // set startButton
 const stopButton = document.getElementById("stop");   // set stopButton
 
 let debugMod = false;    // set debugMod as true
-
-// let dateBefore = Date.now();    // set dateBefore
-// let FPS_Counter = 0, FPS = -1;  // init FPS_Counter as 0 and FPS as -1
 
 let timeStamp = 0, startTime = 0, elapsed = 0;  // init timeStamp, startTime and elapsed as 0
 

@@ -1,32 +1,3 @@
-// /**
-// *for get FPS value
-// */
-// function getFPS() {
-//     if (Date.now() <= dateBefore + 1000) {
-//         FPS_Counter++;
-//     } else {
-//         FPS = FPS_Counter;
-
-//         dateBefore = Date.now();
-//         FPS_Counter = 0;
-//     }
-// }
-
-// /**
-// *for drawing text
-// */
-// function drawText(text) {
-//     if (document.body.style.backgroundColor === "skyblue") {
-//         ctx.fillStyle = "whitesmoke";
-//     } else {    
-//         ctx.fillStyle = "gray";
-//     }
-        
-//     ctx.font = "64px Arial";
-//     ctx.textAlign = "center";
-//     ctx.fillText(text, canvas.width / 2, canvas.height / 2);
-// }
-
 /**
 *for drawing rotated image
 */
@@ -45,15 +16,6 @@ function drawRotatedImage(img, sx, sy, sW, sH, dx, dy, dW, dH, rotation) {
 *for showing title screen
 */
 function titleScreen() {
-    // allTimeInput.oninput = () => {
-    //     inTimeInput.value = allTimeInput.value;
-    //     exTimeInput.value = allTimeInput.value;
-    // }
-
-    // backgroundColor.oninput = () => {
-    //     document.body.style.backgroundColor = backgroundColor.value;
-    // }
-
     startButton.onclick = () => {
         if (parseInt(inTimeInput.value) > 0 && parseInt(exTimeInput.value) > 0) {
             startTime = timeStamp;
@@ -92,12 +54,6 @@ function mainScreen() {
         playLev = 1;
     }
 
-    // if (elapsed <= inTime) {
-    //     drawText("Breathe In");
-    // } else {
-    //     drawText("Breathe Out");
-    // }
-
     // ctx.fillStyle = "#60ff60";
 
     // ctx.fillRect(canvas.width * 0.5 - unit * 1.25, unit * 0.75, unit * 2.5, unit * 0.25);
@@ -113,16 +69,11 @@ function mainScreen() {
                      unit * 2.5, unit * 0.25,
                      Math.PI);
 
-    // circleObj.push(new circle);
-
     for (let i = 0; i < circleObj.length; i++) {
         ctx.globalAlpha = circleObj[i].alpha;
 
         circleObj[i].draw();
         circleObj[i].move();
-
-        // circleObj[i].alpha -= 1 / 16;
-        // circleObj[i].radius -= unit / 64;
 
         if (circleObj[i].alpha <= 0) {
             circleObj.splice(i, 1);
@@ -221,16 +172,11 @@ function style() {
     if (isStarted) {
         title.style.visibility = "hidden";
 
-        // allTimeSet.style.visibility = "hidden";
         inTimeSet.style.visibility = "hidden";
         exTimeSet.style.visibility = "hidden";
 
-        // allTimeInput.style.visibility = "hidden";
         inTimeInput.style.visibility = "hidden";
         exTimeInput.style.visibility = "hidden";
-
-        // backgroundColorSetText.style.visibility = "hidden";
-        // backgroundColor.style.visibility = "hidden";
 
         volumeSet.style.visibility = "hidden";
 
@@ -242,16 +188,11 @@ function style() {
     } else {
         title.style.visibility = "visible";
 
-        // allTimeSet.style.visibility = "visible";
         inTimeSet.style.visibility = "visible";
         exTimeSet.style.visibility = "visible";
-    
-        // allTimeInput.style.visibility = "visible";
+
         inTimeInput.style.visibility = "visible";
         exTimeInput.style.visibility = "visible";
-    
-        // backgroundColorSetText.style.visibility = "visible";
-        // backgroundColor.style.visibility = "visible";
 
         volumeSet.style.visibility = "visible";
 
@@ -263,20 +204,14 @@ function style() {
     
         if (document.body.style.backgroundColor === "skyblue") {    
             title.style.color = "whitesmoke";
-            
-            // allTimeSet.style.color = "whitesmoke";
+
             inTimeSet.style.color = "whitesmoke";
             exTimeSet.style.color = "whitesmoke";
-    
-            // backgroundColorSetText.style.color = "whitesmoke";
         } else {
             title.style.color = "black";
 
-            // allTimeSet.style.color = "black";
             inTimeSet.style.color = "black";
             exTimeSet.style.color = "black";
-    
-            // backgroundColorSetText.style.color = "black";
         }
     }
 }

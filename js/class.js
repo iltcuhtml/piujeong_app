@@ -53,12 +53,10 @@ class circle {
         if (elapsed <= inTime) {
             this.y = (canvas.height - unit / 4 - unit)
                      - (canvas.height - unit * 2 - unit / 2) * (elapsed / inTime);
-                     //+ Math.sin(this.alpha * Math.PI) * unit / 4
 
         } else if (elapsed <= inTime + exTime) {
             this.y = (unit + unit / 4)
                      + (canvas.height - unit * 2 - unit / 2) * ((elapsed - inTime) / exTime);
-                     //- Math.sin(this.alpha * Math.PI) * unit / 4
                      
         } else {
             startTime = timeStamp;

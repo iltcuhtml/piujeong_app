@@ -11,8 +11,6 @@ function main(_timeStamp) {
     elapsed = timeStamp - startTime;
 
     ctx.reset();
-    
-    // getFPS();
 
     style();
 

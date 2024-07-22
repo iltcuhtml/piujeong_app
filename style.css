@@ -16,18 +16,6 @@
     visibility: visible;
 }
 
-/* #allTimeSet {
-    position: absolute;
-    top: 27.5vh;
-    left: 50vw;
-    transform: translate(-50%, -50%);
-
-    color: black;
-    font-size: 1vw;
-
-    visibility: visible;
-} */
-
 #inTimeSet {
     position: absolute;
     top: calc(40vh - 4vw);
@@ -51,26 +39,6 @@
 
     visibility: visible;
 }
-
-/* #allTimeInput {
-    position: absolute;
-    top: 35vh;
-    left: 50vw;
-    transform: translate(-50%, -50%);
-
-    background-color: whitesmoke;
-    color: black;
-    font-size: 1.5vw;
-    text-align: center;
-
-    width: 5vh;
-    height: 2.5vw;
-
-    border: 0.1vw solid gray;
-    border-radius: 1vw;
-
-    visibility: visible;
-} */
 
 #inTimeInput {
     position: absolute;
@@ -111,38 +79,6 @@
 
     visibility: visible;
 }
-
-/* #backgroundColorSetText {
-    position: absolute;
-    top: 52.5vh;
-    left: 50vw;
-    transform: translate(-50%, -50%);
-
-    color: black;
-    font-size: 3vw;
-
-    visibility: visible;
-}
-
-#backgroundColor {
-    position: absolute;
-    top: 62.5vh;
-    left: 50vw;
-    transform: translate(-50%, -50%);
-
-    background-color: whitesmoke;
-    color: black;
-    font-size: 1vw;
-    text-align: center;
-
-    width: 6vw;
-    height: 3vw;
-
-    border: 0.1vw solid gray;
-    border-radius: 1vw;
-
-    visibility: visible;
-} */
 
 #volumeSet {
     position: absolute;
