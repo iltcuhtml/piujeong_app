@@ -201,27 +201,27 @@ function setUI() {
         stopButton.style.height = "6vw";
         stopButton.style.borderRadius = "3vw";
 
-        setsText.style.top = `calc(${canvas.height - unit * 0.5}px - 3vw)`;
+        setsText.style.top = `calc(${canvas.height - unit * 0.4375}px - 3vw)`;
         setsText.style.left = `calc(50vw - ${unit * 1.25 * 0.75}px)`;
         setsText.style.fontSize = "3vw";
 
-        repsText.style.top = `calc(${canvas.height - unit * 0.5}px - 3vw)`;
+        repsText.style.top = `calc(${canvas.height - unit * 0.4375}px - 3vw)`;
         repsText.style.fontSize = "3vw";
 
-        setsInput.style.top = `calc(${canvas.height - unit * 0.5}px + 3vw)`;
+        setsInput.style.top = `calc(${canvas.height - unit * 0.4375}px + 3vw)`;
         setsInput.style.left = `calc(50vw - ${unit * 1.25 * 0.75}px)`;
         setsInput.style.fontSize = "3vw";
         setsInput.style.width = "12vw";
         setsInput.style.height = "6vw";
         setsInput.style.borderRadius = "3vw";
 
-        repsInput.style.top = `calc(${canvas.height - unit * 0.5}px + 3vw)`;
+        repsInput.style.top = `calc(${canvas.height - unit * 0.4375}px + 3vw)`;
         repsInput.style.fontSize = "3vw";
         repsInput.style.width = "12vw";
         repsInput.style.height = "6vw";
         repsInput.style.borderRadius = "3vw";
 
-        SetsAndRepsText.style.top = `${canvas.height - unit * 0.5}px`;
+        SetsAndRepsText.style.top = `${canvas.height - unit * 0.4375}px`;
         SetsAndRepsText.style.left = `calc(50vw + ${unit * 1.25 * 0.75}px)`;
         SetsAndRepsText.style.fontSize = "4vw";
     } else {
@@ -265,27 +265,27 @@ function setUI() {
         stopButton.style.height = "2.25vw";
         stopButton.style.borderRadius = "1.125vw";
 
-        setsText.style.top = `calc(${canvas.height - unit * 0.5}px - 1.125vw)`;
+        setsText.style.top = `calc(${canvas.height - unit * 0.4375}px - 1.125vw)`;
         setsText.style.left = `calc(50vw - ${unit * 1.25 * 0.75}px)`;
         setsText.style.fontSize = "1.125vw";
 
-        repsText.style.top = `calc(${canvas.height - unit * 0.5}px - 1.125vw)`;
+        repsText.style.top = `calc(${canvas.height - unit * 0.4375}px - 1.125vw)`;
         repsText.style.fontSize = "1.125vw";
 
-        setsInput.style.top = `calc(${canvas.height - unit * 0.5}px + 1.125vw)`;
+        setsInput.style.top = `calc(${canvas.height - unit * 0.4375}px + 1.125vw)`;
         setsInput.style.left = `calc(50vw - ${unit * 1.25 * 0.75}px)`;
         setsInput.style.fontSize = "1.125vw";
         setsInput.style.width = "4.5vw";
         setsInput.style.height = "2.25vw";
         setsInput.style.borderRadius = "1.125vw";
 
-        repsInput.style.top = `calc(${canvas.height - unit * 0.5}px + 1.125vw)`;
+        repsInput.style.top = `calc(${canvas.height - unit * 0.4375}px + 1.125vw)`;
         repsInput.style.fontSize = "1.125vw";
         repsInput.style.width = "4.5vw";
         repsInput.style.height = "2.25vw";
         repsInput.style.borderRadius = "1.125vw";
 
-        SetsAndRepsText.style.top = `${canvas.height - unit * 0.5}px`;
+        SetsAndRepsText.style.top = `${canvas.height - unit * 0.4375}px`;
         SetsAndRepsText.style.left = `calc(50vw + ${unit * 1.25 * 0.75}px)`;
         SetsAndRepsText.style.fontSize = "1.5vw";
     }
