@@ -28,17 +28,17 @@ class circle {
 
         } else {
             /* drawing svg image */
-            if (elapsed <= inTime) {
+            if (elapsed <= inhaleTime) {
                 drawRotatedImage(circleImg, 0, 0, 1730, 1730,
                                  this.x, this.y,
                                  this.radius * 2, this.radius * 2,
-                                 (elapsed / inTime) * Math.PI - Math.PI * 35 / 180);
+                                 (elapsed / inhaleTime) * Math.PI - Math.PI * 35 / 180);
 
-            } else if (elapsed <= inTime + exTime) {
+            } else if (elapsed <= inhaleTime + exhaleTime) {
                 drawRotatedImage(circleImg, 0, 0, 1730, 1730,
                                  this.x, this.y,
                                  this.radius * 2, this.radius * 2,
-                                 ((elapsed - inTime) / exTime + 1) * Math.PI - Math.PI * 35 / 180);
+                                 ((elapsed - inhaleTime) / exhaleTime + 1) * Math.PI - Math.PI * 35 / 180);
 
             } else {
                 drawRotatedImage(circleImg, 0, 0, 1730, 1730,
@@ -56,19 +56,31 @@ class circle {
         /* set the circle's x as middle of the screen */
         this.x = canvas.width / 2;
 
-        if (elapsed <= inTime) {
+        if (elapsed <= inhaleTime) {
             /* moving up */
             this.y = (canvas.height - unit / 4 - unit)
-                     - (canvas.height - unit * 2 - unit / 2) * (elapsed / inTime);
+                     - (canvas.height - unit * 2 - unit / 2) * (elapsed / inhaleTime);
 
-        } else if (elapsed <= inTime + exTime) {
+        } else if (elapsed <= inhaleTime + exhaleTime) {
             /* moving down */
             this.y = (unit + unit / 4)
-                     + (canvas.height - unit * 2 - unit / 2) * ((elapsed - inTime) / exTime);
+                     + (canvas.height - unit * 2 - unit / 2) * ((elapsed - inhaleTime) / exhaleTime);
                      
         } else {
-            /* at the top */
+            /* done one cycle */
+            /* reset startTime as timeStamp */
             startTime = timeStamp;
+            
+            /* add one to doneReps */
+            doneReps++;
+
+            /* check if one set is done */
+            if (doneReps >= setReps) {
+                /* add one to doneSets */
+                /* reset doneReps as 0 */
+                doneSets++;
+                doneReps = 0;
+            }
         }
     }
 };

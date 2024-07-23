@@ -18,7 +18,7 @@
     visibility: visible;
 }
 
-#inTimeText {
+#inhaleTimeText {
     position: absolute;
     top: calc(40vh - 4vw);
     left: 35vw;
@@ -30,7 +30,7 @@
     visibility: visible;
 }
 
-#exTimeText {
+#exhaleTimeText {
     position: absolute;
     top: calc(40vh - 4vw);
     left: 65vw;
@@ -42,7 +42,7 @@
     visibility: visible;
 }
 
-#inTimeInput {
+#inhaleTimeInput {
     position: absolute;
     top: calc(40vh + 4vw);
     left: 35vw;
@@ -62,7 +62,7 @@
     visibility: visible;
 }
 
-#exTimeInput {
+#exhaleTimeInput {
     position: absolute;
     top: calc(40vh + 4vw);
     left: 65vw;
@@ -170,7 +170,7 @@ input::-webkit-inner-spin-button {
     color: black;
     font-size: 4vw;
 
-    visibility: visible;
+    visibility: hidden;
 }
 
 #repsText {
@@ -182,7 +182,7 @@ input::-webkit-inner-spin-button {
     color: black;
     font-size: 4vw;
 
-    visibility: visible;
+    visibility: hidden;
 }
 
 #setsInput {
@@ -202,7 +202,7 @@ input::-webkit-inner-spin-button {
     border: 0.1vw solid gray;
     border-radius: 4vw;
 
-    visibility: visible;
+    visibility: hidden;
 }
 
 #repsInput {
@@ -222,7 +222,19 @@ input::-webkit-inner-spin-button {
     border: 0.1vw solid gray;
     border-radius: 4vw;
 
-    visibility: visible;
+    visibility: hidden;
+}
+
+#SetsAndRepsText {
+    position: absolute;
+    top: 15vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+
+    color: black;
+    font-size: 8vw;
+
+    visibility: hidden;
 }
 
 button:active {

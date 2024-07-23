@@ -6,10 +6,10 @@ const ctx = canvas.getContext("2d");        // set ctx as canvas
 /* title screen */
 const titleText = document.getElementById("titleText"); // set titleText
 
-const inTimeText = document.getElementById("inTimeText");   // set inTimeText
-const exTimeText = document.getElementById("exTimeText");   // set exTimeText
-const inTimeInput = document.getElementById("inTimeInput"); // set inTimeInput
-const exTimeInput = document.getElementById("exTimeInput"); // set exTimeInput
+const inhaleTimeText = document.getElementById("inhaleTimeText");   // set inhaleTimeText
+const exhaleTimeText = document.getElementById("exhaleTimeText");   // set exhaleTimeText
+const inhaleTimeInput = document.getElementById("inhaleTimeInput"); // set inhaleTimeInput
+const exhaleTimeInput = document.getElementById("exhaleTimeInput"); // set exhaleTimeInput
 
 const volumeText = document.getElementById("volumeText");   // set volumeText
 const volumeInput = document.getElementById("volumeInput"); // set volumeInput
@@ -23,6 +23,7 @@ const setsText = document.getElementById("setsText");   // set setsText
 const repsText = document.getElementById("repsText");   // set repstText
 const setsInput = document.getElementById("setsInput"); // set setsInput
 const repsInput = document.getElementById("repsInput"); // set repsInput
+const SetsAndRepsText = document.getElementById("SetsAndRepsText"); // set SetsAndRepsText
 
 let isSVG = true;   // set isSVG as true 
                     // (true : show circle and board as svg image, 
@@ -38,7 +39,10 @@ let isStarted = false;  // set isStarted as false
                         // (true : started and circle and board will be shown, 
                         //  false : stoped and UI will be shown)
 
-let inTime = 3, exTime = 3; // init circle's up & down moving time as 3
+let inhaleTime = 3000, exhaleTime = 3000; // init inhaleTime & exhaleTime as 3000 (ms)
+let setSets = 1, setReps = 10;    // init setSets as 1 & setReps as 10
+
+let doneSets = 0, doneReps = 0;    // init doneSets as 1 & doneReps as 10
 
 let circleObj = []; // set circle_Obj as empty object
 
