@@ -19,6 +19,8 @@ const startButton = document.getElementById("start");   // set startButton
 
 const stopButton = document.getElementById("stop");   // set stopButton
 
+let isSVG = true;
+
 let debugMod = false;    // set debugMod as true
 
 let timeStamp = 0, startTime = 0, elapsed = 0;  // init timeStamp, startTime and elapsed as 0

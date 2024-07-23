@@ -18,29 +18,32 @@ class circle {
     *for drawing the circle
     */
     draw() {
-        // ctx.fillStyle = "#ff80ff";
-
-        // ctx.beginPath();
-        // ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        // ctx.fill();
-
-        if (elapsed <= inTime) {
-            drawRotatedImage(circleImg, 0, 0, 1730, 1730,
-                this.x, this.y,
-                this.radius * 2, this.radius * 2,
-                (elapsed / inTime) * Math.PI - Math.PI * 35 / 180);
-
-        } else if (elapsed <= inTime + exTime) {
-            drawRotatedImage(circleImg, 0, 0, 1730, 1730,
-                this.x, this.y,
-                this.radius * 2, this.radius * 2,
-                ((elapsed - inTime) / exTime + 1) * Math.PI - Math.PI * 35 / 180);
-
+        if (!isSVG) {
+            ctx.fillStyle = "#D495C0";
+    
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+            ctx.fill();
+            
         } else {
-            drawRotatedImage(circleImg, 0, 0, 1730, 1730,
-                this.x, this.y,
-                this.radius * 2, this.radius * 2,
-                - Math.PI * 35 / 180);
+            if (elapsed <= inTime) {
+                drawRotatedImage(circleImg, 0, 0, 1730, 1730,
+                                 this.x, this.y,
+                                 this.radius * 2, this.radius * 2,
+                                 (elapsed / inTime) * Math.PI - Math.PI * 35 / 180);
+
+            } else if (elapsed <= inTime + exTime) {
+                drawRotatedImage(circleImg, 0, 0, 1730, 1730,
+                                 this.x, this.y,
+                                 this.radius * 2, this.radius * 2,
+                                 ((elapsed - inTime) / exTime + 1) * Math.PI - Math.PI * 35 / 180);
+
+            } else {
+                drawRotatedImage(circleImg, 0, 0, 1730, 1730,
+                                 this.x, this.y,
+                                 this.radius * 2, this.radius * 2,
+                                 - Math.PI * 35 / 180);
+            }
         }
     }
 

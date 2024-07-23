@@ -54,20 +54,23 @@ function mainScreen() {
         playLev = 1;
     }
 
-    // ctx.fillStyle = "#60ff60";
-
-    // ctx.fillRect(canvas.width * 0.5 - unit * 1.25, unit * 0.75, unit * 2.5, unit * 0.25);
-    // ctx.fillRect(canvas.width * 0.5 - unit * 1.25, canvas.height - unit, unit * 2.5, unit * 0.25);
+    if (!isSVG) {
+        ctx.fillStyle = "#76CBE5";
     
-    drawRotatedImage(boardImg, 0, 0, 1967, 361,
-                     canvas.width * 0.5, unit * 0.875,
-                     unit * 2.5, unit * 0.25,
-                     0);
+        ctx.fillRect(canvas.width * 0.5 - unit * 1.25, unit * 0.75, unit * 2.5, unit * 0.25);
+        ctx.fillRect(canvas.width * 0.5 - unit * 1.25, canvas.height - unit, unit * 2.5, unit * 0.25);
 
-    drawRotatedImage(boardImg, 0, 0, 1967, 361,
-                     canvas.width * 0.5, canvas.height - unit * 0.875,
-                     unit * 2.5, unit * 0.25,
-                     Math.PI);
+    } else {
+        drawRotatedImage(boardImg, 0, 0, 1967, 361,
+                         canvas.width * 0.5, unit * 0.875,
+                         unit * 2.5, unit * 0.25,
+                         0);
+
+        drawRotatedImage(boardImg, 0, 0, 1967, 361,
+                         canvas.width * 0.5, canvas.height - unit * 0.875,
+                         unit * 2.5, unit * 0.25,
+                         Math.PI);
+    }
 
     for (let i = 0; i < circleObj.length; i++) {
         ctx.globalAlpha = circleObj[i].alpha;
@@ -131,42 +134,42 @@ function style() {
         stopButton.style.height = "6vw";
         stopButton.style.borderRadius = "3vw";
     } else {
-        title.style.fontSize = "4vw";
+        title.style.fontSize = "3vw";
 
-        inTimeSet.style.top = "calc(40vh - 2vw)";
-        inTimeSet.style.fontSize = "2vw";
+        inTimeSet.style.top = "calc(40vh - 1.5vw)";
+        inTimeSet.style.fontSize = "1.5vw";
 
-        exTimeSet.style.top = "calc(40vh - 2vw)";
-        exTimeSet.style.fontSize = "2vw";
+        exTimeSet.style.top = "calc(40vh - 1.5vw)";
+        exTimeSet.style.fontSize = "1.5vw";
 
-        inTimeInput.style.top = "calc(40vh + 2vw)";
-        inTimeInput.style.fontSize = "2vw";
-        inTimeInput.style.width = "8vw";
-        inTimeInput.style.height = "4vw";
-        inTimeInput.style.borderRadius = "4vw";
+        inTimeInput.style.top = "calc(40vh + 1.5vw)";
+        inTimeInput.style.fontSize = "1.5vw";
+        inTimeInput.style.width = "6vw";
+        inTimeInput.style.height = "3vw";
+        inTimeInput.style.borderRadius = "3vw";
 
-        exTimeInput.style.top = "calc(40vh + 2vw)";
-        exTimeInput.style.fontSize = "2vw";
-        exTimeInput.style.width = "8vw";
-        exTimeInput.style.height = "4vw";
-        exTimeInput.style.borderRadius = "2vw";
+        exTimeInput.style.top = "calc(40vh + 1.5vw)";
+        exTimeInput.style.fontSize = "1.5vw";
+        exTimeInput.style.width = "6vw";
+        exTimeInput.style.height = "3vw";
+        exTimeInput.style.borderRadius = "1.5vw";
 
-        volumeSet.style.top = "calc(60vh - 1vw)";
-        volumeSet.style.fontSize = "2vw";
+        volumeSet.style.top = "calc(60vh - 0.75vw)";
+        volumeSet.style.fontSize = "1.5vw";
 
-        volumeInput.style.top = "calc(60vh + 1vw)";
-        volumeInput.style.fontSize = "2vw";
-        volumeInput.style.borderRadius = "2vw";
+        volumeInput.style.top = "calc(60vh + 0.75vw)";
+        volumeInput.style.fontSize = "1.5vw";
+        volumeInput.style.borderRadius = "1.5vw";
 
-        startButton.style.fontSize = "4vw";
-        startButton.style.width = "16vw";
-        startButton.style.height = "8vw";
-        startButton.style.borderRadius = "4vw";
+        startButton.style.fontSize = "3vw";
+        startButton.style.width = "12vw";
+        startButton.style.height = "6vw";
+        startButton.style.borderRadius = "3vw";
 
-        stopButton.style.fontSize = "1.5vw";
-        stopButton.style.width = "6vw";
-        stopButton.style.height = "3vw";
-        stopButton.style.borderRadius = "1.5vw";
+        stopButton.style.fontSize = "1.125vw";
+        stopButton.style.width = "4.5vw";
+        stopButton.style.height = "2.25vw";
+        stopButton.style.borderRadius = "1.125vw";
     }
 
     if (isStarted) {
@@ -237,19 +240,21 @@ function debug() {
     ctx.fillText(`startTime : ${startTime}`, 10, 280);
     ctx.fillText(`elapsed : ${elapsed}`, 10, 300);
 
-    ctx.fillText(`isStarted : ${isStarted}`, 10, 340);
+    ctx.fillText(`isSVG : ${isSVG}`, 10, 340);
 
-    ctx.fillText(`inTime : ${inTime}`, 10, 380);
-    ctx.fillText(`exTime : ${exTime}`, 10, 400);
+    ctx.fillText(`isStarted : ${isStarted}`, 10, 380);
+
+    ctx.fillText(`inTime : ${inTime}`, 10, 420);
+    ctx.fillText(`exTime : ${exTime}`, 10, 440);
 
     if (circleObj[0] !== undefined) {
-        ctx.fillText(`circleObj[0].x : ${circleObj[0].x}`, 10, 440);
-        ctx.fillText(`circleObj[0].y : ${circleObj[0].y}`, 10, 460);
-        ctx.fillText(`circleObj[0].radius : ${circleObj[0].radius}`, 10, 480);
-        ctx.fillText(`circleObj[0].alpha : ${circleObj[0].alpha}`, 10, 500);
+        ctx.fillText(`circleObj[0].x : ${circleObj[0].x}`, 10, 480);
+        ctx.fillText(`circleObj[0].y : ${circleObj[0].y}`, 10, 500);
+        ctx.fillText(`circleObj[0].radius : ${circleObj[0].radius}`, 10, 520);
+        ctx.fillText(`circleObj[0].alpha : ${circleObj[0].alpha}`, 10, 540);
     }
 
-    ctx.fillText(`sfx.volume : ${sfx.volume}`, 10, 540);
+    ctx.fillText(`sfx.volume : ${sfx.volume}`, 10, 580);
 
-    ctx.fillText(`playLev : ${playLev}`, 10, 580);
+    ctx.fillText(`playLev : ${playLev}`, 10, 620);
 }
