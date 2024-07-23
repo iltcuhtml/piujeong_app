@@ -204,18 +204,6 @@ function style() {
         startButton.style.visibility = "visible";
     
         stopButton.style.visibility = "hidden";
-    
-        if (document.body.style.backgroundColor === "skyblue") {    
-            title.style.color = "whitesmoke";
-
-            inTimeSet.style.color = "whitesmoke";
-            exTimeSet.style.color = "whitesmoke";
-        } else {
-            title.style.color = "black";
-
-            inTimeSet.style.color = "black";
-            exTimeSet.style.color = "black";
-        }
     }
 }
 
