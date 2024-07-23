@@ -163,76 +163,76 @@ input::-webkit-inner-spin-button {
 
 #setsText {
     position: absolute;
-    top: calc(40vh - 4vw);
-    left: 35vw;
+    top: calc(95vh - 3vw);
+    left: 25vw;
     transform: translate(-50%, -50%);
 
     color: black;
-    font-size: 4vw;
+    font-size: 3vw;
 
     visibility: hidden;
 }
 
 #repsText {
     position: absolute;
-    top: calc(40vh - 4vw);
-    left: 65vw;
+    top: calc(95vh - 3vw);
+    left: 50vw;
     transform: translate(-50%, -50%);
 
     color: black;
-    font-size: 4vw;
+    font-size: 3vw;
 
     visibility: hidden;
 }
 
 #setsInput {
     position: absolute;
-    top: calc(40vh + 4vw);
-    left: 35vw;
+    top: calc(95vh + 3vw);
+    left: 25vw;
     transform: translate(-50%, -50%);
 
     background-color: whitesmoke;
     color: black;
-    font-size: 4vw;
+    font-size: 3vw;
     text-align: center;
 
-    width: 16vw;
-    height: 8vw;
+    width: 12vw;
+    height: 6vw;
 
     border: 0.1vw solid gray;
-    border-radius: 4vw;
+    border-radius: 3vw;
 
     visibility: hidden;
 }
 
 #repsInput {
     position: absolute;
-    top: calc(40vh + 4vw);
-    left: 65vw;
+    top: calc(95vh + 3vw);
+    left: 50vw;
     transform: translate(-50%, -50%);
 
     background-color: whitesmoke;
     color: black;
-    font-size: 4vw;
+    font-size: 3vw;
     text-align: center;
 
-    width: 16vw;
-    height: 8vw;
+    width: 12vw;
+    height: 6vw;
 
     border: 0.1vw solid gray;
-    border-radius: 4vw;
+    border-radius: 3vw;
 
     visibility: hidden;
 }
 
 #SetsAndRepsText {
     position: absolute;
-    top: 15vh;
-    left: 50vw;
+    top: 95vh;
+    left: 75vw;
     transform: translate(-50%, -50%);
 
     color: black;
-    font-size: 8vw;
+    font-size: 4vw;
 
     visibility: hidden;
 }
