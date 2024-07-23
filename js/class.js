@@ -56,6 +56,9 @@ class circle {
         /* set the circle's x as middle of the screen */
         this.x = canvas.width / 2;
 
+        /* set the circle's radius as unit / 4 */
+        this.radius = unit / 4;
+
         if (elapsed <= inhaleTime) {
             /* moving up */
             this.y = (canvas.height - unit / 4 - unit)
