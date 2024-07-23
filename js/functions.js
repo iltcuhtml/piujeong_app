@@ -106,7 +106,9 @@ function mainScreen() {
             circleObj[i].move();
         } else {
             startTime = timeStamp;
+
             circleObj[i].y = (canvas.height - unit / 4 - unit);
+            circleObj[i].radius = unit / 4;
         }
 
         if (circleObj[i].alpha <= 0) {
