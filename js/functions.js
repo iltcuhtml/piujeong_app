@@ -204,6 +204,11 @@ function style() {
         startButton.style.visibility = "visible";
     
         stopButton.style.visibility = "hidden";
+
+        title.style.color = "black";
+
+        inTimeSet.style.color = "black";
+        exTimeSet.style.color = "black";
     }
 }
 
@@ -212,12 +217,7 @@ function style() {
 */
 function debug() {
     ctx.font = "16px Arial";
-
-    if (document.body.style.backgroundColor === "skyblue") {
-        ctx.fillStyle = "whitesmoke";
-    } else {    
-        ctx.fillStyle = "black";
-    }
+    ctx.fillStyle = "black";
 
     ctx.textAlign = "start";
     
