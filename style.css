@@ -1,10 +1,12 @@
+/* canvas */
 #canvas {
     position: absolute;
     top: 0px;
     left: 0px;
 }
 
-#title {
+/* title screen */
+#titleText {
     position: absolute;
     top: 15vh;
     left: 50vw;
@@ -16,7 +18,7 @@
     visibility: visible;
 }
 
-#inTimeSet {
+#inTimeText {
     position: absolute;
     top: calc(40vh - 4vw);
     left: 35vw;
@@ -28,7 +30,7 @@
     visibility: visible;
 }
 
-#exTimeSet {
+#exTimeText {
     position: absolute;
     top: calc(40vh - 4vw);
     left: 65vw;
@@ -80,7 +82,7 @@
     visibility: visible;
 }
 
-#volumeSet {
+#volumeText {
     position: absolute;
     top: calc(60vh - 2vw);
     left: 50vw;
@@ -119,7 +121,7 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-#start {
+#startButton {
     position: absolute;
     top: 75vh;
     left: 50vw;
@@ -139,7 +141,8 @@ input::-webkit-inner-spin-button {
     visibility: visible;
 }
 
-#stop {
+/* main screen */
+#stopButton {
     position: absolute;
     top: 2vw;
     left: 2vw;
@@ -156,6 +159,70 @@ input::-webkit-inner-spin-button {
     border-radius: 3vw;
 
     visibility: hidden;
+}
+
+#setsText {
+    position: absolute;
+    top: calc(40vh - 4vw);
+    left: 35vw;
+    transform: translate(-50%, -50%);
+
+    color: black;
+    font-size: 4vw;
+
+    visibility: visible;
+}
+
+#repsText {
+    position: absolute;
+    top: calc(40vh - 4vw);
+    left: 65vw;
+    transform: translate(-50%, -50%);
+
+    color: black;
+    font-size: 4vw;
+
+    visibility: visible;
+}
+
+#setsInput {
+    position: absolute;
+    top: calc(40vh + 4vw);
+    left: 35vw;
+    transform: translate(-50%, -50%);
+
+    background-color: whitesmoke;
+    color: black;
+    font-size: 4vw;
+    text-align: center;
+
+    width: 16vw;
+    height: 8vw;
+
+    border: 0.1vw solid gray;
+    border-radius: 4vw;
+
+    visibility: visible;
+}
+
+#repsInput {
+    position: absolute;
+    top: calc(40vh + 4vw);
+    left: 65vw;
+    transform: translate(-50%, -50%);
+
+    background-color: whitesmoke;
+    color: black;
+    font-size: 4vw;
+    text-align: center;
+
+    width: 16vw;
+    height: 8vw;
+
+    border: 0.1vw solid gray;
+    border-radius: 4vw;
+
+    visibility: visible;
 }
 
 button:active {

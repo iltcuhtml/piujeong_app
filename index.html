@@ -5,31 +5,40 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+        <!-- load css file -->
         <link rel="stylesheet" href="style.css">
     
+        <!-- set title as 피우정 -->
         <title>피우정</title>
 
     </head>
         
     <body>
+        <!-- canvas -->
         <canvas id="canvas"></canvas>
 
-        <label id="title">避雨亭</label>
+        <!-- title screen -->
+        <label id="titleText">避雨亭</label>
 
-        <label id="inTimeSet">Inhale Time</label>
-        <label id="exTimeSet">Exhale Time</label>
-
+        <label id="inTimeText">Inhale Time</label>
+        <label id="exTimeText">Exhale Time</label>
         <input type="number" id="inTimeInput" value="3">
         <input type="number" id="exTimeInput" value="3">
 
-        <label id="volumeSet">Volume</label>
-
+        <label id="volumeText">Volume</label>
         <input type="range" id="volumeInput" min="0" max="100" value="75" step="1"/>
 
-        <button type="button" id="start">Start</button>
+        <button type="button" id="startButton">Start</button>
 
-        <button type="button" id="stop">Stop</button>
+        <!-- main screen -->
+        <button type="button" id="stopButton">Stop</button>
 
+        <label id="setsText">Sets</label>
+        <label id="repsText">Reps</label>
+        <input type="number" id="setsInput" value="1">
+        <input type="number" id="repsInput" value="10">
+        
+        <!-- load js files -->
         <script src="js/values.js"></script>
         <script src="js/functions.js"></script>
         <script src="js/class.js"></script>

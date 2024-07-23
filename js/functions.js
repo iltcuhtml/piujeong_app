@@ -106,14 +106,15 @@ function mainScreen() {
 function setUI() {
     /* move UI */
     if (canvas.width < canvas.height) {
-        /* phone */
-        title.style.fontSize = "8vw";
+        /* for phone */
+        /* title screen */
+        titleText.style.fontSize = "8vw";
 
-        inTimeSet.style.top = "calc(40vh - 4vw)";
-        inTimeSet.style.fontSize = "4vw";
+        inTimeText.style.top = "calc(40vh - 4vw)";
+        inTimeText.style.fontSize = "4vw";
 
-        exTimeSet.style.top = "calc(40vh - 4vw)";
-        exTimeSet.style.fontSize = "4vw";
+        exTimeText.style.top = "calc(40vh - 4vw)";
+        exTimeText.style.fontSize = "4vw";
 
         inTimeInput.style.top = "calc(40vh + 4vw)";
         inTimeInput.style.fontSize = "4vw";
@@ -127,8 +128,8 @@ function setUI() {
         exTimeInput.style.height = "8vw";
         exTimeInput.style.borderRadius = "4vw";
 
-        volumeSet.style.top = "calc(60vh - 2vw)";
-        volumeSet.style.fontSize = "4vw";
+        volumeText.style.top = "calc(60vh - 2vw)";
+        volumeText.style.fontSize = "4vw";
 
         volumeInput.style.top = "calc(60vh + 2vw)";
         volumeInput.style.fontSize = "4vw";
@@ -139,19 +140,39 @@ function setUI() {
         startButton.style.height = "16vw";
         startButton.style.borderRadius = "8vw";
 
+        /* main screen */
         stopButton.style.fontSize = "3vw";
         stopButton.style.width = "12vw";
         stopButton.style.height = "6vw";
         stopButton.style.borderRadius = "3vw";
+
+        setsText.style.top = "calc(40vh - 4vw)";
+        setsText.style.fontSize = "4vw";
+
+        repsText.style.top = "calc(40vh - 4vw)";
+        repsText.style.fontSize = "4vw";
+
+        setsInput.style.top = "calc(40vh + 4vw)";
+        setsInput.style.fontSize = "4vw";
+        setsInput.style.width = "16vw";
+        setsInput.style.height = "8vw";
+        setsInput.style.borderRadius = "4vw";
+
+        repsInput.style.top = "calc(40vh + 4vw)";
+        repsInput.style.fontSize = "4vw";
+        repsInput.style.width = "16vw";
+        repsInput.style.height = "8vw";
+        repsInput.style.borderRadius = "4vw";
     } else {
-        /* not phone */
-        title.style.fontSize = "3vw";
+        /* for not phone */
+        /* title screen */
+        titleText.style.fontSize = "3vw";
 
-        inTimeSet.style.top = "calc(40vh - 1.5vw)";
-        inTimeSet.style.fontSize = "1.5vw";
+        inTimeText.style.top = "calc(40vh - 1.5vw)";
+        inTimeText.style.fontSize = "1.5vw";
 
-        exTimeSet.style.top = "calc(40vh - 1.5vw)";
-        exTimeSet.style.fontSize = "1.5vw";
+        exTimeText.style.top = "calc(40vh - 1.5vw)";
+        exTimeText.style.fontSize = "1.5vw";
 
         inTimeInput.style.top = "calc(40vh + 1.5vw)";
         inTimeInput.style.fontSize = "1.5vw";
@@ -165,8 +186,8 @@ function setUI() {
         exTimeInput.style.height = "3vw";
         exTimeInput.style.borderRadius = "1.5vw";
 
-        volumeSet.style.top = "calc(60vh - 0.75vw)";
-        volumeSet.style.fontSize = "1.5vw";
+        volumeText.style.top = "calc(60vh - 0.75vw)";
+        volumeText.style.fontSize = "1.5vw";
 
         volumeInput.style.top = "calc(60vh + 0.75vw)";
         volumeInput.style.fontSize = "1.5vw";
@@ -177,52 +198,84 @@ function setUI() {
         startButton.style.height = "6vw";
         startButton.style.borderRadius = "3vw";
 
+        /* main screen */
         stopButton.style.fontSize = "1.125vw";
         stopButton.style.width = "4.5vw";
         stopButton.style.height = "2.25vw";
         stopButton.style.borderRadius = "1.125vw";
+
+        setsText.style.top = "calc(40vh - 1.5vw)";
+        setsText.style.fontSize = "1.5vw";
+
+        repsText.style.top = "calc(40vh - 1.5vw)";
+        repsText.style.fontSize = "1.5vw";
+
+        setsInput.style.top = "calc(40vh + 1.5vw)";
+        setsInput.style.fontSize = "1.5vw";
+        setsInput.style.width = "6vw";
+        setsInput.style.height = "3vw";
+        setsInput.style.borderRadius = "3vw";
+
+        repsInput.style.top = "calc(40vh + 1.5vw)";
+        repsInput.style.fontSize = "1.5vw";
+        repsInput.style.width = "6vw";
+        repsInput.style.height = "3vw";
+        repsInput.style.borderRadius = "1.5vw";
     }
 
     /* set visibility of UI */
     if (isStarted) {
         /* started */
-        title.style.visibility = "hidden";
+        /* title screen */
+        titleText.style.visibility = "hidden";
 
-        inTimeSet.style.visibility = "hidden";
-        exTimeSet.style.visibility = "hidden";
-
+        inTimeText.style.visibility = "hidden";
+        exTimeText.style.visibility = "hidden";
         inTimeInput.style.visibility = "hidden";
         exTimeInput.style.visibility = "hidden";
 
-        volumeSet.style.visibility = "hidden";
-
+        volumeText.style.visibility = "hidden";
         volumeInput.style.visibility = "hidden";
 
         startButton.style.visibility = "hidden";
 
+        /* main screen */
         stopButton.style.visibility = "visible";
+
+        setsText.style.visibility = "visible";
+        repsText.style.visibility = "visible";
+        setsInput.style.visibility = "visible";
+        repsInput.style.visibility = "visible";
+
+        setsText.style.color = "black";
+        repsText.style.color = "black";
     } else {
         /* stopped */
-        title.style.visibility = "visible";
+        /* title screen */
+        titleText.style.visibility = "visible";
 
-        inTimeSet.style.visibility = "visible";
-        exTimeSet.style.visibility = "visible";
-
+        inTimeText.style.visibility = "visible";
+        exTimeText.style.visibility = "visible";
         inTimeInput.style.visibility = "visible";
         exTimeInput.style.visibility = "visible";
 
-        volumeSet.style.visibility = "visible";
-
+        volumeText.style.visibility = "visible";
         volumeInput.style.visibility = "visible";
     
         startButton.style.visibility = "visible";
     
+        /* main screen */
         stopButton.style.visibility = "hidden";
 
-        title.style.color = "black";
+        setsText.style.visibility = "hidden";
+        repsText.style.visibility = "hidden";
+        setsInput.style.visibility = "hidden";
+        repsInput.style.visibility = "hidden";
 
-        inTimeSet.style.color = "black";
-        exTimeSet.style.color = "black";
+        titleText.style.color = "black";
+
+        inTimeText.style.color = "black";
+        exTimeText.style.color = "black";
     }
 }
 

@@ -3,21 +3,26 @@ document.body.style.backgroundColor = "whitesmoke";    // set body color as skyb
 canvas = document.getElementById("canvas"); // set canvas
 const ctx = canvas.getContext("2d");        // set ctx as canvas
 
-const title = document.getElementById("title"); // set title
+/* title screen */
+const titleText = document.getElementById("titleText"); // set titleText
 
-const inTimeSet = document.getElementById("inTimeSet"); // set inTimeSet
-const exTimeSet = document.getElementById("exTimeSet"); // set exTimeSet
-
+const inTimeText = document.getElementById("inTimeText");   // set inTimeText
+const exTimeText = document.getElementById("exTimeText");   // set exTimeText
 const inTimeInput = document.getElementById("inTimeInput"); // set inTimeInput
 const exTimeInput = document.getElementById("exTimeInput"); // set exTimeInput
 
-const volumeSet = document.getElementById("volumeSet"); // set volumeSet
-
+const volumeText = document.getElementById("volumeText");   // set volumeText
 const volumeInput = document.getElementById("volumeInput"); // set volumeInput
 
-const startButton = document.getElementById("start");   // set startButton
+const startButton = document.getElementById("startButton");   // set startButton
 
-const stopButton = document.getElementById("stop");   // set stopButton
+/* main screen */
+const stopButton = document.getElementById("stopButton");   // set stopButton
+
+const setsText = document.getElementById("setsText");   // set setsText
+const repsText = document.getElementById("repsText");   // set repstText
+const setsInput = document.getElementById("setsInput"); // set setsInput
+const repsInput = document.getElementById("repsInput"); // set repsInput
 
 let isSVG = true;   // set isSVG as true 
                     // (true : show circle and board as svg image, 
