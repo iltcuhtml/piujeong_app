@@ -61,7 +61,7 @@ function mainScreen() {
         sfx.pause();
         sfx.currentTime = 0;
         
-        // sfx.play();
+        sfx.play();
 
         sfxCircleDirection = "up";
     } else if (sfxCircleDirection === "up" && 
@@ -69,7 +69,7 @@ function mainScreen() {
         sfx.pause();
         sfx.currentTime = 0;
         
-        // sfx.play();
+        sfx.play();
 
         sfxCircleDirection = "down";
     }
