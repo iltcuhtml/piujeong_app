@@ -28,7 +28,7 @@ function titleScreen() {
             isStarted = true;
         }
 
-        playLev = 1;
+        sfxCircleDirection = "up";
         sfx.volume = parseInt(volumeInput.value) / 100;
     }
 }
@@ -37,21 +37,21 @@ function titleScreen() {
 *for showing main screen
 */
 function mainScreen() {
-    if (playLev === 1 && elapsed <= inTime - 100) {
+    if (sfxCircleDirection === "down" && elapsed <= inTime - 100) {
         sfx.pause();
         sfx.currentTime = 0;
         
         sfx.play();
 
-        playLev = 2;
-    } else if (playLev === 2 && 
+        sfxCircleDirection = "up";
+    } else if (sfxCircleDirection === "up" && 
                inTime - 100 < elapsed && elapsed <= inTime + exTime - 100) {
         sfx.pause();
         sfx.currentTime = 0;
         
         sfx.play();
 
-        playLev = 1;
+        sfxCircleDirection = "down";
     }
 
     if (!isSVG) {
@@ -244,5 +244,5 @@ function debug() {
 
     ctx.fillText(`sfx.volume : ${sfx.volume}`, 10, 580);
 
-    ctx.fillText(`playLev : ${playLev}`, 10, 620);
+    ctx.fillText(`playLev : ${sfxCircleDirection}`, 10, 620);
 }

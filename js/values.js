@@ -41,4 +41,4 @@ const sfx = new Audio();        // init sfx as new Audio
       sfx.src = "sfx/sfx.wav";  // set sfx adress as sfx.wav
       sfx.volume = 0.75;        // set sfx volume as 0.75
 
-let playLev = 1;    // set playLev as 1
+let sfxCircleDirection = "up";    // set sfxCircleDirection as "up"

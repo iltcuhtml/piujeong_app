@@ -24,7 +24,7 @@ class circle {
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
             ctx.fill();
-            
+
         } else {
             if (elapsed <= inTime) {
                 drawRotatedImage(circleImg, 0, 0, 1730, 1730,
