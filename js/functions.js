@@ -107,7 +107,9 @@ function mainScreen() {
         } else {
             startTime = timeStamp;
 
+            circleObj[i].x = canvas.width / 2;
             circleObj[i].y = (canvas.height - unit / 4 - unit);
+            
             circleObj[i].radius = unit / 4;
         }
 
