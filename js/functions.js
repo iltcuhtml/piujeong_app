@@ -16,6 +16,7 @@ function drawRotatedImage(img, sx, sy, sW, sH, dx, dy, dW, dH, rotation) {
 *for showing title screen
 */
 function titleScreen() {
+    /* check if startButton is pressed */
     startButton.onclick = () => {
         if (parseInt(inTimeInput.value) > 0 && parseInt(exTimeInput.value) > 0) {
             startTime = timeStamp;
@@ -37,6 +38,7 @@ function titleScreen() {
 *for showing main screen
 */
 function mainScreen() {
+    /* play sfx */
     if (sfxCircleDirection === "down" && elapsed <= inTime - 100) {
         sfx.pause();
         sfx.currentTime = 0;
@@ -54,13 +56,16 @@ function mainScreen() {
         sfxCircleDirection = "down";
     }
 
+    /* draw board */
     if (!isSVG) {
+        /* not drawing svg image */
         ctx.fillStyle = "#76CBE5";
     
         ctx.fillRect(canvas.width * 0.5 - unit * 1.25, unit * 0.75, unit * 2.5, unit * 0.25);
         ctx.fillRect(canvas.width * 0.5 - unit * 1.25, canvas.height - unit, unit * 2.5, unit * 0.25);
 
     } else {
+        /* drawing svg image */
         drawRotatedImage(boardImg, 0, 0, 1967, 361,
                          canvas.width * 0.5, unit * 0.875,
                          unit * 2.5, unit * 0.25,
@@ -72,6 +77,7 @@ function mainScreen() {
                          Math.PI);
     }
 
+    /* update circle */
     for (let i = 0; i < circleObj.length; i++) {
         ctx.globalAlpha = circleObj[i].alpha;
 
@@ -82,9 +88,11 @@ function mainScreen() {
             circleObj.splice(i, 1);
         }
     }
-            
+
+    /* reset globalAlpha value in ctx as 1 */
     ctx.globalAlpha = 1;
 
+    /* check if stopButton is pressed */
     stopButton.onclick = () => {
         circleObj = [];
         
@@ -93,10 +101,12 @@ function mainScreen() {
 }
 
 /**
-*for controling css
+*for setting UI
 */
-function style() {
+function setUI() {
+    /* move UI */
     if (canvas.width < canvas.height) {
+        /* phone */
         title.style.fontSize = "8vw";
 
         inTimeSet.style.top = "calc(40vh - 4vw)";
@@ -134,6 +144,7 @@ function style() {
         stopButton.style.height = "6vw";
         stopButton.style.borderRadius = "3vw";
     } else {
+        /* not phone */
         title.style.fontSize = "3vw";
 
         inTimeSet.style.top = "calc(40vh - 1.5vw)";
@@ -172,7 +183,9 @@ function style() {
         stopButton.style.borderRadius = "1.125vw";
     }
 
+    /* set visibility of UI */
     if (isStarted) {
+        /* started */
         title.style.visibility = "hidden";
 
         inTimeSet.style.visibility = "hidden";
@@ -189,6 +202,7 @@ function style() {
 
         stopButton.style.visibility = "visible";
     } else {
+        /* stopped */
         title.style.visibility = "visible";
 
         inTimeSet.style.visibility = "visible";
@@ -213,14 +227,17 @@ function style() {
 }
 
 /**
-*for debugging
+*for showing debug text
 */
-function debug() {
+function showDebugText() {
+    /* set text font as 16px Arial */
+    /* set text fillStyle (color) as black */
+    /* set textAlign as start */
     ctx.font = "16px Arial";
     ctx.fillStyle = "black";
-
     ctx.textAlign = "start";
-    
+
+    /* show values */    
     ctx.fillText(`Canvas Width : ${canvas.width}`, 10, 200);
     ctx.fillText(`Canvas Height : ${canvas.height}`, 10, 220);
 
@@ -244,5 +261,5 @@ function debug() {
 
     ctx.fillText(`sfx.volume : ${sfx.volume}`, 10, 580);
 
-    ctx.fillText(`playLev : ${sfxCircleDirection}`, 10, 620);
+    ctx.fillText(`sfxCircleDirection : ${sfxCircleDirection}`, 10, 620);
 }

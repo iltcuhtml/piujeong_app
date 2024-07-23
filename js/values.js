@@ -19,13 +19,19 @@ const startButton = document.getElementById("start");   // set startButton
 
 const stopButton = document.getElementById("stop");   // set stopButton
 
-let isSVG = true;
+let isSVG = true;   // set isSVG as true 
+                    // (true : show circle and board as svg image, 
+                    //  false : don't show circle and board as svg image)
 
-let debugMod = false;    // set debugMod as true
+let debugMod = false;   // set debugMod as true
+                        // (true : show debug text, 
+                        //  false : don't show debug text)
 
 let timeStamp = 0, startTime = 0, elapsed = 0;  // init timeStamp, startTime and elapsed as 0
 
-let isStarted = false;
+let isStarted = false;  // set isStarted as false
+                        // (true : started and circle and board will be shown, 
+                        //  false : stoped and UI will be shown)
 
 let inTime = 3, exTime = 3; // init circle's up & down moving time as 3
 
@@ -41,4 +47,6 @@ const sfx = new Audio();        // init sfx as new Audio
       sfx.src = "sfx/sfx.wav";  // set sfx adress as sfx.wav
       sfx.volume = 0.75;        // set sfx volume as 0.75
 
-let sfxCircleDirection = "up";    // set sfxCircleDirection as "up"
+let sfxCircleDirection = "up";  // set sfxCircleDirection as "up"
+                                // ("up" : "down" sfx has been played and the circle is moving up, 
+                                //  "down" : "up" sfx has been played and the circle is moving down)

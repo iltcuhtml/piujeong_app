@@ -19,6 +19,7 @@ class circle {
     */
     draw() {
         if (!isSVG) {
+            /* not drawing svg image */
             ctx.fillStyle = "#D495C0";
     
             ctx.beginPath();
@@ -26,6 +27,7 @@ class circle {
             ctx.fill();
 
         } else {
+            /* drawing svg image */
             if (elapsed <= inTime) {
                 drawRotatedImage(circleImg, 0, 0, 1730, 1730,
                                  this.x, this.y,
@@ -51,17 +53,21 @@ class circle {
     *for moving the circle
     */
     move() {
+        /* set the circle's x as middle of the screen */
         this.x = canvas.width / 2;
 
         if (elapsed <= inTime) {
+            /* moving up */
             this.y = (canvas.height - unit / 4 - unit)
                      - (canvas.height - unit * 2 - unit / 2) * (elapsed / inTime);
 
         } else if (elapsed <= inTime + exTime) {
+            /* moving down */
             this.y = (unit + unit / 4)
                      + (canvas.height - unit * 2 - unit / 2) * ((elapsed - inTime) / exTime);
                      
         } else {
+            /* at the top */
             startTime = timeStamp;
         }
     }
