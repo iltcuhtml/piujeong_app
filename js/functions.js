@@ -124,7 +124,9 @@ function mainScreen() {
     }
 
     // TODO : fix the circle drawing bug when mainScreenState is "pause"
-    //        by using 'mainScreenState = / == "end"'
+    //        by using 'mainScreenState = / == "end"' and 'mainScreenState = / == "pause"'.
+    //
+    //        add 'mainScreenState' and 'timeDifference' to Debug Text
 
     /* update circle */
     for (let i = 0; i < circleObj.length; i++) {
@@ -403,9 +405,6 @@ function setUI() {
 *for showing debug text
 */
 function showDebugText() {
-    /* set text font as 16px Arial */
-    /* set text fillStyle (color) as black */
-    /* set textAlign as start */
     ctx.font = "16px Arial";
     ctx.fillStyle = "black";
     ctx.textAlign = "start";

@@ -2,30 +2,25 @@
 *main function
 */
 function main(_timeStamp) {
-    canvas.width = window.innerWidth;   // set canvas width as innerWidth
-    canvas.height = window.innerHeight; // set canvas height as innerWidth
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 
-    unit = canvas.width < canvas.height ? canvas.width / 4 : canvas.height / 8;    // set the unit
+    unit = canvas.width < canvas.height ? canvas.width / 4 : canvas.height / 8;
 
-    timeStamp = _timeStamp;             // set timeStamp as _timeStamp
-    elapsed = timeStamp - startTime;    // set elapsed as timeStamp = startTime
+    timeStamp = _timeStamp;
+    elapsed = timeStamp - startTime;
 
-    ctx.reset();    // reset the ctx
+    ctx.reset();
 
-    setUI();    // set UI
+    setUI();
 
-    /* check if is started */
     if (isStarted) {
-        /* started and show the main screen */
         mainScreen();
     } else {
-        /* stopped and show the title screen */
         titleScreen();
     }        
 
-    /* check if debug mod is on */
     if (debugMod) {
-        /* show debug text */
         showDebugText();
     }
 
