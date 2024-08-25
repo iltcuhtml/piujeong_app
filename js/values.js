@@ -50,7 +50,7 @@ const boardImg = new Image();               // init boardImg as new Image
       boardImg.src = "images/board.svg";    // set boardImg as board.svg
 
 const circleImg = new Image();              // init circleImg as new Image
-      circleImg.src = "images/circle.png";  // set circleImg as circle.svg
+      circleImg.src = "images/circle.svg";  // set circleImg as circle.svg
 
 const sfx = new Audio();        // init sfx as new Audio
       sfx.src = "sfx/sfx.wav";  // set sfx adress as sfx.wav
