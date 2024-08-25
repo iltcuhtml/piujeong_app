@@ -29,19 +29,19 @@ class circle {
         } else {
             /* drawing svg image */
             if (elapsed <= inhaleTime) {
-                drawRotatedImage(circleImg, 0, 0, 1730, 1730,
+                drawRotatedImage(circleImg, 0, 0, 1, 1,
                                  this.x, this.y,
                                  this.radius * 2, this.radius * 2,
                                  (elapsed / inhaleTime) * Math.PI - Math.PI * 35 / 180);
 
             } else if (elapsed <= inhaleTime + exhaleTime) {
-                drawRotatedImage(circleImg, 0, 0, 1730, 1730,
+                drawRotatedImage(circleImg, 0, 0, 1, 1,
                                  this.x, this.y,
                                  this.radius * 2, this.radius * 2,
                                  ((elapsed - inhaleTime) / exhaleTime + 1) * Math.PI - Math.PI * 35 / 180);
 
             } else {
-                drawRotatedImage(circleImg, 0, 0, 1730, 1730,
+                drawRotatedImage(circleImg, 0, 0, 1, 1,
                                  this.x, this.y,
                                  this.radius * 2, this.radius * 2,
                                  - Math.PI * 35 / 180);

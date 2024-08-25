@@ -39,7 +39,7 @@ let isStarted = false;  // set isStarted as false
                         // (true : started and circle and board will be shown, 
                         //  false : stoped and UI will be shown)
 
-let inhaleTime = 3000, exhaleTime = 3000; // init inhaleTime & exhaleTime as 3000 (ms)
+let inhaleTime = 5000, exhaleTime = 5000; // init inhaleTime & exhaleTime as 5000 (ms)
 let setSets = 1, setReps = 10;    // init setSets as 1 & setReps as 10
 
 let doneSets = 0, doneReps = 0;    // init doneSets as 1 & doneReps as 10
