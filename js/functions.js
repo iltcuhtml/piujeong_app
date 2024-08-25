@@ -43,6 +43,7 @@ function titleScreen() {
     /* check if startButton is pressed */
     startButton.onclick = () => {
         startTime = timeStamp;
+        sfxCircleDirection = "up";
 
         circleObj.push(new circle);
 
@@ -149,7 +150,7 @@ function mainScreen() {
     }
 
     /* check if stopButton is pressed */
-    stopButton.onclick = () => {
+    backButton.onclick = () => {
         circleObj = [];
         
         isStarted = false;
@@ -200,10 +201,22 @@ function setUI() {
         startButton.style.borderRadius = "8vw";
 
         /* main screen */
-        stopButton.style.fontSize = "3vw";
-        stopButton.style.width = "12vw";
-        stopButton.style.height = "6vw";
-        stopButton.style.borderRadius = "3vw";
+        resumeButton.style.left = `calc(50vw - ${unit * 1.25 * 0.75}px)`;
+        resumeButton.style.fontSize = "3vw";
+        resumeButton.style.width = "12vw";
+        resumeButton.style.height = "6vw";
+        resumeButton.style.borderRadius = "3vw";
+
+        pauseButton.style.fontSize = "3vw";
+        pauseButton.style.width = "12vw";
+        pauseButton.style.height = "6vw";
+        pauseButton.style.borderRadius = "3vw";
+
+        backButton.style.left = `calc(50vw + ${unit * 1.25 * 0.75}px)`;
+        backButton.style.fontSize = "3vw";
+        backButton.style.width = "12vw";
+        backButton.style.height = "6vw";
+        backButton.style.borderRadius = "3vw";
 
         setsText.style.top = `calc(${canvas.height - unit * 0.4375}px - 3vw)`;
         setsText.style.left = `calc(50vw - ${unit * 1.25 * 0.75}px)`;
@@ -264,10 +277,22 @@ function setUI() {
         startButton.style.borderRadius = "3vw";
 
         /* main screen */
-        stopButton.style.fontSize = "1.125vw";
-        stopButton.style.width = "4.5vw";
-        stopButton.style.height = "2.25vw";
-        stopButton.style.borderRadius = "1.125vw";
+        resumeButton.style.left = `calc(50vw - ${unit * 1.25 * 0.75}px)`;
+        resumeButton.style.fontSize = "1.125vw";
+        resumeButton.style.width = "4.5vw";
+        resumeButton.style.height = "2.25vw";
+        resumeButton.style.borderRadius = "1.125vw";
+
+        pauseButton.style.fontSize = "1.125vw";
+        pauseButton.style.width = "4.5vw";
+        pauseButton.style.height = "2.25vw";
+        pauseButton.style.borderRadius = "1.125vw";
+
+        backButton.style.left = `calc(50vw + ${unit * 1.25 * 0.75}px)`;
+        backButton.style.fontSize = "1.125vw";
+        backButton.style.width = "4.5vw";
+        backButton.style.height = "2.25vw";
+        backButton.style.borderRadius = "1.125vw";
 
         setsText.style.top = `calc(${canvas.height - unit * 0.4375}px - 1.125vw)`;
         setsText.style.left = `calc(50vw - ${unit * 1.25 * 0.75}px)`;
@@ -311,7 +336,9 @@ function setUI() {
         startButton.style.visibility = "hidden";
 
         /* main screen */
-        stopButton.style.visibility = "visible";
+        resumeButton.style.visibility = "visible";
+        pauseButton.style.visibility = "visible";
+        backButton.style.visibility = "visible";
 
         setsText.style.visibility = "visible";
         repsText.style.visibility = "visible";
@@ -337,7 +364,9 @@ function setUI() {
         startButton.style.visibility = "visible";
     
         /* main screen */
-        stopButton.style.visibility = "hidden";
+        resumeButton.style.visibility = "hidden";
+        pauseButton.style.visibility = "hidden";
+        backButton.style.visibility = "hidden";
 
         setsText.style.visibility = "hidden";
         repsText.style.visibility = "hidden";

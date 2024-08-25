@@ -142,10 +142,51 @@ input::-webkit-inner-spin-button {
 }
 
 /* main screen */
-#stopButton {
+#resumeButton {
     position: absolute;
-    top: 2vw;
-    left: 2vw;
+    top: 5vh;
+    left: 25vw;
+    transform: translate(-50%, -50%);
+
+    background-color: whitesmoke;
+    color: black;
+    font-size: 3vw;
+    text-align: center;
+
+    width: 12vw;
+    height: 6vw;
+    
+    border: 0.1vw solid gray;
+    border-radius: 3vw;
+
+    visibility: hidden;
+}
+
+#pauseButton {
+    position: absolute;
+    top: 5vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+
+    background-color: whitesmoke;
+    color: black;
+    font-size: 3vw;
+    text-align: center;
+
+    width: 12vw;
+    height: 6vw;
+    
+    border: 0.1vw solid gray;
+    border-radius: 3vw;
+
+    visibility: hidden;
+}
+
+#backButton {
+    position: absolute;
+    top: 5vh;
+    left: 75vw;
+    transform: translate(-50%, -50%);
 
     background-color: whitesmoke;
     color: black;

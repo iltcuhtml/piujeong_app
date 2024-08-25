@@ -17,7 +17,9 @@ const volumeInput = document.getElementById("volumeInput"); // set volumeInput
 const startButton = document.getElementById("startButton");   // set startButton
 
 /* main screen */
-const stopButton = document.getElementById("stopButton");   // set stopButton
+const resumeButton = document.getElementById("resumeButton");   // set resumeButton
+const pauseButton = document.getElementById("pauseButton");   // set pauseButton
+const backButton = document.getElementById("backButton");   // set backButton
 
 const setsText = document.getElementById("setsText");   // set setsText
 const repsText = document.getElementById("repsText");   // set repstText
