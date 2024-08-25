@@ -9,7 +9,7 @@ class circle {
                  - canvas.width / 8
                  - unit;            // set circle's y position as the bottom of the screen
 
-        this.radius = unit / 4;       // set circle's radius
+        this.radius = unit / 4;     // set circle's radius
 
         this.alpha = 1;             // set circle's aplha value as 1
     }
@@ -53,7 +53,6 @@ class circle {
     *for moving the circle
     */
     move() {
-        /* set the circle's x as middle of the screen */
         this.x = canvas.width / 2;
 
         /* set the circle's radius as unit / 4 */
@@ -71,16 +70,11 @@ class circle {
                      
         } else {
             /* done one cycle */
-            /* reset startTime as timeStamp */
             startTime = timeStamp;
-            
-            /* add one to doneReps */
+
             doneReps++;
 
-            /* check if one set is done */
             if (doneReps >= setReps) {
-                /* add one to doneSets */
-                /* reset doneReps as 0 */
                 doneSets++;
                 doneReps = 0;
             }

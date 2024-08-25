@@ -145,7 +145,7 @@ input::-webkit-inner-spin-button {
 #resumeButton {
     position: absolute;
     top: 5vh;
-    left: 25vw;
+    left: 35vw;
     transform: translate(-50%, -50%);
 
     background-color: whitesmoke;
@@ -165,7 +165,7 @@ input::-webkit-inner-spin-button {
 #pauseButton {
     position: absolute;
     top: 5vh;
-    left: 50vw;
+    left: 35vw;
     transform: translate(-50%, -50%);
 
     background-color: whitesmoke;
@@ -185,7 +185,7 @@ input::-webkit-inner-spin-button {
 #backButton {
     position: absolute;
     top: 5vh;
-    left: 75vw;
+    left: 65vw;
     transform: translate(-50%, -50%);
 
     background-color: whitesmoke;

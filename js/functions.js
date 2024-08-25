@@ -16,7 +16,6 @@ function drawRotatedImage(img, sx, sy, sW, sH, dx, dy, dW, dH, rotation) {
 *for showing title screen
 */
 function titleScreen() {
-    /* check if inhaleTimeInput is changed */
     inhaleTimeInput.onchange = () => {
         /* check if inhaleTimeInput's value is bigger than 0 */
         if (parseFloat(inhaleTimeInput.value) > 0) {
@@ -28,7 +27,6 @@ function titleScreen() {
         inhaleTimeInput.value = inhaleTime / 1000;
     }
 
-    /* check if exhaleTimeInput is changed */
     exhaleTimeInput.onchange = () => {
         /* check if exhaleTimeInput's value is bigger than 0 */
         if (parseFloat(exhaleTimeInput.value) > 0) {
@@ -40,9 +38,9 @@ function titleScreen() {
         exhaleTimeInput.value = exhaleTime / 1000;
     }
 
-    /* check if startButton is pressed */
     startButton.onclick = () => {
-        startTime = timeStamp;
+        timeDifference = 0;
+        mainScreenState = "pause";
         sfxCircleDirection = "up";
 
         circleObj.push(new circle);
@@ -57,34 +55,63 @@ function titleScreen() {
 *for showing main screen
 */
 function mainScreen() {
+    resumeButton.onclick = () => {
+        startTime = timeStamp - timeDifference;
+        mainScreenState = "resume";
+    }
+
+    if (mainScreenState == "pause") {
+        setsInput.onchange = () => {
+            /* check if setsInput's value (INT) is bigger than doneSets */
+            if (parseInt(setsInput.value) > doneSets) {
+                /* set the setSets as setsInput's value (INT) */
+                setSets = parseInt(setsInput.value);
+            }
+
+            /* reset the setsInput's value as setSets */
+            setsInput.value = setSets;
+        }
+
+        repsInput.onchange = () => {
+            /* check if repsInput's value (INT) is bigger than doneReps */
+            if (parseInt(repsInput.value) > doneReps) {
+                /* set the setReps as repsInput's value (INT) */
+                setReps = parseInt(repsInput.value);
+            }
+
+            /* reset the repsInput's value as setReps */
+            repsInput.value = setReps;
+        }
+    }
+
     /* play sfx */
-    if (sfxCircleDirection === "down" && elapsed <= inhaleTime - 100) {
-        sfx.pause();
-        sfx.currentTime = 0;
-        
-        sfx.play();
-
-        sfxCircleDirection = "up";
-    } else if (sfxCircleDirection === "up" && 
-               inhaleTime - 100 < elapsed && elapsed <= inhaleTime + exhaleTime - 100) {
-        sfx.pause();
-        sfx.currentTime = 0;
-        
-        sfx.play();
-
-        sfxCircleDirection = "down";
+    if (mainScreenState == "resume") {
+        if (sfxCircleDirection === "down" && elapsed <= inhaleTime - 100) {
+            sfx.pause();
+            sfx.currentTime = 0;
+            
+            sfx.play();
+    
+            sfxCircleDirection = "up";
+        } else if (sfxCircleDirection === "up" && 
+                   inhaleTime - 100 < elapsed && elapsed <= inhaleTime + exhaleTime - 100) {
+            sfx.pause();
+            sfx.currentTime = 0;
+            
+            sfx.play();
+    
+            sfxCircleDirection = "down";
+        }
     }
 
     /* draw board */
     if (!isSVG) {
-        /* not drawing svg image */
         ctx.fillStyle = "#76CBE5";
     
         ctx.fillRect(canvas.width * 0.5 - unit * 1.25, unit * 0.75, unit * 2.5, unit * 0.25);
         ctx.fillRect(canvas.width * 0.5 - unit * 1.25, canvas.height - unit, unit * 2.5, unit * 0.25);
 
     } else {
-        /* drawing svg image */
         drawRotatedImage(boardImg, 0, 0, 1967, 361,
                          canvas.width * 0.5, unit * 0.875,
                          unit * 2.5, unit * 0.25,
@@ -96,6 +123,9 @@ function mainScreen() {
                          Math.PI);
     }
 
+    // TODO : fix the circle drawing bug when mainScreenState is "pause"
+    //        by using 'mainScreenState = / == "end"'
+
     /* update circle */
     for (let i = 0; i < circleObj.length; i++) {
         ctx.globalAlpha = circleObj[i].alpha;
@@ -103,58 +133,38 @@ function mainScreen() {
         circleObj[i].draw();
         
         /* check if sets are NOT done */
-        if (doneSets < setSets) {
+        if (doneSets < setSets && mainScreenState == "resume") {
             circleObj[i].move();
-        } else {
-            startTime = timeStamp;
-
-            circleObj[i].x = canvas.width / 2;
-            circleObj[i].y = (canvas.height - unit / 4 - unit);
-            
-            circleObj[i].radius = unit / 4;
-        }
+        } else {                                                // TODO
+            startTime = timeStamp;                              // TODO
+                                                                // TODO
+            circleObj[i].x = canvas.width / 2;                  // TODO
+            circleObj[i].y = (canvas.height - unit / 4 - unit); // TODO
+                                                                // TODO
+            circleObj[i].radius = unit / 4;                     // TODO
+        }                                                       // TODO
 
         if (circleObj[i].alpha <= 0) {
             circleObj.splice(i, 1);
         }
     }
 
-    /* reset globalAlpha value in ctx as 1 */
     ctx.globalAlpha = 1;
 
-    /* set SetsAndRepsText's text as "'doneSets' Sets, 'doneReps' Reps" */
+    /* set SetsAndRepsText's text as "'doneSets' Sets | Enter | 'doneReps' Reps" */
     SetsAndRepsText.innerText = `${doneSets} Sets\n${doneReps} Reps`;
 
-    /* check if setsInput is changed */
-    setsInput.onchange = () => {
-        /* check if setsInput's value (INT) is bigger than doneSets */
-        if (parseInt(setsInput.value) > doneSets) {
-            /* set the setSets as setsInput's value (INT) */
-            setSets = parseInt(setsInput.value);
-        }
-        
-        /* reset the setsInput's value as setSets */
-        setsInput.value = setSets;
+    pauseButton.onclick = () => {
+        timeDifference = timeStamp - startTime;
+
+        mainScreenState = "pause";
     }
 
-    /* check if repsInput is changed */
-    repsInput.onchange = () => {
-        /* check if repsInput's value (INT) is bigger than doneReps */
-        if (parseInt(repsInput.value) > doneReps) {
-            /* set the setReps as repsInput's value (INT) */
-            setReps = parseInt(repsInput.value);
-        }
-        
-        /* reset the repsInput's value as setReps */
-        repsInput.value = setReps;
-    }
-
-    /* check if stopButton is pressed */
     backButton.onclick = () => {
         circleObj = [];
-        
-        isStarted = false;
 
+        isStarted = false;
+    
         doneSets = 0;
         doneReps = 0;
     }
@@ -201,18 +211,19 @@ function setUI() {
         startButton.style.borderRadius = "8vw";
 
         /* main screen */
-        resumeButton.style.left = `calc(50vw - ${unit * 1.25 * 0.75}px)`;
+        resumeButton.style.left = `calc(50vw - ${unit * 1.25 * 0.5}px)`;
         resumeButton.style.fontSize = "3vw";
         resumeButton.style.width = "12vw";
         resumeButton.style.height = "6vw";
         resumeButton.style.borderRadius = "3vw";
 
+        pauseButton.style.left = `calc(50vw - ${unit * 1.25 * 0.5}px)`;
         pauseButton.style.fontSize = "3vw";
         pauseButton.style.width = "12vw";
         pauseButton.style.height = "6vw";
         pauseButton.style.borderRadius = "3vw";
 
-        backButton.style.left = `calc(50vw + ${unit * 1.25 * 0.75}px)`;
+        backButton.style.left = `calc(50vw + ${unit * 1.25 * 0.5}px)`;
         backButton.style.fontSize = "3vw";
         backButton.style.width = "12vw";
         backButton.style.height = "6vw";
@@ -277,18 +288,19 @@ function setUI() {
         startButton.style.borderRadius = "3vw";
 
         /* main screen */
-        resumeButton.style.left = `calc(50vw - ${unit * 1.25 * 0.75}px)`;
+        resumeButton.style.left = `calc(50vw - ${unit * 1.25 * 0.5}px)`;
         resumeButton.style.fontSize = "1.125vw";
         resumeButton.style.width = "4.5vw";
         resumeButton.style.height = "2.25vw";
         resumeButton.style.borderRadius = "1.125vw";
 
+        pauseButton.style.left = `calc(50vw - ${unit * 1.25 * 0.5}px)`;
         pauseButton.style.fontSize = "1.125vw";
         pauseButton.style.width = "4.5vw";
         pauseButton.style.height = "2.25vw";
         pauseButton.style.borderRadius = "1.125vw";
 
-        backButton.style.left = `calc(50vw + ${unit * 1.25 * 0.75}px)`;
+        backButton.style.left = `calc(50vw + ${unit * 1.25 * 0.5}px)`;
         backButton.style.fontSize = "1.125vw";
         backButton.style.width = "4.5vw";
         backButton.style.height = "2.25vw";
@@ -336,8 +348,14 @@ function setUI() {
         startButton.style.visibility = "hidden";
 
         /* main screen */
-        resumeButton.style.visibility = "visible";
-        pauseButton.style.visibility = "visible";
+        if (mainScreenState == "pause") {
+            resumeButton.style.visibility = "visible";
+            pauseButton.style.visibility = "hidden";
+        } else {
+            resumeButton.style.visibility = "hidden";
+            pauseButton.style.visibility = "visible";
+        }
+
         backButton.style.visibility = "visible";
 
         setsText.style.visibility = "visible";

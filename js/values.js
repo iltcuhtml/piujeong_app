@@ -18,8 +18,8 @@ const startButton = document.getElementById("startButton");   // set startButton
 
 /* main screen */
 const resumeButton = document.getElementById("resumeButton");   // set resumeButton
-const pauseButton = document.getElementById("pauseButton");   // set pauseButton
-const backButton = document.getElementById("backButton");   // set backButton
+const pauseButton = document.getElementById("pauseButton");     // set pauseButton
+const backButton = document.getElementById("backButton");       // set backButton
 
 const setsText = document.getElementById("setsText");   // set setsText
 const repsText = document.getElementById("repsText");   // set repstText
@@ -28,18 +28,27 @@ const repsInput = document.getElementById("repsInput"); // set repsInput
 const SetsAndRepsText = document.getElementById("SetsAndRepsText"); // set SetsAndRepsText
 
 let isSVG = true;   // set isSVG as true 
-                    // (true : show circle and board as svg image, 
-                    //  false : don't show circle and board as svg image)
+                    // (true : show circle and board as svg image)
+                    // (false : don't show circle and board as svg image)
 
 let debugMod = false;   // set debugMod as true
-                        // (true : show debug text, 
-                        //  false : don't show debug text)
+                        // (true : show debug text)
+                        // (false : don't show debug text)
 
-let timeStamp = 0, startTime = 0, elapsed = 0;  // init timeStamp, startTime and elapsed as 0
+let timeStamp = 0, timeDifference = 0, 
+    startTime = 0, elapsed = 0;         // init timeStamp, timeDifference, startTime and elapsed as 0
 
 let isStarted = false;  // set isStarted as false
-                        // (true : started and circle and board will be shown, 
-                        //  false : stoped and UI will be shown)
+                        // (true : started and circle and board will be shown)
+                        // (false : stoped and UI will be shown)
+
+let mainScreenState = "pause";  // set mainScreenState as "pause"
+                                // ("pause" : the main screen is paused and this state will be set 
+                                //            if main screen just starts, or if you press pause button)
+                                // ("resume" : the main screen is working and this state will be set 
+                                //             if you press resume button while mainScreenState is "pause")
+                                // ("end" : the main screen is end and this state will be set
+                                //          if circle stops moving because 'doneSets >= setSets')
 
 let inhaleTime = 5000, exhaleTime = 5000; // init inhaleTime & exhaleTime as 5000 (ms)
 let setSets = 1, setReps = 10;    // init setSets as 1 & setReps as 10
@@ -59,5 +68,5 @@ const sfx = new Audio();        // init sfx as new Audio
       sfx.volume = 0.75;        // set sfx volume as 0.75
 
 let sfxCircleDirection = "up";  // set sfxCircleDirection as "up"
-                                // ("up" : "down" sfx has been played and the circle is moving up, 
-                                //  "down" : "up" sfx has been played and the circle is moving down)
+                                // ("up" : "down" sfx has been played and the circle is moving up)
+                                // (down" : "up" sfx has been played and the circle is moving down)
