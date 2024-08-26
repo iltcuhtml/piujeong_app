@@ -40,7 +40,7 @@ function titleScreen() {
 
     startButton.onclick = () => {
         timeDifference = 0;
-        mainScreenState = "pause";
+        mainScreenState = "start";
         sfxCircleDirection = "up";
 
         circleObj.push(new circle);
@@ -86,7 +86,7 @@ function mainScreen() {
 
     /* play sfx */
     if (mainScreenState == "resume") {
-        if (sfxCircleDirection === "down" && elapsed <= inhaleTime - 100) {
+        if (sfxCircleDirection === "down" && elapsed <= inhaleTime - 250) {
             sfx.pause();
             sfx.currentTime = 0;
             
@@ -94,7 +94,7 @@ function mainScreen() {
     
             sfxCircleDirection = "up";
         } else if (sfxCircleDirection === "up" && 
-                   inhaleTime - 100 < elapsed && elapsed <= inhaleTime + exhaleTime - 100) {
+                   inhaleTime - 100 < elapsed && elapsed <= inhaleTime + exhaleTime - 250) {
             sfx.pause();
             sfx.currentTime = 0;
             
@@ -137,14 +137,14 @@ function mainScreen() {
         /* check if sets are NOT done */
         if (doneSets < setSets && mainScreenState == "resume") {
             circleObj[i].move();
-        } else {                                                // TODO
-            startTime = timeStamp;                              // TODO
-                                                                // TODO
-            circleObj[i].x = canvas.width / 2;                  // TODO
-            circleObj[i].y = (canvas.height - unit / 4 - unit); // TODO
-                                                                // TODO
-            circleObj[i].radius = unit / 4;                     // TODO
-        }                                                       // TODO
+        } else if (mainScreenState == "start" || mainScreenState == "end") {                                                // TODO
+            startTime = timeStamp;
+
+            circleObj[i].x = canvas.width / 2;
+            circleObj[i].y = (canvas.height - unit / 4 - unit);
+
+            circleObj[i].radius = unit / 4;
+        }
 
         if (circleObj[i].alpha <= 0) {
             circleObj.splice(i, 1);
@@ -352,12 +352,12 @@ function setUI() {
         startButton.style.visibility = "hidden";
 
         /* main screen */
-        if (mainScreenState == "pause") {
-            resumeButton.style.visibility = "visible";
-            pauseButton.style.visibility = "hidden";
-        } else {
+        if (mainScreenState == "resume") {
             resumeButton.style.visibility = "hidden";
             pauseButton.style.visibility = "visible";
+        } else {
+            resumeButton.style.visibility = "visible";
+            pauseButton.style.visibility = "hidden";
         }
 
         backButton.style.visibility = "visible";

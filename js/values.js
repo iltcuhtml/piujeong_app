@@ -31,10 +31,12 @@ const SetsAndRepsText = document.getElementById("SetsAndRepsText"); // set SetsA
 
 let isSVG = true;   // set isSVG as true 
                     // (true : show circle and board as svg image)
+                    //
                     // (false : don't show circle and board as svg image)
 
 let debugMod = false;   // set debugMod as true
                         // (true : show debug text)
+                        //
                         // (false : don't show debug text)
 
 let timeStamp = 0, timeDifference = 0, 
@@ -42,13 +44,19 @@ let timeStamp = 0, timeDifference = 0,
 
 let isStarted = false;  // set isStarted as false
                         // (true : started and circle and board will be shown)
+                        //
                         // (false : stoped and UI will be shown)
 
-let mainScreenState = "pause";  // set mainScreenState as "pause"
-                                // ("pause" : the main screen is paused and this state will be set 
-                                //            if main screen just starts, or if you press pause button)
+let mainScreenState = "start";  // set mainScreenState as "pause"
+                                // ("start" : the main screen is paused and this state will be set 
+                                //            when the main screen just starts)
+                                //
                                 // ("resume" : the main screen is working and this state will be set 
                                 //             if you press resume button while mainScreenState is "pause")
+                                //
+                                // ("pause" : the main screen is paused and this state will be set 
+                                //            if you press pause button)
+                                //
                                 // ("end" : the main screen is end and this state will be set
                                 //          if circle stops moving because 'doneSets >= setSets')
 
@@ -71,4 +79,5 @@ const sfx = new Audio();        // init sfx as new Audio
 
 let sfxCircleDirection = "up";  // set sfxCircleDirection as "up"
                                 // ("up" : "down" sfx has been played and the circle is moving up)
+                                //
                                 // (down" : "up" sfx has been played and the circle is moving down)
