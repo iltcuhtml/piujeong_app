@@ -39,6 +39,10 @@ let debugMod = false;   // set debugMod as true
                         //
                         // (false : don't show debug text)
 
+let explainTextLanguage = "Kr"  // set explainTextLanguage as "Kr"
+                                // ("Kr" : Korean)
+                                // ("En" : English)
+
 let timeStamp = 0, timeDifference = 0, 
     startTime = 0, elapsed = 0;         // init timeStamp, timeDifference, startTime and elapsed as 0
 
