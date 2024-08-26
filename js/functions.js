@@ -134,6 +134,7 @@ function mainScreen() {
     }
 
     // TODO : fix circle rotation bug when it pauses
+    //        add korean version of explain with button
     //        add 'mainScreenState' and 'timeDifference' to Debug Text
 
     if (doneSets >= setSets) {
