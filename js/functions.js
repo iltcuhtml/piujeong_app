@@ -137,6 +137,12 @@ function mainScreen() {
     //        add korean version of explain with button
     //        add 'mainScreenState' and 'timeDifference' to Debug Text
 
+    // 소나기를 피해 정자에 들어가듯이
+    // 호흡명상을 통해 괴로움의 비를 피한다.
+    // 정자에 서서 내리는 비를 바라보는 것처럼
+    // 괴로움 밖에서 고요히 괴로움을 관찰하라.
+    // 그대는 곧 자유가 될 것이다!
+
     if (doneSets >= setSets) {
         mainScreenState = "end";
     }
