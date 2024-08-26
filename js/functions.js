@@ -339,6 +339,8 @@ function setUI() {
         /* title screen */
         titleText.style.visibility = "hidden";
 
+        explainText.style.visibility = "hidden";
+
         inhaleTimeText.style.visibility = "hidden";
         exhaleTimeText.style.visibility = "hidden";
         inhaleTimeInput.style.visibility = "hidden";
@@ -372,6 +374,8 @@ function setUI() {
         /* stopped */
         /* title screen */
         titleText.style.visibility = "visible";
+        
+        explainText.style.visibility = "visible";
 
         inhaleTimeText.style.visibility = "visible";
         exhaleTimeText.style.visibility = "visible";

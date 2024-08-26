@@ -6,6 +6,8 @@ const ctx = canvas.getContext("2d");        // set ctx as canvas
 /* title screen */
 const titleText = document.getElementById("titleText"); // set titleText
 
+const explainText = document.getElementById("explainText"); // set explainText
+
 const inhaleTimeText = document.getElementById("inhaleTimeText");   // set inhaleTimeText
 const exhaleTimeText = document.getElementById("exhaleTimeText");   // set exhaleTimeText
 const inhaleTimeInput = document.getElementById("inhaleTimeInput"); // set inhaleTimeInput
@@ -64,7 +66,7 @@ const circleImg = new Image();              // init circleImg as new Image
       circleImg.src = "images/circle.svg";  // set circleImg as circle.svg
 
 const sfx = new Audio();        // init sfx as new Audio
-      sfx.src = "sfx/sfx.wav";  // set sfx adress as sfx.wav
+      sfx.src = "sfx/sfx.m4a";  // set sfx adress as sfx.m4a
       sfx.volume = 0.75;        // set sfx volume as 0.75
 
 let sfxCircleDirection = "up";  // set sfxCircleDirection as "up"
