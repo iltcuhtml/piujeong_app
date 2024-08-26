@@ -75,7 +75,7 @@ const circleImg = new Image();              // init circleImg as new Image
 
 const sfx = new Audio();        // init sfx as new Audio
       sfx.src = "sfx/sfx.m4a";  // set sfx adress as sfx.m4a
-      sfx.volume = 0.75;        // set sfx volume as 0.75
+      sfx.volume = 0.75;        // set sfx volume as 0.75 (75%)
 
 let sfxCircleDirection = "up";  // set sfxCircleDirection as "up"
                                 // ("up" : "down" sfx has been played and the circle is moving up)

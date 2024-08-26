@@ -124,7 +124,7 @@ function mainScreen() {
     }
 
     // TODO : move the board more inside
-    //        change so UI
+    //        change the UI
     //        fix circle rotation bug when it pauses
     //        add 'mainScreenState' and 'timeDifference' to Debug Text
 
@@ -139,7 +139,7 @@ function mainScreen() {
 
         if (doneSets < setSets && mainScreenState == "resume") {
             circleObj[i].move();
-        } else if (mainScreenState == "start" || mainScreenState == "end") {                                                // TODO
+        } else if (mainScreenState == "start" || mainScreenState == "end") {
             startTime = timeStamp;
 
             circleObj[i].x = canvas.width / 2;
@@ -184,54 +184,57 @@ function setUI() {
         /* title screen */
         titleText.style.fontSize = "8vw";
 
-        inhaleTimeText.style.top = "calc(40vh - 4vw)";
+        explainText.style.fontSize = "3vw";
+        explainText.style.width = "60vw";
+
+        inhaleTimeText.style.top = "calc(55vh - 4vw)";
         inhaleTimeText.style.fontSize = "4vw";
 
-        exhaleTimeText.style.top = "calc(40vh - 4vw)";
+        exhaleTimeText.style.top = "calc(55vh - 4vw)";
         exhaleTimeText.style.fontSize = "4vw";
 
-        inhaleTimeInput.style.top = "calc(40vh + 4vw)";
+        inhaleTimeInput.style.top = "calc(55vh + 4vw)";
         inhaleTimeInput.style.fontSize = "4vw";
         inhaleTimeInput.style.width = "16vw";
         inhaleTimeInput.style.height = "8vw";
         inhaleTimeInput.style.borderRadius = "4vw";
 
-        exhaleTimeInput.style.top = "calc(40vh + 4vw)";
+        exhaleTimeInput.style.top = "calc(55vh + 4vw)";
         exhaleTimeInput.style.fontSize = "4vw";
         exhaleTimeInput.style.width = "16vw";
         exhaleTimeInput.style.height = "8vw";
         exhaleTimeInput.style.borderRadius = "4vw";
 
-        volumeText.style.top = "calc(60vh - 2vw)";
+        volumeText.style.top = "calc(70vh - 2vw)";
         volumeText.style.fontSize = "4vw";
 
-        volumeInput.style.top = "calc(60vh + 2vw)";
+        volumeInput.style.top = "calc(70vh + 2vw)";
         volumeInput.style.fontSize = "4vw";
         volumeInput.style.borderRadius = "4vw";
 
-        startButton.style.fontSize = "8vw";
-        startButton.style.width = "32vw";
-        startButton.style.height = "16vw";
-        startButton.style.borderRadius = "8vw";
+        startButton.style.fontSize = "6vw";
+        startButton.style.width = "24vw";
+        startButton.style.height = "12vw";
+        startButton.style.borderRadius = "4vw";
 
         /* main screen */
         resumeButton.style.left = `calc(50vw - ${unit * 1.25 * 0.5}px)`;
         resumeButton.style.fontSize = "3vw";
         resumeButton.style.width = "12vw";
         resumeButton.style.height = "6vw";
-        resumeButton.style.borderRadius = "3vw";
+        resumeButton.style.borderRadius = "1vw";
 
         pauseButton.style.left = `calc(50vw - ${unit * 1.25 * 0.5}px)`;
         pauseButton.style.fontSize = "3vw";
         pauseButton.style.width = "12vw";
         pauseButton.style.height = "6vw";
-        pauseButton.style.borderRadius = "3vw";
+        pauseButton.style.borderRadius = "1vw";
 
         backButton.style.left = `calc(50vw + ${unit * 1.25 * 0.5}px)`;
         backButton.style.fontSize = "3vw";
         backButton.style.width = "12vw";
         backButton.style.height = "6vw";
-        backButton.style.borderRadius = "3vw";
+        backButton.style.borderRadius = "1vw";
 
         setsText.style.top = `calc(${canvas.height - unit * 0.4375}px - 3vw)`;
         setsText.style.left = `calc(50vw - ${unit * 1.25 * 0.75}px)`;
@@ -261,54 +264,57 @@ function setUI() {
         /* title screen */
         titleText.style.fontSize = "3vw";
 
-        inhaleTimeText.style.top = "calc(40vh - 1.5vw)";
+        explainText.style.fontSize = "1.125vw";
+        explainText.style.width = "22.5vw";
+
+        inhaleTimeText.style.top = "calc(55vh - 1.5vw)";
         inhaleTimeText.style.fontSize = "1.5vw";
 
-        exhaleTimeText.style.top = "calc(40vh - 1.5vw)";
+        exhaleTimeText.style.top = "calc(55vh - 1.5vw)";
         exhaleTimeText.style.fontSize = "1.5vw";
 
-        inhaleTimeInput.style.top = "calc(40vh + 1.5vw)";
+        inhaleTimeInput.style.top = "calc(55vh + 1.5vw)";
         inhaleTimeInput.style.fontSize = "1.5vw";
         inhaleTimeInput.style.width = "6vw";
         inhaleTimeInput.style.height = "3vw";
         inhaleTimeInput.style.borderRadius = "3vw";
 
-        exhaleTimeInput.style.top = "calc(40vh + 1.5vw)";
+        exhaleTimeInput.style.top = "calc(55vh + 1.5vw)";
         exhaleTimeInput.style.fontSize = "1.5vw";
         exhaleTimeInput.style.width = "6vw";
         exhaleTimeInput.style.height = "3vw";
         exhaleTimeInput.style.borderRadius = "1.5vw";
 
-        volumeText.style.top = "calc(60vh - 0.75vw)";
+        volumeText.style.top = "calc(70vh - 0.75vw)";
         volumeText.style.fontSize = "1.5vw";
 
-        volumeInput.style.top = "calc(60vh + 0.75vw)";
+        volumeInput.style.top = "calc(70vh + 0.75vw)";
         volumeInput.style.fontSize = "1.5vw";
         volumeInput.style.borderRadius = "1.5vw";
 
-        startButton.style.fontSize = "3vw";
-        startButton.style.width = "12vw";
-        startButton.style.height = "6vw";
-        startButton.style.borderRadius = "3vw";
+        startButton.style.fontSize = "2.25vw";
+        startButton.style.width = "9vw";
+        startButton.style.height = "4.5vw";
+        startButton.style.borderRadius = "1.5vw";
 
         /* main screen */
         resumeButton.style.left = `calc(50vw - ${unit * 1.25 * 0.5}px)`;
         resumeButton.style.fontSize = "1.125vw";
         resumeButton.style.width = "4.5vw";
         resumeButton.style.height = "2.25vw";
-        resumeButton.style.borderRadius = "1.125vw";
+        resumeButton.style.borderRadius = "0.375vw";
 
         pauseButton.style.left = `calc(50vw - ${unit * 1.25 * 0.5}px)`;
         pauseButton.style.fontSize = "1.125vw";
         pauseButton.style.width = "4.5vw";
         pauseButton.style.height = "2.25vw";
-        pauseButton.style.borderRadius = "1.125vw";
+        pauseButton.style.borderRadius = "0.375vw";
 
         backButton.style.left = `calc(50vw + ${unit * 1.25 * 0.5}px)`;
         backButton.style.fontSize = "1.125vw";
         backButton.style.width = "4.5vw";
         backButton.style.height = "2.25vw";
-        backButton.style.borderRadius = "1.125vw";
+        backButton.style.borderRadius = "0.375vw";
 
         setsText.style.top = `calc(${canvas.height - unit * 0.4375}px - 1.125vw)`;
         setsText.style.left = `calc(50vw - ${unit * 1.25 * 0.75}px)`;

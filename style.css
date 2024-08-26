@@ -15,24 +15,28 @@
     color: black;
     font-size: 8vw;
 
+    text-align: center;
+
     visibility: visible;
 }
 
 #explainText {
     position: absolute;
-    top: calc(40vh - 4vw);
+    top: 35vh;
     left: 50vw;
-    transform: translate(-50%, -50%);
+    transform: translate(-47.5%, -50%);
 
     color: black;
-    font-size: 2vw;
+    font-size: 3vw;
+
+    width: 60vw;
 
     visibility: visible;
 }
 
 #inhaleTimeText {
     position: absolute;
-    top: calc(40vh - 4vw);
+    top: calc(55vh - 4vw);
     left: 35vw;
     transform: translate(-50%, -50%);
 
@@ -44,7 +48,7 @@
 
 #exhaleTimeText {
     position: absolute;
-    top: calc(40vh - 4vw);
+    top: calc(55vh - 4vw);
     left: 65vw;
     transform: translate(-50%, -50%);
 
@@ -56,7 +60,7 @@
 
 #inhaleTimeInput {
     position: absolute;
-    top: calc(40vh + 4vw);
+    top: calc(55vh + 4vw);
     left: 35vw;
     transform: translate(-50%, -50%);
 
@@ -76,7 +80,7 @@
 
 #exhaleTimeInput {
     position: absolute;
-    top: calc(40vh + 4vw);
+    top: calc(55vh + 4vw);
     left: 65vw;
     transform: translate(-50%, -50%);
 
@@ -96,7 +100,7 @@
 
 #volumeText {
     position: absolute;
-    top: calc(60vh - 2vw);
+    top: calc(70vh - 2vw);
     left: 50vw;
     transform: translate(-50%, -50%);
 
@@ -108,7 +112,7 @@
 
 #volumeInput {
     position: absolute;
-    top: calc(60vh + 2vw);
+    top: calc(70vh + 2vw);
     left: 50vw;
     transform: translate(-50%, -50%);
 
@@ -135,7 +139,7 @@ input::-webkit-inner-spin-button {
 
 #startButton {
     position: absolute;
-    top: 75vh;
+    top: 85vh;
     left: 50vw;
     transform: translate(-50%, -50%);
 
@@ -144,11 +148,11 @@ input::-webkit-inner-spin-button {
     font-size: 8vw;
     text-align: center;
 
-    width: 32vw;
-    height: 16vw;
+    width: 24vw;
+    height: 12vw;
 
     border: 0.1vw solid gray;
-    border-radius: 8vw;
+    border-radius: 4vw;
 
     visibility: visible;
 }
@@ -169,7 +173,7 @@ input::-webkit-inner-spin-button {
     height: 6vw;
     
     border: 0.1vw solid gray;
-    border-radius: 3vw;
+    border-radius: 1vw;
 
     visibility: hidden;
 }
@@ -189,7 +193,7 @@ input::-webkit-inner-spin-button {
     height: 6vw;
     
     border: 0.1vw solid gray;
-    border-radius: 3vw;
+    border-radius: 1vw;
 
     visibility: hidden;
 }
@@ -209,7 +213,7 @@ input::-webkit-inner-spin-button {
     height: 6vw;
     
     border: 0.1vw solid gray;
-    border-radius: 3vw;
+    border-radius: 1vw;
 
     visibility: hidden;
 }
