@@ -123,9 +123,9 @@ function mainScreen() {
                          Math.PI);
     }
 
-    // TODO : fix the circle drawing bug when mainScreenState is "pause"
-    //        by using 'mainScreenState = / == "end"' and 'mainScreenState = / == "pause"'.
-    //
+    // TODO : move the board more inside
+    //        change so UI
+    //        fix circle rotation bug when it pauses
     //        add 'mainScreenState' and 'timeDifference' to Debug Text
 
     /* update circle */
@@ -135,6 +135,8 @@ function mainScreen() {
         circleObj[i].draw();
         
         /* check if sets are NOT done */
+        circleObj[i].x = canvas.width / 2;
+
         if (doneSets < setSets && mainScreenState == "resume") {
             circleObj[i].move();
         } else if (mainScreenState == "start" || mainScreenState == "end") {                                                // TODO

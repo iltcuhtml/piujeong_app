@@ -34,7 +34,7 @@ class circle {
                                  this.radius * 2, this.radius * 2,
                                  (elapsed / inhaleTime) * Math.PI - Math.PI * 35 / 180);
 
-            } else if (elapsed <= inhaleTime + exhaleTime) {
+            } else if (elapsed <= inhaleTime + exhaleTime) {``
                 drawRotatedImage(circleImg, 0, 0, 1200, 1200,
                                  this.x, this.y,
                                  this.radius * 2, this.radius * 2,
@@ -53,8 +53,6 @@ class circle {
     *for moving the circle
     */
     move() {
-        this.x = canvas.width / 2;
-
         /* set the circle's radius as unit / 4 */
         this.radius = unit / 4;
 
