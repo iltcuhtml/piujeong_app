@@ -124,7 +124,6 @@ function mainScreen() {
     }
 
     // TODO : move the board more inside
-    //        change the UI
     //        fix circle rotation bug when it pauses
     //        add 'mainScreenState' and 'timeDifference' to Debug Text
 
