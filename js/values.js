@@ -1,33 +1,35 @@
-document.body.style.backgroundColor = "whitesmoke";    // set body color as skyblue
+document.body.style.backgroundColor = "whitesmoke";
 
-canvas = document.getElementById("canvas"); // set canvas
-const ctx = canvas.getContext("2d");        // set ctx as canvas
+canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+
+let unit;
 
 /* title screen */
-const titleText = document.getElementById("titleText"); // set titleText
+const titleText = document.getElementById("titleText");
 
-const explainText = document.getElementById("explainText"); // set explainText
+const explainText = document.getElementById("explainText");
 
-const inhaleTimeText = document.getElementById("inhaleTimeText");   // set inhaleTimeText
-const exhaleTimeText = document.getElementById("exhaleTimeText");   // set exhaleTimeText
-const inhaleTimeInput = document.getElementById("inhaleTimeInput"); // set inhaleTimeInput
-const exhaleTimeInput = document.getElementById("exhaleTimeInput"); // set exhaleTimeInput
+const inhaleTimeText = document.getElementById("inhaleTimeText");
+const exhaleTimeText = document.getElementById("exhaleTimeText");
+const inhaleTimeInput = document.getElementById("inhaleTimeInput");
+const exhaleTimeInput = document.getElementById("exhaleTimeInput")
 
-const volumeText = document.getElementById("volumeText");   // set volumeText
-const volumeInput = document.getElementById("volumeInput"); // set volumeInput
+const volumeText = document.getElementById("volumeText");
+const volumeInput = document.getElementById("volumeInput");
 
-const startButton = document.getElementById("startButton");   // set startButton
+const startButton = document.getElementById("startButton");
 
 /* main screen */
-const resumeButton = document.getElementById("resumeButton");   // set resumeButton
-const pauseButton = document.getElementById("pauseButton");     // set pauseButton
-const backButton = document.getElementById("backButton");       // set backButton
+const resumeButton = document.getElementById("resumeButton");
+const pauseButton = document.getElementById("pauseButton");
+const backButton = document.getElementById("backButton");
 
-const setsText = document.getElementById("setsText");   // set setsText
-const repsText = document.getElementById("repsText");   // set repstText
-const setsInput = document.getElementById("setsInput"); // set setsInput
-const repsInput = document.getElementById("repsInput"); // set repsInput
-const SetsAndRepsText = document.getElementById("SetsAndRepsText"); // set SetsAndRepsText
+const setsText = document.getElementById("setsText");
+const repsText = document.getElementById("repsText");
+const setsInput = document.getElementById("setsInput");
+const repsInput = document.getElementById("repsInput");
+const SetsAndRepsText = document.getElementById("SetsAndRepsText");
 
 let isSVG = true;   // set isSVG as true 
                     // (true : show circle and board as svg image)
@@ -44,7 +46,7 @@ let explainTextLanguage = "Kr"  // set explainTextLanguage as "Kr"
                                 // ("En" : English)
 
 let timeStamp = 0, timeDifference = 0, 
-    startTime = 0, elapsed = 0;         // init timeStamp, timeDifference, startTime and elapsed as 0
+    startTime = 0, elapsed = 0;
 
 let isStarted = false;  // set isStarted as false
                         // (true : started and circle and board will be shown)
@@ -65,20 +67,25 @@ let mainScreenState = "start";  // set mainScreenState as "pause"
                                 //          if circle stops moving because 'doneSets >= setSets')
 
 let inhaleTime = 5000, exhaleTime = 5000; // init inhaleTime & exhaleTime as 5000 (ms)
-let setSets = 1, setReps = 10;    // init setSets as 1 & setReps as 10
+let setSets = 1, setReps = 10;
 
-let doneSets = 0, doneReps = 0;    // init doneSets as 1 & doneReps as 10
+let doneSets = 0, doneReps = 0;
 
-let circleObj = []; // set circle_Obj as empty object
+let boardImg_X_Size = 1967, boardImg_Y_Size = 361;
+let boardWidth, boardHeight, boardHight;
 
-const boardImg = new Image();               // init boardImg as new Image
-      boardImg.src = "images/board.svg";    // set boardImg as board.svg
+let circleImg_XY_Size = 1200;
 
-const circleImg = new Image();              // init circleImg as new Image
-      circleImg.src = "images/circle.svg";  // set circleImg as circle.svg
+let circleObj = [];
 
-const sfx = new Audio();        // init sfx as new Audio
-      sfx.src = "sfx/sfx.m4a";  // set sfx adress as sfx.m4a
+const boardImg = new Image();
+      boardImg.src = "images/board.svg";
+
+const circleImg = new Image();
+      circleImg.src = "images/circle.svg";
+
+const sfx = new Audio();
+      sfx.src = "sfx/sfx.m4a";
       sfx.volume = 0.75;        // set sfx volume as 0.75 (75%)
 
 let sfxCircleDirection = "up";  // set sfxCircleDirection as "up"

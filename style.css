@@ -160,7 +160,7 @@ input::-webkit-inner-spin-button {
 /* main screen */
 #resumeButton {
     position: absolute;
-    top: 5vh;
+    top: 7vh;
     left: 35vw;
     transform: translate(-50%, -50%);
 
@@ -180,7 +180,7 @@ input::-webkit-inner-spin-button {
 
 #pauseButton {
     position: absolute;
-    top: 5vh;
+    top: 7vh;
     left: 35vw;
     transform: translate(-50%, -50%);
 
@@ -200,7 +200,7 @@ input::-webkit-inner-spin-button {
 
 #backButton {
     position: absolute;
-    top: 5vh;
+    top: 7vh;
     left: 65vw;
     transform: translate(-50%, -50%);
 
@@ -220,7 +220,7 @@ input::-webkit-inner-spin-button {
 
 #setsText {
     position: absolute;
-    top: calc(95vh - 3vw);
+    top: calc(90vh - 3vw);
     left: 25vw;
     transform: translate(-50%, -50%);
 
@@ -232,7 +232,7 @@ input::-webkit-inner-spin-button {
 
 #repsText {
     position: absolute;
-    top: calc(95vh - 3vw);
+    top: calc(90vh - 3vw);
     left: 50vw;
     transform: translate(-50%, -50%);
 
@@ -244,7 +244,7 @@ input::-webkit-inner-spin-button {
 
 #setsInput {
     position: absolute;
-    top: calc(95vh + 3vw);
+    top: calc(90vh + 3vw);
     left: 25vw;
     transform: translate(-50%, -50%);
 
@@ -264,7 +264,7 @@ input::-webkit-inner-spin-button {
 
 #repsInput {
     position: absolute;
-    top: calc(95vh + 3vw);
+    top: calc(90vh + 3vw);
     left: 50vw;
     transform: translate(-50%, -50%);
 
@@ -284,7 +284,7 @@ input::-webkit-inner-spin-button {
 
 #SetsAndRepsText {
     position: absolute;
-    top: 95vh;
+    top: 90vh;
     left: 75vw;
     transform: translate(-50%, -50%);
 

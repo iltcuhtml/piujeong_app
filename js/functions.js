@@ -57,35 +57,41 @@ function titleScreen() {
 function mainScreen() {
     resumeButton.onclick = () => {
         startTime = timeStamp - timeDifference;
+
+        if (mainScreenState === "end") {
+            startTime = timeStamp;
+
+            doneSets = 0;
+            doneReps = 0;
+        }
+
         mainScreenState = "resume";
     }
-
-    if (mainScreenState == "pause") {
-        setsInput.onchange = () => {
-            /* check if setsInput's value (INT) is bigger than doneSets */
-            if (parseInt(setsInput.value) > doneSets) {
-                /* set the setSets as setsInput's value (INT) */
-                setSets = parseInt(setsInput.value);
-            }
-
-            /* reset the setsInput's value as setSets */
-            setsInput.value = setSets;
+    
+    setsInput.onchange = () => {
+        /* check if setsInput's value (INT) is bigger than doneSets */
+        if (parseInt(setsInput.value) > doneSets) {
+            /* set the setSets as setsInput's value (INT) */
+            setSets = parseInt(setsInput.value);
         }
 
-        repsInput.onchange = () => {
-            /* check if repsInput's value (INT) is bigger than doneReps */
-            if (parseInt(repsInput.value) > doneReps) {
-                /* set the setReps as repsInput's value (INT) */
-                setReps = parseInt(repsInput.value);
-            }
+        /* reset the setsInput's value as setSets */
+        setsInput.value = setSets;
+    }
 
-            /* reset the repsInput's value as setReps */
-            repsInput.value = setReps;
+    repsInput.onchange = () => {
+        /* check if repsInput's value (INT) is bigger than doneReps */
+        if (parseInt(repsInput.value) > doneReps) {
+            /* set the setReps as repsInput's value (INT) */
+            setReps = parseInt(repsInput.value);
         }
+
+        /* reset the repsInput's value as setReps */
+        repsInput.value = setReps;
     }
 
     /* play sfx */
-    if (mainScreenState == "resume") {
+    if (mainScreenState === "resume") {
         if (sfxCircleDirection === "down" && elapsed <= inhaleTime - 250) {
             sfx.pause();
             sfx.currentTime = 0;
@@ -105,27 +111,34 @@ function mainScreen() {
     }
 
     /* draw board */
+    boardWidth = unit * 2.5;
+    boardHeight = unit * 0.25;
+    boardHight = unit;
+
     if (!isSVG) {
         ctx.fillStyle = "#76CBE5";
     
-        ctx.fillRect(canvas.width * 0.5 - unit * 1.25, unit * 0.75, unit * 2.5, unit * 0.25);
-        ctx.fillRect(canvas.width * 0.5 - unit * 1.25, canvas.height - unit, unit * 2.5, unit * 0.25);
+        ctx.fillRect(canvas.width / 2 - boardWidth / 2, boardHight, boardWidth, boardHeight);
+        ctx.fillRect(canvas.width / 2 - boardWidth / 2, canvas.height - boardHight - boardHeight, boardWidth, boardHeight);
 
     } else {
-        drawRotatedImage(boardImg, 0, 0, 1967, 361,
-                         canvas.width * 0.5, unit * 0.875,
-                         unit * 2.5, unit * 0.25,
+        drawRotatedImage(boardImg, 0, 0, boardImg_X_Size, boardImg_Y_Size,
+                         canvas.width / 2, boardHight + boardHeight / 2,
+                         boardWidth, boardHeight,
                          0);
 
-        drawRotatedImage(boardImg, 0, 0, 1967, 361,
-                         canvas.width * 0.5, canvas.height - unit * 0.875,
-                         unit * 2.5, unit * 0.25,
+        drawRotatedImage(boardImg, 0, 0, boardImg_X_Size, boardImg_Y_Size,
+                         canvas.width / 2, canvas.height - boardHight - boardHeight / 2,
+                         boardWidth, boardHeight,
                          Math.PI);
     }
 
-    // TODO : move the board more inside
-    //        fix circle rotation bug when it pauses
+    // TODO : fix circle rotation bug when it pauses
     //        add 'mainScreenState' and 'timeDifference' to Debug Text
+
+    if (doneSets >= setSets) {
+        mainScreenState = "end";
+    }
 
     /* update circle */
     for (let i = 0; i < circleObj.length; i++) {
@@ -136,15 +149,14 @@ function mainScreen() {
         /* check if sets are NOT done */
         circleObj[i].x = canvas.width / 2;
 
-        if (doneSets < setSets && mainScreenState == "resume") {
+        circleObj[i].radius = unit / 4;
+
+        if (mainScreenState === "resume") {
             circleObj[i].move();
-        } else if (mainScreenState == "start" || mainScreenState == "end") {
+        } else if (mainScreenState === "start" || mainScreenState === "end") {
             startTime = timeStamp;
 
-            circleObj[i].x = canvas.width / 2;
-            circleObj[i].y = (canvas.height - unit / 4 - unit);
-
-            circleObj[i].radius = unit / 4;
+            circleObj[i].y = canvas.height - boardHight - boardHeight - circleObj[i].radius;
         }
 
         if (circleObj[i].alpha <= 0) {
@@ -217,46 +229,46 @@ function setUI() {
         startButton.style.borderRadius = "4vw";
 
         /* main screen */
-        resumeButton.style.left = `calc(50vw - ${unit * 1.25 * 0.5}px)`;
+        resumeButton.style.left = `calc(50vw - ${boardWidth / 2 * 0.5}px)`;
         resumeButton.style.fontSize = "3vw";
         resumeButton.style.width = "12vw";
         resumeButton.style.height = "6vw";
         resumeButton.style.borderRadius = "1vw";
 
-        pauseButton.style.left = `calc(50vw - ${unit * 1.25 * 0.5}px)`;
+        pauseButton.style.left = `calc(50vw - ${boardWidth / 2 * 0.5}px)`;
         pauseButton.style.fontSize = "3vw";
         pauseButton.style.width = "12vw";
         pauseButton.style.height = "6vw";
         pauseButton.style.borderRadius = "1vw";
 
-        backButton.style.left = `calc(50vw + ${unit * 1.25 * 0.5}px)`;
+        backButton.style.left = `calc(50vw + ${boardWidth / 2 * 0.5}px)`;
         backButton.style.fontSize = "3vw";
         backButton.style.width = "12vw";
         backButton.style.height = "6vw";
         backButton.style.borderRadius = "1vw";
 
-        setsText.style.top = `calc(${canvas.height - unit * 0.4375}px - 3vw)`;
-        setsText.style.left = `calc(50vw - ${unit * 1.25 * 0.75}px)`;
+        setsText.style.top = `calc(${canvas.height - boardHight * 0.6}px - 3vw)`;
+        setsText.style.left = `calc(50vw - ${boardWidth / 2 * 0.75}px)`;
         setsText.style.fontSize = "3vw";
 
-        repsText.style.top = `calc(${canvas.height - unit * 0.4375}px - 3vw)`;
+        repsText.style.top = `calc(${canvas.height - boardHight * 0.6}px - 3vw)`;
         repsText.style.fontSize = "3vw";
 
-        setsInput.style.top = `calc(${canvas.height - unit * 0.4375}px + 3vw)`;
-        setsInput.style.left = `calc(50vw - ${unit * 1.25 * 0.75}px)`;
+        setsInput.style.top = `calc(${canvas.height - boardHight * 0.6}px + 3vw)`;
+        setsInput.style.left = `calc(50vw - ${boardWidth / 2 * 0.75}px)`;
         setsInput.style.fontSize = "3vw";
         setsInput.style.width = "12vw";
         setsInput.style.height = "6vw";
         setsInput.style.borderRadius = "3vw";
 
-        repsInput.style.top = `calc(${canvas.height - unit * 0.4375}px + 3vw)`;
+        repsInput.style.top = `calc(${canvas.height - boardHight * 0.6}px + 3vw)`;
         repsInput.style.fontSize = "3vw";
         repsInput.style.width = "12vw";
         repsInput.style.height = "6vw";
         repsInput.style.borderRadius = "3vw";
 
-        SetsAndRepsText.style.top = `${canvas.height - unit * 0.4375}px`;
-        SetsAndRepsText.style.left = `calc(50vw + ${unit * 1.25 * 0.75}px)`;
+        SetsAndRepsText.style.top = `${canvas.height - boardHight * 0.6}px`;
+        SetsAndRepsText.style.left = `calc(50vw + ${boardWidth / 2 * 0.75}px)`;
         SetsAndRepsText.style.fontSize = "4vw";
     } else {
         /* for not phone */
@@ -297,46 +309,46 @@ function setUI() {
         startButton.style.borderRadius = "1.5vw";
 
         /* main screen */
-        resumeButton.style.left = `calc(50vw - ${unit * 1.25 * 0.5}px)`;
+        resumeButton.style.left = `calc(50vw - ${boardWidth / 2 * 0.5}px)`;
         resumeButton.style.fontSize = "1.125vw";
         resumeButton.style.width = "4.5vw";
         resumeButton.style.height = "2.25vw";
         resumeButton.style.borderRadius = "0.375vw";
 
-        pauseButton.style.left = `calc(50vw - ${unit * 1.25 * 0.5}px)`;
+        pauseButton.style.left = `calc(50vw - ${boardWidth / 2 * 0.5}px)`;
         pauseButton.style.fontSize = "1.125vw";
         pauseButton.style.width = "4.5vw";
         pauseButton.style.height = "2.25vw";
         pauseButton.style.borderRadius = "0.375vw";
 
-        backButton.style.left = `calc(50vw + ${unit * 1.25 * 0.5}px)`;
+        backButton.style.left = `calc(50vw + ${boardWidth / 2 * 0.5}px)`;
         backButton.style.fontSize = "1.125vw";
         backButton.style.width = "4.5vw";
         backButton.style.height = "2.25vw";
         backButton.style.borderRadius = "0.375vw";
 
-        setsText.style.top = `calc(${canvas.height - unit * 0.4375}px - 1.125vw)`;
-        setsText.style.left = `calc(50vw - ${unit * 1.25 * 0.75}px)`;
+        setsText.style.top = `calc(${canvas.height - boardHight * 0.6}px - 1.125vw)`;
+        setsText.style.left = `calc(50vw - ${boardWidth / 2 * 0.75}px)`;
         setsText.style.fontSize = "1.125vw";
 
-        repsText.style.top = `calc(${canvas.height - unit * 0.4375}px - 1.125vw)`;
+        repsText.style.top = `calc(${canvas.height - boardHight * 0.6}px - 1.125vw)`;
         repsText.style.fontSize = "1.125vw";
 
-        setsInput.style.top = `calc(${canvas.height - unit * 0.4375}px + 1.125vw)`;
-        setsInput.style.left = `calc(50vw - ${unit * 1.25 * 0.75}px)`;
+        setsInput.style.top = `calc(${canvas.height - boardHight * 0.6}px + 1.125vw)`;
+        setsInput.style.left = `calc(50vw - ${boardWidth / 2 * 0.75}px)`;
         setsInput.style.fontSize = "1.125vw";
         setsInput.style.width = "4.5vw";
         setsInput.style.height = "2.25vw";
         setsInput.style.borderRadius = "1.125vw";
 
-        repsInput.style.top = `calc(${canvas.height - unit * 0.4375}px + 1.125vw)`;
+        repsInput.style.top = `calc(${canvas.height - boardHight * 0.6}px + 1.125vw)`;
         repsInput.style.fontSize = "1.125vw";
         repsInput.style.width = "4.5vw";
         repsInput.style.height = "2.25vw";
         repsInput.style.borderRadius = "1.125vw";
 
-        SetsAndRepsText.style.top = `${canvas.height - unit * 0.4375}px`;
-        SetsAndRepsText.style.left = `calc(50vw + ${unit * 1.25 * 0.75}px)`;
+        SetsAndRepsText.style.top = `${canvas.height - boardHight * 0.6}px`;
+        SetsAndRepsText.style.left = `calc(50vw + ${boardWidth / 2 * 0.75}px)`;
         SetsAndRepsText.style.fontSize = "1.5vw";
     }
 
@@ -359,7 +371,7 @@ function setUI() {
         startButton.style.visibility = "hidden";
 
         /* main screen */
-        if (mainScreenState == "resume") {
+        if (mainScreenState === "resume") {
             resumeButton.style.visibility = "hidden";
             pauseButton.style.visibility = "visible";
         } else {

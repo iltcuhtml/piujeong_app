@@ -29,19 +29,19 @@ class circle {
         } else {
             /* drawing svg image */
             if (elapsed <= inhaleTime) {
-                drawRotatedImage(circleImg, 0, 0, 1200, 1200,
+                drawRotatedImage(circleImg, 0, 0, circleImg_XY_Size, circleImg_XY_Size,
                                  this.x, this.y,
                                  this.radius * 2, this.radius * 2,
                                  (elapsed / inhaleTime) * Math.PI - Math.PI * 35 / 180);
 
-            } else if (elapsed <= inhaleTime + exhaleTime) {``
-                drawRotatedImage(circleImg, 0, 0, 1200, 1200,
+            } else if (elapsed <= inhaleTime + exhaleTime) {
+                drawRotatedImage(circleImg, 0, 0, circleImg_XY_Size, circleImg_XY_Size,
                                  this.x, this.y,
                                  this.radius * 2, this.radius * 2,
                                  ((elapsed - inhaleTime) / exhaleTime + 1) * Math.PI - Math.PI * 35 / 180);
 
             } else {
-                drawRotatedImage(circleImg, 0, 0, 1200, 1200,
+                drawRotatedImage(circleImg, 0, 0, circleImg_XY_Size, circleImg_XY_Size,
                                  this.x, this.y,
                                  this.radius * 2, this.radius * 2,
                                  - Math.PI * 35 / 180);
@@ -53,18 +53,15 @@ class circle {
     *for moving the circle
     */
     move() {
-        /* set the circle's radius as unit / 4 */
-        this.radius = unit / 4;
-
         if (elapsed <= inhaleTime) {
             /* moving up */
-            this.y = (canvas.height - unit / 4 - unit)
-                     - (canvas.height - unit * 2 - unit / 2) * (elapsed / inhaleTime);
+            this.y = (canvas.height - boardHight - boardHeight - this.radius)
+                     - (canvas.height - (boardHight + boardHeight + this.radius) * 2) * (elapsed / inhaleTime);
 
         } else if (elapsed <= inhaleTime + exhaleTime) {
             /* moving down */
-            this.y = (unit + unit / 4)
-                     + (canvas.height - unit * 2 - unit / 2) * ((elapsed - inhaleTime) / exhaleTime);
+            this.y = (boardHight + boardHeight + this.radius)
+                     + (canvas.height - (boardHight + boardHeight + this.radius) * 2) * ((elapsed - inhaleTime) / exhaleTime);
                      
         } else {
             /* done one cycle */
