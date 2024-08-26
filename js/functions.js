@@ -184,7 +184,7 @@ function setUI() {
         titleText.style.fontSize = "8vw";
 
         explainText.style.fontSize = "3vw";
-        explainText.style.width = "60vw";
+        explainText.style.width = "82.5vw";
 
         inhaleTimeText.style.top = "calc(55vh - 4vw)";
         inhaleTimeText.style.fontSize = "4vw";
@@ -263,8 +263,8 @@ function setUI() {
         /* title screen */
         titleText.style.fontSize = "3vw";
 
-        explainText.style.fontSize = "1.125vw";
-        explainText.style.width = "22.5vw";
+        explainText.style.fontSize = "1vw";
+        explainText.style.width = "27.5vw";
 
         inhaleTimeText.style.top = "calc(55vh - 1.5vw)";
         inhaleTimeText.style.fontSize = "1.5vw";
