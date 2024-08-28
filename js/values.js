@@ -31,40 +31,35 @@ const setsInput = document.getElementById("setsInput");
 const repsInput = document.getElementById("repsInput");
 const SetsAndRepsText = document.getElementById("SetsAndRepsText");
 
-let isSVG = true;   // set isSVG as true 
-                    // (true : show circle and board as svg image)
-                    //
-                    // (false : don't show circle and board as svg image)
+let isSVG = true; // (true : show circle and board as svg image)
+                  //
+                  // (false : don't show circle and board as svg image)
 
-let debugMod = false;   // set debugMod as true
-                        // (true : show debug text)
+let debugMod = false;   // (true : show debug text)
                         //
                         // (false : don't show debug text)
 
-let explainTextLanguage = "Kr"  // set explainTextLanguage as "Kr"
-                                // ("Kr" : Korean)
-                                // ("En" : English)
+let explainTextLanguage = "Kr";     // ("Kr" : Korean)
+                                    // ("En" : English)
 
 let timeStamp = 0, timeDifference = 0, 
     startTime = 0, elapsed = 0;
 
-let isStarted = false;  // set isStarted as false
-                        // (true : started and circle and board will be shown)
+let isStarted = false;  // (true : started and circle and board will be shown)
                         //
                         // (false : stoped and UI will be shown)
 
-let mainScreenState = "start";  // set mainScreenState as "pause"
-                                // ("start" : the main screen is paused and this state will be set 
-                                //            when the main screen just starts)
-                                //
-                                // ("resume" : the main screen is working and this state will be set 
-                                //             if you press resume button while mainScreenState is "pause")
-                                //
-                                // ("pause" : the main screen is paused and this state will be set 
-                                //            if you press pause button)
-                                //
-                                // ("end" : the main screen is end and this state will be set
-                                //          if circle stops moving because 'doneSets >= setSets')
+let mainScreenState = "start";      // ("start" : the main screen is paused and this state will be set 
+                                    //            when the main screen just starts)
+                                    //
+                                    // ("resume" : the main screen is working and this state will be set 
+                                    //             if you press resume button while mainScreenState is "pause")
+                                    //
+                                    // ("pause" : the main screen is paused and this state will be set 
+                                    //            if you press pause button)
+                                    //
+                                    // ("end" : the main screen is end and this state will be set
+                                    //          if circle stops moving because 'doneSets >= setSets')
 
 let inhaleTime = 5000, exhaleTime = 5000; // init inhaleTime & exhaleTime as 5000 (ms)
 let setSets = 1, setReps = 10;
@@ -84,11 +79,17 @@ const boardImg = new Image();
 const circleImg = new Image();
       circleImg.src = "images/circle.svg";
 
-const sfx = new Audio();
-      sfx.src = "sfx/sfx.m4a";
-      sfx.volume = 0.75;        // set sfx volume as 0.75 (75%)
+let sfxNum = 1;
 
-let sfxCircleDirection = "up";  // set sfxCircleDirection as "up"
-                                // ("up" : "down" sfx has been played and the circle is moving up)
-                                //
-                                // (down" : "up" sfx has been played and the circle is moving down)
+const sfx1 = new Audio();
+      sfx1.src = "sfx/sfx1.m4a";
+      sfx1.volume = 0.75;        // set sfx1 volume as 0.75 (75%)
+
+const sfx2 = new Audio();
+      sfx2.src = "sfx/sfx2.m4a";
+      sfx2.volume = 0.75;        // set sfx2 volume as 0.75 (75%)
+
+let sfxCircleDirection = "down";    // set sfxCircleDirection as "down"
+                                    // ("up" : "down" sfx has been played and the circle is moving up)
+                                    //
+                                    // (down" : "up" sfx has been played and the circle is moving down)

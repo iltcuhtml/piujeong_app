@@ -1,6 +1,6 @@
 /**
-*for drawing rotated image
-*/
+ *for drawing rotated image
+ */
 function drawRotatedImage(img, sx, sy, sW, sH, dx, dy, dW, dH, rotation) {
     ctx.save();
     
@@ -13,9 +13,52 @@ function drawRotatedImage(img, sx, sy, sW, sH, dx, dy, dW, dH, rotation) {
 }
 
 /**
-*for showing title screen
-*/
+ * for playing sfx
+ */
+function playSFX() {
+    if (sfxNum === 1) {
+        sfx1.pause();
+        sfx1.currentTime = 0;
+        
+        sfx1.play();
+    } else if (sfxNum === 2) {
+        sfx2.pause();
+        sfx2.currentTime = 0;
+        
+        sfx2.play();
+    }
+}
+
+/**
+ *for showing title screen
+ */
 function titleScreen() {
+    if (explainTextLanguage === "Kr") {
+        explainText.innerHTML = `
+        <b>
+            소나기를 피해 정자에 들어가듯이<br>
+            호흡명상을 통해 괴로움의 비를 피한다.<br>
+            <br>
+            정자에 서서 내리는 비를 바라보는 것처럼<br>
+            괴로움 밖에서 고요히 괴로움을 관찰하라.<br>
+            <br>
+            그대는 곧 자유가 될 것이다!
+        </b>
+        `;
+    } else if (explainTextLanguage === "En") {
+        explainText.innerHTML = `
+        <b>
+            Like going into the pavilion to escape the rain, <br>
+            avoid the rain of distress through breathing meditation.<br>
+            <br>
+            Like standing in the pavilion watching the rain, <br>
+            observe the suffering silently outside the suffering.<br>
+            <br>
+            You will soon be free!
+        </b>
+        `;
+    }
+
     inhaleTimeInput.onchange = () => {
         /* check if inhaleTimeInput's value is bigger than 0 */
         if (parseFloat(inhaleTimeInput.value) > 0) {
@@ -41,19 +84,19 @@ function titleScreen() {
     startButton.onclick = () => {
         timeDifference = 0;
         mainScreenState = "start";
-        sfxCircleDirection = "up";
+        sfxCircleDirection = "down";
 
         circleObj.push(new circle);
 
         isStarted = true;
 
-        sfx.volume = parseFloat(volumeInput.value) / 100;
+        sfx1.volume = parseFloat(volumeInput.value) / 100;
     }
 }
 
 /**
-*for showing main screen
-*/
+ *for showing main screen
+ */
 function mainScreen() {
     resumeButton.onclick = () => {
         startTime = timeStamp - timeDifference;
@@ -93,18 +136,12 @@ function mainScreen() {
     /* play sfx */
     if (mainScreenState === "resume") {
         if (sfxCircleDirection === "down" && elapsed <= inhaleTime - 250) {
-            sfx.pause();
-            sfx.currentTime = 0;
-            
-            sfx.play();
+            playSFX();
     
             sfxCircleDirection = "up";
         } else if (sfxCircleDirection === "up" && 
                    inhaleTime - 100 < elapsed && elapsed <= inhaleTime + exhaleTime - 250) {
-            sfx.pause();
-            sfx.currentTime = 0;
-            
-            sfx.play();
+            playSFX();
     
             sfxCircleDirection = "down";
         }
@@ -136,12 +173,6 @@ function mainScreen() {
     // TODO : fix circle rotation bug when it pauses
     //        add korean version of explain with button
     //        add 'mainScreenState' and 'timeDifference' to Debug Text
-
-    // 소나기를 피해 정자에 들어가듯이
-    // 호흡명상을 통해 괴로움의 비를 피한다.
-    // 정자에 서서 내리는 비를 바라보는 것처럼
-    // 괴로움 밖에서 고요히 괴로움을 관찰하라.
-    // 그대는 곧 자유가 될 것이다!
 
     if (doneSets >= setSets) {
         mainScreenState = "end";
@@ -193,8 +224,8 @@ function mainScreen() {
 }
 
 /**
-*for setting UI
-*/
+ *for setting UI
+ */
 function setUI() {
     /* move UI */
     if (canvas.width < canvas.height) {
@@ -202,8 +233,19 @@ function setUI() {
         /* title screen */
         titleText.style.fontSize = "8vw";
 
+        if (explainTextLanguage === "Kr") {
+            explainText.style.transform = "translate(-40%, -50%)";
+        } else if (explainTextLanguage == "En") {
+            explainText.style.transform = "translate(-50%, -50%)";
+        }
+        
         explainText.style.fontSize = "3vw";
-        explainText.style.width = "82.5vw";
+
+        if (explainTextLanguage === "Kr") {
+            explainText.style.width = "60vw";
+        } else if (explainTextLanguage === "En") {
+            explainText.style.width = "82.5vw";
+        }
 
         inhaleTimeText.style.top = "calc(55vh - 4vw)";
         inhaleTimeText.style.fontSize = "4vw";
@@ -282,8 +324,15 @@ function setUI() {
         /* title screen */
         titleText.style.fontSize = "3vw";
 
-        explainText.style.fontSize = "1vw";
-        explainText.style.width = "27.5vw";
+        if (explainTextLanguage === "Kr") {
+            explainText.style.transform = "translate(-40%, -50%)";
+            explainText.style.fontSize = "1.125vw";
+            explainText.style.width = "22.5vw"
+        } else if (explainTextLanguage == "En") {
+            explainText.style.transform = "translate(-50%, -50%)";
+            explainText.style.fontSize = "1vw";
+            explainText.style.width = "27.5vw";
+        }
 
         inhaleTimeText.style.top = "calc(55vh - 1.5vw)";
         inhaleTimeText.style.fontSize = "1.5vw";
@@ -466,7 +515,7 @@ function showDebugText() {
         ctx.fillText(`circleObj[0].alpha : ${circleObj[0].alpha}`, 10, 640);
     }
 
-    ctx.fillText(`sfx.volume : ${sfx.volume}`, 10, 680);
+    ctx.fillText(`sfx.volume : ${sfx1.volume}`, 10, 680);
 
     ctx.fillText(`sfxCircleDirection : ${sfxCircleDirection}`, 10, 720);
 }
