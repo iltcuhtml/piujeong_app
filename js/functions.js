@@ -232,20 +232,17 @@ function setUI() {
         /* for phone */
         /* title screen */
         titleText.style.fontSize = "8vw";
+        titleTextSub.style.fontSize = "4vw";
 
         if (explainTextLanguage === "Kr") {
             explainText.style.transform = "translate(-40%, -50%)";
+            explainText.style.width = "60vw";
         } else if (explainTextLanguage == "En") {
             explainText.style.transform = "translate(-50%, -50%)";
+            explainText.style.width = "82.5vw";
         }
         
         explainText.style.fontSize = "3vw";
-
-        if (explainTextLanguage === "Kr") {
-            explainText.style.width = "60vw";
-        } else if (explainTextLanguage === "En") {
-            explainText.style.width = "82.5vw";
-        }
 
         inhaleTimeText.style.top = "calc(55vh - 4vw)";
         inhaleTimeText.style.fontSize = "4vw";
@@ -323,6 +320,7 @@ function setUI() {
         /* for not phone */
         /* title screen */
         titleText.style.fontSize = "3vw";
+        titleTextSub.style.fontSize = "1.5vw";
 
         if (explainTextLanguage === "Kr") {
             explainText.style.transform = "translate(-40%, -50%)";

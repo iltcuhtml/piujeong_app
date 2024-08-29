@@ -7,6 +7,7 @@ let unit;
 
 /* title screen */
 const titleText = document.getElementById("titleText");
+const titleTextSub = document.getElementById("titleTextSub");
 
 const explainText = document.getElementById("explainText");
 

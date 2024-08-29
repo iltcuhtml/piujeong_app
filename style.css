@@ -15,7 +15,17 @@
     color: black;
     font-size: 8vw;
 
-    text-align: center;
+    visibility: visible;
+}
+
+#titleTextSub {
+    position: absolute;
+    top: 20vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+
+    color: black;
+    font-size: 4vw;
 
     visibility: visible;
 }
