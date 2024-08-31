@@ -168,66 +168,6 @@ input::-webkit-inner-spin-button {
 }
 
 /* main screen */
-#resumeButton {
-    position: absolute;
-    top: 7vh;
-    left: 35vw;
-    transform: translate(-50%, -50%);
-
-    background-color: whitesmoke;
-    color: black;
-    font-size: 3vw;
-    text-align: center;
-
-    width: 12vw;
-    height: 6vw;
-    
-    border: 0.1vw solid gray;
-    border-radius: 1vw;
-
-    visibility: hidden;
-}
-
-#pauseButton {
-    position: absolute;
-    top: 7vh;
-    left: 35vw;
-    transform: translate(-50%, -50%);
-
-    background-color: whitesmoke;
-    color: black;
-    font-size: 3vw;
-    text-align: center;
-
-    width: 12vw;
-    height: 6vw;
-    
-    border: 0.1vw solid gray;
-    border-radius: 1vw;
-
-    visibility: hidden;
-}
-
-#backButton {
-    position: absolute;
-    top: 7vh;
-    left: 65vw;
-    transform: translate(-50%, -50%);
-
-    background-color: whitesmoke;
-    color: black;
-    font-size: 3vw;
-    text-align: center;
-
-    width: 12vw;
-    height: 6vw;
-    
-    border: 0.1vw solid gray;
-    border-radius: 1vw;
-
-    visibility: hidden;
-}
-
 #setsText {
     position: absolute;
     top: calc(90vh - 3vw);
@@ -300,6 +240,66 @@ input::-webkit-inner-spin-button {
 
     color: black;
     font-size: 4vw;
+
+    visibility: hidden;
+}
+
+#resumeButton {
+    position: absolute;
+    top: 7vh;
+    left: 35vw;
+    transform: translate(-50%, -50%);
+
+    background-color: whitesmoke;
+    color: black;
+    font-size: 3vw;
+    text-align: center;
+
+    width: 12vw;
+    height: 6vw;
+    
+    border: 0.1vw solid gray;
+    border-radius: 1vw;
+
+    visibility: hidden;
+}
+
+#pauseButton {
+    position: absolute;
+    top: 7vh;
+    left: 35vw;
+    transform: translate(-50%, -50%);
+
+    background-color: whitesmoke;
+    color: black;
+    font-size: 3vw;
+    text-align: center;
+
+    width: 12vw;
+    height: 6vw;
+    
+    border: 0.1vw solid gray;
+    border-radius: 1vw;
+
+    visibility: hidden;
+}
+
+#backButton {
+    position: absolute;
+    top: 7vh;
+    left: 65vw;
+    transform: translate(-50%, -50%);
+
+    background-color: whitesmoke;
+    color: black;
+    font-size: 6vw;
+    text-align: center;
+
+    width: 12vw;
+    height: 6vw;
+    
+    border: 0.1vw solid gray;
+    border-radius: 1vw;
 
     visibility: hidden;
 }
