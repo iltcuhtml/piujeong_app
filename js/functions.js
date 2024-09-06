@@ -99,9 +99,9 @@ function titleScreen() {
 
         isStarted = true;
 
-        circle_sfx1.volume = parseFloat(volumeInput.value) / 100;
-        circle_sfx1.volume = parseFloat(volumeInput.value) / 100;
-        end_sfx.volume = parseFloat(volumeInput.value) / 100;
+        sfxHit1.volume = parseFloat(volumeInput.value) / 100;
+        sfxHit1.volume = parseFloat(volumeInput.value) / 100;
+        sfxEnd1.volume = parseFloat(volumeInput.value) / 100;
     }
 }
 
