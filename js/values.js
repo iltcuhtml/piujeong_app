@@ -22,15 +22,15 @@ const volumeInput = document.getElementById("volumeInput");
 const startButton = document.getElementById("startButton");
 
 /* main screen */
-const resumeButton = document.getElementById("resumeButton");
-const pauseButton = document.getElementById("pauseButton");
-const backButton = document.getElementById("backButton");
-
 const setsText = document.getElementById("setsText");
 const repsText = document.getElementById("repsText");
 const setsInput = document.getElementById("setsInput");
 const repsInput = document.getElementById("repsInput");
 const SetsAndRepsText = document.getElementById("SetsAndRepsText");
+
+const resumeButton = document.getElementById("resumeButton");
+const pauseButton = document.getElementById("pauseButton");
+const backButton = document.getElementById("backButton");
 
 let isSVG = true; // (true : show circle and board as svg image)
                   //
@@ -93,10 +93,6 @@ const sfxHit2 = new Audio();
 const sfxEnd1 = new Audio();
       sfxEnd1.src = "sfx/sfxEnd1.m4a";
       sfxEnd1.volume = 0.75;        // set sfxEnd1 volume as 0.75 (75%)
-
-const sfxEnd2 = new Audio();
-      sfxEnd2.src = "sfx/sfxEnd2.m4a";
-      sfxEnd2.volume = 0.75;        // set sfxEnd2 volume as 0.75 (75%)
 
 let sfxCircleDirection = "down";    // set sfxCircleDirection as "down"
                                     // ("up" : "down" sfx has been played and the circle is moving up)
