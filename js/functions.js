@@ -15,17 +15,26 @@ function drawRotatedImage(img, sx, sy, sW, sH, dx, dy, dW, dH, rotation) {
 /**
  * for playing sfx
  */
-function playSFX() {
-    if (sfxNum === 1) {
-        sfx1.pause();
-        sfx1.currentTime = 0;
-        
-        sfx1.play();
-    } else if (sfxNum === 2) {
-        sfx2.pause();
-        sfx2.currentTime = 0;
-        
-        sfx2.play();
+function playSFX(sfxType) {
+    if (sfxType === "Hit") {
+        if (sfxHitNum === 1) {
+            sfxHit1.pause();
+            sfxHit1.currentTime = 0;
+            
+            sfxHit1.play();
+        } else if (sfxHitNum === 2) {
+            sfxHit2.pause();
+            sfxHit2.currentTime = 0;
+            
+            sfxHit2.play();
+        }
+    } else if (sfxType === "End") {
+        if (sfxEndNum === 1) {
+            sfxEnd1.pause();
+            sfxEnd1.currentTime = 0;
+
+            sfxEnd1.play();
+        }
     }
 }
 
@@ -136,12 +145,12 @@ function mainScreen() {
     /* play sfx */
     if (mainScreenState === "resume") {
         if (sfxCircleDirection === "down" && elapsed <= inhaleTime - 250) {
-            playSFX();
+            playSFX("Hit");
     
             sfxCircleDirection = "up";
         } else if (sfxCircleDirection === "up" && 
                    inhaleTime - 100 < elapsed && elapsed <= inhaleTime + exhaleTime - 250) {
-            playSFX();
+            playSFX("Hit");
     
             sfxCircleDirection = "down";
         }
@@ -175,7 +184,11 @@ function mainScreen() {
     //        add 'mainScreenState' and 'timeDifference' to Debug Text
 
     if (doneSets >= setSets) {
+        playSFX("End");
+
         mainScreenState = "end";
+
+        sfxCircleDirection = "down"
     }
 
     /* update circle */
@@ -411,6 +424,7 @@ function setUI() {
         /* started */
         /* title screen */
         titleText.style.visibility = "hidden";
+        titleTextSub.style.visibility = "hidden";
 
         explainText.style.visibility = "hidden";
 
@@ -447,6 +461,7 @@ function setUI() {
         /* stopped */
         /* title screen */
         titleText.style.visibility = "visible";
+        titleTextSub.style.visibility = "visible";
         
         explainText.style.visibility = "visible";
 
