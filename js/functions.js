@@ -113,6 +113,9 @@ function mainScreen() {
         startTime = timeStamp - timeDifference;
 
         if (mainScreenState === "end") {
+            sfxEnd1.pause();
+            sfxEnd1.currentTime = 0;
+
             startTime = timeStamp;
 
             doneSets = 0;
