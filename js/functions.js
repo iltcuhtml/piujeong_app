@@ -145,7 +145,15 @@ function mainScreen() {
     }
 
     /* play sfx */
-    if (mainScreenState === "resume") {
+    if (doneSets >= setSets) {
+        if (mainScreenState !== "end") {
+            playSFX("End");
+        }
+
+        mainScreenState = "end";
+
+        sfxCircleDirection = "down"
+    } else if (mainScreenState === "resume") {
         if (sfxCircleDirection === "down" && elapsed <= inhaleTime - 250) {
             playSFX("Hit");
     
@@ -156,7 +164,7 @@ function mainScreen() {
     
             sfxCircleDirection = "down";
         }
-    }
+    }    
 
     /* draw board */
     boardWidth = unit * 2.5;
@@ -168,7 +176,6 @@ function mainScreen() {
     
         ctx.fillRect(canvas.width / 2 - boardWidth / 2, boardHight, boardWidth, boardHeight);
         ctx.fillRect(canvas.width / 2 - boardWidth / 2, canvas.height - boardHight - boardHeight, boardWidth, boardHeight);
-
     } else {
         drawRotatedImage(boardImg, 0, 0, boardImg_X_Size, boardImg_Y_Size,
                          canvas.width / 2, boardHight + boardHeight / 2,
@@ -184,14 +191,6 @@ function mainScreen() {
     // TODO : fix circle rotation bug when it pauses
     //        add korean version of explain with button
     //        add 'mainScreenState' and 'timeDifference' to Debug Text
-
-    if (doneSets >= setSets) {
-        playSFX("End");
-
-        mainScreenState = "end";
-
-        sfxCircleDirection = "down"
-    }
 
     /* update circle */
     for (let i = 0; i < circleObj.length; i++) {
