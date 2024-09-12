@@ -80,19 +80,19 @@ const boardImg = new Image();
 const circleImg = new Image();
       circleImg.src = "images/circle.svg";
 
-let sfxNum = 1;
+let sfxHitNum = 1, sfxEndNum = 1;
 
-const circle_sfx1 = new Audio();
-      circle_sfx1.src = "sfx/circle_sfx1.m4a";
-      circle_sfx1.volume = 0.75;                // set circle_sfx1 volume as 0.75 (75%)
+const sfxHit1 = new Audio();
+      sfxHit1.src = "sfx/sfxHit1.m4a";
+      sfxHit1.volume = 0.75;        // set sfxHit1 volume as 0.75 (75%)
 
-const circle_sfx2 = new Audio();
-      circle_sfx2.src = "sfx/circle_sfx2.m4a";
-      circle_sfx2.volume = 0.75;                // set circle_sfx2 volume as 0.75 (75%)
+const sfxHit2 = new Audio();
+      sfxHit2.src = "sfx/sfxHit2.m4a";
+      sfxHit2.volume = 0.75;        // set sfxHit2 volume as 0.75 (75%)
 
-const end_sfx = new Audio();
-      end_sfx.src = "sfx/end_sfx.m4a";
-      end_sfx.volume = 0.75;                    // set end_sfx volume as 0.75 (75%)
+const sfxEnd1 = new Audio();
+      sfxEnd1.src = "sfx/sfxEnd1.m4a";
+      sfxEnd1.volume = 0.75;        // set sfxEnd1 volume as 0.75 (75%)
 
 let sfxCircleDirection = "down";    // set sfxCircleDirection as "down"
                                     // ("up" : "down" sfx has been played and the circle is moving up)

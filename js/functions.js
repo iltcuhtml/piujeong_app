@@ -15,24 +15,26 @@ function drawRotatedImage(img, sx, sy, sW, sH, dx, dy, dW, dH, rotation) {
 /**
  * for playing sfx
  */
-function playSFX(type) {
-    if (type === "circle") {
-        if (sfxNum === 1) {
-            circle_sfx1.pause();
-            circle_sfx1.currentTime = 0;
-
-            circle_sfx1.play();
-        } else if (sfxNum === 2) {
-            circle_sfx2.pause();
-            circle_sfx2.currentTime = 0;
-
-            circle_sfx2.play();
+function playSFX(sfxType) {
+    if (sfxType === "Hit") {
+        if (sfxHitNum === 1) {
+            sfxHit1.pause();
+            sfxHit1.currentTime = 0;
+            
+            sfxHit1.play();
+        } else if (sfxHitNum === 2) {
+            sfxHit2.pause();
+            sfxHit2.currentTime = 0;
+            
+            sfxHit2.play();
         }
-    } else if (type === "end") {
-        end_sfx.pause();
-        end_sfx.currentTime = 0;
+    } else if (sfxType === "End") {
+        if (sfxEndNum === 1) {
+            sfxEnd1.pause();
+            sfxEnd1.currentTime = 0;
 
-        end_sfx.play();
+            sfxEnd1.play();
+        }
     }
 }
 
@@ -97,9 +99,9 @@ function titleScreen() {
 
         isStarted = true;
 
-        circle_sfx1.volume = parseFloat(volumeInput.value) / 100;
-        circle_sfx1.volume = parseFloat(volumeInput.value) / 100;
-        end_sfx.volume = parseFloat(volumeInput.value) / 100;
+        sfxHit1.volume = parseFloat(volumeInput.value) / 100;
+        sfxHit1.volume = parseFloat(volumeInput.value) / 100;
+        sfxEnd1.volume = parseFloat(volumeInput.value) / 100;
     }
 }
 
@@ -145,12 +147,12 @@ function mainScreen() {
     /* play sfx */
     if (mainScreenState === "resume") {
         if (sfxCircleDirection === "down" && elapsed <= inhaleTime - 250) {
-            playSFX("circle");
+            playSFX("Hit");
     
             sfxCircleDirection = "up";
         } else if (sfxCircleDirection === "up" && 
                    inhaleTime - 100 < elapsed && elapsed <= inhaleTime + exhaleTime - 250) {
-            playSFX("circle");
+            playSFX("Hit");
     
             sfxCircleDirection = "down";
         }
@@ -184,7 +186,11 @@ function mainScreen() {
     //        add 'mainScreenState' and 'timeDifference' to Debug Text
 
     if (doneSets >= setSets) {
+        playSFX("End");
+
         mainScreenState = "end";
+
+        sfxCircleDirection = "down"
     }
 
     /* update circle */
@@ -427,7 +433,7 @@ function setUI() {
         /* title screen */
         titleText.style.visibility = "hidden";
         titleTextSub.style.visibility = "hidden";
-        
+
         explainText.style.visibility = "hidden";
 
         inhaleTimeText.style.visibility = "hidden";
