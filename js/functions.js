@@ -90,20 +90,25 @@ function titleScreen() {
         exhaleTimeInput.value = exhaleTime / 1000;
     }
 
+    insightButton.onclick = () => {
+        screenState = "insight";
+    }
+
     startButton.onclick = () => {
         timeDifference = 0;
-        mainScreenState = "start";
+        screenState = "start";
         sfxCircleDirection = "down";
 
         circleObj.push(new circle);
-
-        isStarted = true;
-
-        sfxHit1.volume = parseFloat(volumeInput.value) / 100;
-        sfxHit1.volume = parseFloat(volumeInput.value) / 100;
-        sfxEnd1.volume = parseFloat(volumeInput.value) / 100;
     }
 }
+
+/**
+ *for showing insight screen
+ */
+ function insightScreen() {
+    // ;
+ }
 
 /**
  *for showing main screen
@@ -112,7 +117,7 @@ function mainScreen() {
     resumeButton.onclick = () => {
         startTime = timeStamp - timeDifference;
 
-        if (mainScreenState === "end") {
+        if (screenState === "end") {
             sfxEnd1.pause();
             sfxEnd1.currentTime = 0;
 
@@ -122,7 +127,7 @@ function mainScreen() {
             doneReps = 0;
         }
 
-        mainScreenState = "resume";
+        screenState = "resume";
     }
     
     setsInput.onchange = () => {
@@ -149,14 +154,14 @@ function mainScreen() {
 
     /* play sfx */
     if (doneSets >= setSets) {
-        if (mainScreenState !== "end") {
+        if (screenState !== "end") {
             playSFX("End");
         }
 
-        mainScreenState = "end";
+        screenState = "end";
 
         sfxCircleDirection = "down"
-    } else if (mainScreenState === "resume") {
+    } else if (screenState === "resume") {
         if (sfxCircleDirection === "down" && elapsed <= inhaleTime - 250) {
             playSFX("Hit");
     
@@ -206,9 +211,9 @@ function mainScreen() {
 
         circleObj[i].radius = unit / 4;
 
-        if (mainScreenState === "resume") {
+        if (screenState === "resume") {
             circleObj[i].move();
-        } else if (mainScreenState === "start" || mainScreenState === "end") {
+        } else if (screenState === "start" || screenState === "end") {
             startTime = timeStamp;
 
             circleObj[i].y = canvas.height - boardHight - boardHeight - circleObj[i].radius;
@@ -227,13 +232,13 @@ function mainScreen() {
     pauseButton.onclick = () => {
         timeDifference = timeStamp - startTime;
 
-        mainScreenState = "pause";
+        screenState = "pause";
     }
 
     backButton.onclick = () => {
         circleObj = [];
 
-        isStarted = false;
+        screenState = "title"
     
         doneSets = 0;
         doneReps = 0;
@@ -279,12 +284,8 @@ function setUI() {
         exhaleTimeInput.style.height = "8vw";
         exhaleTimeInput.style.borderRadius = "4vw";
 
-        volumeText.style.top = "calc(70vh - 2vw)";
-        volumeText.style.fontSize = "4vw";
-
-        volumeInput.style.top = "calc(70vh + 2vw)";
-        volumeInput.style.fontSize = "4vw";
-        volumeInput.style.borderRadius = "4vw";
+        insightButton.style.top = "70vh";
+        insightButton.style.fontSize = "4vw";
 
         startButton.style.fontSize = "6vw";
         startButton.style.width = "24vw";
@@ -370,12 +371,8 @@ function setUI() {
         exhaleTimeInput.style.height = "3vw";
         exhaleTimeInput.style.borderRadius = "1.5vw";
 
-        volumeText.style.top = "calc(70vh - 0.75vw)";
-        volumeText.style.fontSize = "1.5vw";
-
-        volumeInput.style.top = "calc(70vh + 0.75vw)";
-        volumeInput.style.fontSize = "1.5vw";
-        volumeInput.style.borderRadius = "1.5vw";
+        insightButton.style.top = "70vh";
+        insightButton.style.fontSize = "1.5vw";
 
         startButton.style.fontSize = "2.25vw";
         startButton.style.width = "9vw";
@@ -430,7 +427,7 @@ function setUI() {
     }
     
     /* set visibility of UI */
-    if (isStarted) {
+    if (screenState !== "title" && screenState !== "insight") {
         /* started */
         /* title screen */
         titleText.style.visibility = "hidden";
@@ -443,13 +440,12 @@ function setUI() {
         inhaleTimeInput.style.visibility = "hidden";
         exhaleTimeInput.style.visibility = "hidden";
 
-        volumeText.style.visibility = "hidden";
-        volumeInput.style.visibility = "hidden";
+        insightButton.style.visibility = "hidden";
 
         startButton.style.visibility = "hidden";
 
         /* main screen */
-        if (mainScreenState === "resume") {
+        if (screenState === "resume") {
             resumeButton.style.visibility = "hidden";
             pauseButton.style.visibility = "visible";
         } else {
@@ -467,7 +463,7 @@ function setUI() {
 
         setsText.style.color = "black";
         repsText.style.color = "black";
-    } else {
+    } else if (screenState === "title") {
         /* stopped */
         /* title screen */
         titleText.style.visibility = "visible";
@@ -480,11 +476,42 @@ function setUI() {
         inhaleTimeInput.style.visibility = "visible";
         exhaleTimeInput.style.visibility = "visible";
 
-        volumeText.style.visibility = "visible";
-        volumeInput.style.visibility = "visible";
+        insightButton.style.visibility = "visible";
     
         startButton.style.visibility = "visible";
     
+        /* main screen */
+        resumeButton.style.visibility = "hidden";
+        pauseButton.style.visibility = "hidden";
+        backButton.style.visibility = "hidden";
+
+        setsText.style.visibility = "hidden";
+        repsText.style.visibility = "hidden";
+        setsInput.style.visibility = "hidden";
+        repsInput.style.visibility = "hidden";
+        SetsAndRepsText.style.visibility = "hidden";
+
+        titleText.style.color = "black";
+
+        inhaleTimeText.style.color = "black";
+        exhaleTimeText.style.color = "black";
+    } else if (screenState === "insight") {
+        /* started */
+        /* title screen */
+        titleText.style.visibility = "hidden";
+        titleTextSub.style.visibility = "hidden";
+
+        explainText.style.visibility = "hidden";
+
+        inhaleTimeText.style.visibility = "hidden";
+        exhaleTimeText.style.visibility = "hidden";
+        inhaleTimeInput.style.visibility = "hidden";
+        exhaleTimeInput.style.visibility = "hidden";
+
+        insightButton.style.visibility = "hidden";
+
+        startButton.style.visibility = "hidden";
+
         /* main screen */
         resumeButton.style.visibility = "hidden";
         pauseButton.style.visibility = "hidden";
@@ -520,8 +547,6 @@ function showDebugText() {
     ctx.fillText(`elapsed : ${elapsed}`, 10, 300);
 
     ctx.fillText(`isSVG : ${isSVG}`, 10, 340);
-
-    ctx.fillText(`isStarted : ${isStarted}`, 10, 380);
 
     ctx.fillText(`inhaleTime : ${inhaleTime}`, 10, 420);
     ctx.fillText(`exhaleTime : ${exhaleTime}`, 10, 440);

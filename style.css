@@ -1,3 +1,26 @@
+input:focus {
+    border: 0.15vw solid gold;
+    outline: 0.15vw solid gold;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+button:active {
+    border: 0.15vw solid gold;
+    outline: 0.15vw solid gold;
+}
+
+#insightButton:active {
+    color: gold;
+
+    border: none;
+    outline: none;
+}
+
 /* canvas */
 #canvas {
     position: absolute;
@@ -108,43 +131,22 @@
     visibility: visible;
 }
 
-#volumeText {
+#insightButton {
     position: absolute;
-    top: calc(70vh - 2vw);
-    left: 50vw;
-    transform: translate(-50%, -50%);
-
-    color: black;
-    font-size: 4vw;
-
-    visibility: visible;
-}
-
-#volumeInput {
-    position: absolute;
-    top: calc(70vh + 2vw);
+    top: 70vh;
     left: 50vw;
     transform: translate(-50%, -50%);
 
     background-color: whitesmoke;
-    color: black;
+    color: #0075FF;
     font-size: 4vw;
-    text-align: center;
 
+    text-decoration: underline;
+
+    border: none;
     border-radius: 4vw;
 
     visibility: visible;
-}
-
-input:focus {
-    border: 0.1vw solid Gold;
-    outline: 0.1vw solid Gold;
-}
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
 }
 
 #startButton {
@@ -302,9 +304,4 @@ input::-webkit-inner-spin-button {
     border-radius: 1vw;
 
     visibility: hidden;
-}
-
-button:active {
-    border: 0.1vw solid Gold;
-    outline: 0.1vw solid Gold;
 }

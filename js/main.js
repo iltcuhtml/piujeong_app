@@ -14,11 +14,13 @@ function main(_timeStamp) {
 
     setUI();
 
-    if (isStarted) {
+    if (screenState !== "title" && screenState !== "insight") {
         mainScreen();
-    } else {
+    } else if (screenState === "title") {
         titleScreen();
-    }        
+    } else if (screenState === "insight") {
+        insightScreen();
+    }
 
     if (debugMod) {
         showDebugText();
