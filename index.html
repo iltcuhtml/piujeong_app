@@ -36,22 +36,61 @@
         <input type="number" id="inhaleTimeInput" value="5">
         <input type="number" id="exhaleTimeInput" value="5">
 
-        <button type="button" id="insightButton"><b>Insight</b></button>
+        <button type="button" id="insightButton"><b><ins>Insight</ins></b></button>
 
         <button type="button" id="startButton">Start</button>
 
-        <!-- main screen -->
-        <button type="button" id="resumeButton">▶</button>
-        <button type="button" id="pauseButton">❚❚</button>
-        <button type="button" id="backButton"><b>←</b></button>
+        <!-- insight screen -->
+        <button type="button" id="insightBackButton"><b>&#11148;</b></button>
+        <label id="insightText">
+            <h1>&#60;명상의 기본 원리&#62;</h1>
+            <hr>
+            <h2>감각과 생각</h2>
+            <p>
+                ‘괴롭다’라는 것은 지금 당신이 뭔가 ‘괴로운 생각’ 속에<br>
+                빠져 있다는 뜻입니다.<br>
+                이때 당신의 ‘주의(attention)’를<br>
+                신체의 감각으로 데려와 보세요.<br>
+                마음이 한결 편안해 질 겁니다.<br>
+                감각의 집중을 통해<br>
+                괴로운 생각에서 빠져나왔기 때문입니다.<br>
+                들숨, 날숨이 닿을 때마다 느껴지는 코의 감각에<br>
+                온전히 주의를 집중해 보세요.<br>
+                당신은 분명 마음의 평화를 얻게 될 것입니다.<br>
+            </p>
+            <hr>
+            <h2>감정, 몸에 대한 해석</h2>
+            <p>
+                감정은 어떤 자극에 대한 자동 반응입니다.<br>
+                그래서 쉽게 통제할 수 없습니다.<br>
+                그러나 실은 이 감정은<br>
+                신체의 미묘한 움직임에 대한 자동 해석입니다.<br>
+                예를 들어 극단의 불안과 공포를 주는 공황발작 같은 경우에<br>
+                심장을 천천히 뛰게 하는 약으로 불안과 공포를 줄여준다고 합니다.<br>
+                진정된 몸에 대한 ‘자동 해석’으로<br>
+                편안한 감정이란 ‘반응’이 나타난 것입니다.<br>
+                따라서 바른 자세를 하고,<br>
+                일정한 간격으로 들숨과 날숨을 반복하면,<br>
+                몸과 마음은 저절로 편안해집니다.<br>
+            </p>
+            <hr>
+            <b>GENERAL DIRECTOR : KIM GWON TAE</b><br>
+            <b>SYSTEM ENGINEER : JO YE CHAN</b><br>
+            <b>GRAPHIC DESIGNER : PARK JIN SOO</b><br>
+            <b>TO INQUIRE : <a href="mailto:munsachul@naver.com">munsachul@naver.com</a></b>
+        </label>
 
+        <!-- main screen -->
         <label id="setsText">Sets</label>
         <label id="repsText">Reps</label>
         <input type="number" id="setsInput" value="1">
         <input type="number" id="repsInput" value="10">
         <label id="SetsAndRepsText">0 sets<br>0 reps</label>
-
-
+        
+        <button type="button" id="resumeButton">&#9654;</button>
+        <button type="button" id="pauseButton">&#10074;&#10074;</button>
+        <button type="button" id="mainBackButton"><b>&#11148;</b></button>
+        
         <script src="js/values.js"></script>
         <script src="js/functions.js"></script>
         <script src="js/class.js"></script>

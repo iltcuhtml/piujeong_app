@@ -36,7 +36,6 @@ button:active {
     transform: translate(-50%, -50%);
 
     color: black;
-    font-size: 8vw;
 
     visibility: visible;
 }
@@ -48,7 +47,6 @@ button:active {
     transform: translate(-50%, -50%);
 
     color: black;
-    font-size: 4vw;
 
     visibility: visible;
 }
@@ -57,76 +55,56 @@ button:active {
     position: absolute;
     top: 35vh;
     left: 50vw;
-    transform: translate(-40%, -50%);
 
     color: black;
-    font-size: 3vw;
-
-    width: 60vw;
 
     visibility: visible;
 }
 
 #inhaleTimeText {
     position: absolute;
-    top: calc(55vh - 4vw);
     left: 35vw;
     transform: translate(-50%, -50%);
 
     color: black;
-    font-size: 4vw;
 
     visibility: visible;
 }
 
 #exhaleTimeText {
     position: absolute;
-    top: calc(55vh - 4vw);
     left: 65vw;
     transform: translate(-50%, -50%);
 
     color: black;
-    font-size: 4vw;
 
     visibility: visible;
 }
 
 #inhaleTimeInput {
     position: absolute;
-    top: calc(55vh + 4vw);
     left: 35vw;
     transform: translate(-50%, -50%);
 
     background-color: whitesmoke;
     color: black;
-    font-size: 4vw;
     text-align: center;
 
-    width: 16vw;
-    height: 8vw;
-
     border: 0.1vw solid gray;
-    border-radius: 4vw;
 
     visibility: visible;
 }
 
 #exhaleTimeInput {
     position: absolute;
-    top: calc(55vh + 4vw);
     left: 65vw;
     transform: translate(-50%, -50%);
 
     background-color: whitesmoke;
     color: black;
-    font-size: 4vw;
     text-align: center;
 
-    width: 16vw;
-    height: 8vw;
-
     border: 0.1vw solid gray;
-    border-radius: 4vw;
 
     visibility: visible;
 }
@@ -139,12 +117,8 @@ button:active {
 
     background-color: whitesmoke;
     color: #0075FF;
-    font-size: 4vw;
-
-    text-decoration: underline;
 
     border: none;
-    border-radius: 4vw;
 
     visibility: visible;
 }
@@ -157,151 +131,132 @@ button:active {
 
     background-color: whitesmoke;
     color: black;
-    font-size: 8vw;
     text-align: center;
 
-    width: 24vw;
-    height: 12vw;
-
     border: 0.1vw solid gray;
-    border-radius: 4vw;
 
     visibility: visible;
+}
+
+/* insight screen */
+#insightBackButton {
+    position: absolute;
+    transform: translate(-50%, -50%);
+
+    background-color: whitesmoke;
+    color: black;
+    text-align: center;
+    
+    border: 0.1vw solid gray;
+
+    visibility: hidden;
+}
+
+#insightText {
+    position: absolute;
+    left: 50vw;
+    transform: translate(-50%, 0%);
+    
+    /* this is necessary for 
+     * the insightBackButton to be pressed */
+    z-index: -1;
+
+    color: black;
+
+    visibility: hidden;
 }
 
 /* main screen */
 #setsText {
     position: absolute;
-    top: calc(90vh - 3vw);
-    left: 25vw;
     transform: translate(-50%, -50%);
 
     color: black;
-    font-size: 3vw;
 
     visibility: hidden;
 }
 
 #repsText {
     position: absolute;
-    top: calc(90vh - 3vw);
     left: 50vw;
     transform: translate(-50%, -50%);
 
     color: black;
-    font-size: 3vw;
 
     visibility: hidden;
 }
 
 #setsInput {
     position: absolute;
-    top: calc(90vh + 3vw);
-    left: 25vw;
     transform: translate(-50%, -50%);
 
     background-color: whitesmoke;
     color: black;
-    font-size: 3vw;
     text-align: center;
 
-    width: 12vw;
-    height: 6vw;
-
     border: 0.1vw solid gray;
-    border-radius: 3vw;
 
     visibility: hidden;
 }
 
 #repsInput {
     position: absolute;
-    top: calc(90vh + 3vw);
     left: 50vw;
     transform: translate(-50%, -50%);
 
     background-color: whitesmoke;
     color: black;
-    font-size: 3vw;
     text-align: center;
 
-    width: 12vw;
-    height: 6vw;
-
     border: 0.1vw solid gray;
-    border-radius: 3vw;
 
     visibility: hidden;
 }
 
 #SetsAndRepsText {
     position: absolute;
-    top: 90vh;
-    left: 75vw;
     transform: translate(-50%, -50%);
 
     color: black;
-    font-size: 4vw;
 
     visibility: hidden;
 }
 
 #resumeButton {
     position: absolute;
-    top: 7vh;
-    left: 35vw;
     transform: translate(-50%, -50%);
 
     background-color: whitesmoke;
     color: black;
-    font-size: 3vw;
     text-align: center;
-
-    width: 12vw;
-    height: 6vw;
     
     border: 0.1vw solid gray;
-    border-radius: 1vw;
 
     visibility: hidden;
 }
 
 #pauseButton {
     position: absolute;
-    top: 7vh;
-    left: 35vw;
     transform: translate(-50%, -50%);
 
     background-color: whitesmoke;
     color: black;
-    font-size: 3vw;
     text-align: center;
-
-    width: 12vw;
-    height: 6vw;
     
     border: 0.1vw solid gray;
-    border-radius: 1vw;
 
     visibility: hidden;
 }
 
-#backButton {
+#mainBackButton {
     position: absolute;
-    top: 7vh;
-    left: 65vw;
     transform: translate(-50%, -50%);
 
     background-color: whitesmoke;
     color: black;
-    font-size: 6vw;
     text-align: center;
-
-    width: 12vw;
-    height: 6vw;
     
     border: 0.1vw solid gray;
-    border-radius: 1vw;
 
     visibility: hidden;
 }

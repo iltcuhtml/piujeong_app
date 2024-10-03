@@ -42,7 +42,7 @@ function playSFX(sfxType) {
  *for showing title screen
  */
 function titleScreen() {
-    if (explainTextLanguage === "Kr") {
+    if (textLanguage === "Kr") {
         explainText.innerHTML = `
         <b>
             소나기를 피해 정자에 들어가듯이<br>
@@ -54,7 +54,7 @@ function titleScreen() {
             그대는 곧 자유가 될 것이다!
         </b>
         `;
-    } else if (explainTextLanguage === "En") {
+    } else if (textLanguage === "En") {
         explainText.innerHTML = `
         <b>
             Like going into the pavilion to escape the rain, <br>
@@ -106,9 +106,11 @@ function titleScreen() {
 /**
  *for showing insight screen
  */
- function insightScreen() {
-    // ;
- }
+function insightScreen() {
+    insightBackButton.onclick = () => {
+        screenState = "title";
+    }
+}
 
 /**
  *for showing main screen
@@ -197,8 +199,6 @@ function mainScreen() {
     }
 
     // TODO : fix circle rotation bug when it pauses
-    //        add korean version of explain with button
-    //        add 'mainScreenState' and 'timeDifference' to Debug Text
 
     /* update circle */
     for (let i = 0; i < circleObj.length; i++) {
@@ -235,10 +235,10 @@ function mainScreen() {
         screenState = "pause";
     }
 
-    backButton.onclick = () => {
+    mainBackButton.onclick = () => {
         circleObj = [];
 
-        screenState = "title"
+        screenState = "title";
     
         doneSets = 0;
         doneReps = 0;
@@ -256,14 +256,14 @@ function setUI() {
         titleText.style.fontSize = "8vw";
         titleTextSub.style.fontSize = "4vw";
 
-        if (explainTextLanguage === "Kr") {
-            explainText.style.transform = "translate(-40%, -50%)";
+        if (textLanguage === "Kr") {
+            explainText.style.transform = "translate(-45%, -50%)";
             explainText.style.width = "60vw";
-        } else if (explainTextLanguage == "En") {
+        } else if (textLanguage == "En") {
             explainText.style.transform = "translate(-50%, -50%)";
             explainText.style.width = "82.5vw";
         }
-        
+
         explainText.style.fontSize = "3vw";
 
         inhaleTimeText.style.top = "calc(55vh - 4vw)";
@@ -291,6 +291,20 @@ function setUI() {
         startButton.style.width = "24vw";
         startButton.style.height = "12vw";
         startButton.style.borderRadius = "4vw";
+
+        /* insight screen */
+        insightBackButton.style.top = "8vw";
+        insightBackButton.style.left = "75vw";
+        insightBackButton.style.fontSize = "4.5vw";
+        insightBackButton.style.width = "12vw";
+        insightBackButton.style.height = "6vw";
+        insightBackButton.style.borderRadius = "1vw";
+
+        if (textLanguage === "Kr") {
+            insightText.style.width = "80vw";
+        }
+
+        insightText.style.fontSize = "2.5vw";
 
         /* main screen */
         setsText.style.top = `calc(${boardHight * 0.5}px - 3vw)`;
@@ -331,23 +345,23 @@ function setUI() {
         pauseButton.style.height = "6vw";
         pauseButton.style.borderRadius = "1vw";
 
-        backButton.style.top = `${canvas.height - boardHight * 0.5}px`
-        backButton.style.left = `calc(50vw + ${boardWidth / 2 * 0.5}px)`;
-        backButton.style.fontSize = "4.5vw";
-        backButton.style.width = "12vw";
-        backButton.style.height = "6vw";
-        backButton.style.borderRadius = "1vw";
+        mainBackButton.style.top = `${canvas.height - boardHight * 0.5}px`
+        mainBackButton.style.left = `calc(50vw + ${boardWidth / 2 * 0.5}px)`;
+        mainBackButton.style.fontSize = "4.5vw";
+        mainBackButton.style.width = "12vw";
+        mainBackButton.style.height = "6vw";
+        mainBackButton.style.borderRadius = "1vw";
     } else {
         /* for not phone */
         /* title screen */
         titleText.style.fontSize = "3vw";
         titleTextSub.style.fontSize = "1.5vw";
 
-        if (explainTextLanguage === "Kr") {
-            explainText.style.transform = "translate(-40%, -50%)";
+        if (textLanguage === "Kr") {
+            explainText.style.transform = "translate(-45%, -50%)";
             explainText.style.fontSize = "1.125vw";
             explainText.style.width = "22.5vw"
-        } else if (explainTextLanguage == "En") {
+        } else if (textLanguage == "En") {
             explainText.style.transform = "translate(-50%, -50%)";
             explainText.style.fontSize = "1vw";
             explainText.style.width = "27.5vw";
@@ -371,13 +385,27 @@ function setUI() {
         exhaleTimeInput.style.height = "3vw";
         exhaleTimeInput.style.borderRadius = "1.5vw";
 
-        insightButton.style.top = "70vh";
         insightButton.style.fontSize = "1.5vw";
+        insightButton.style.borderRadius = "1.5vw";
 
         startButton.style.fontSize = "2.25vw";
         startButton.style.width = "9vw";
         startButton.style.height = "4.5vw";
         startButton.style.borderRadius = "1.5vw";
+
+        /* insight screen */
+        insightBackButton.style.top = "3vw";
+        insightBackButton.style.left = "59.375vw";
+        insightBackButton.style.fontSize = "1.6875vw";
+        insightBackButton.style.width = "4.5vw";
+        insightBackButton.style.height = "2.25vw";
+        insightBackButton.style.borderRadius = "0.375vw";
+        
+        if (textLanguage === "Kr") {
+            insightText.style.width = "30vw";
+        }
+        
+        insightText.style.fontSize = "0.9375vw";
 
         /* main screen */
         setsText.style.top = `calc(${boardHight * 0.5}px - 1.125vw)`;
@@ -418,12 +446,12 @@ function setUI() {
         pauseButton.style.height = "2.25vw";
         pauseButton.style.borderRadius = "0.375vw";
         
-        backButton.style.top = `${canvas.height - boardHight * 0.5}px`
-        backButton.style.left = `calc(50vw + ${boardWidth / 2 * 0.5}px)`;
-        backButton.style.fontSize = "1.6875vw";
-        backButton.style.width = "4.5vw";
-        backButton.style.height = "2.25vw";
-        backButton.style.borderRadius = "0.375vw";
+        mainBackButton.style.top = `${canvas.height - boardHight * 0.5}px`
+        mainBackButton.style.left = `calc(50vw + ${boardWidth / 2 * 0.5}px)`;
+        mainBackButton.style.fontSize = "1.6875vw";
+        mainBackButton.style.width = "4.5vw";
+        mainBackButton.style.height = "2.25vw";
+        mainBackButton.style.borderRadius = "0.375vw";
     }
     
     /* set visibility of UI */
@@ -444,7 +472,20 @@ function setUI() {
 
         startButton.style.visibility = "hidden";
 
+        /* insight screen */
+        insightBackButton.style.visibility = "hidden";
+        insightText.style.visibility = "hidden";
+
         /* main screen */
+        setsText.style.visibility = "visible";
+        repsText.style.visibility = "visible";
+        setsInput.style.visibility = "visible";
+        repsInput.style.visibility = "visible";
+        SetsAndRepsText.style.visibility = "visible";
+        
+        setsText.style.color = "black";
+        repsText.style.color = "black";
+        
         if (screenState === "resume") {
             resumeButton.style.visibility = "hidden";
             pauseButton.style.visibility = "visible";
@@ -453,16 +494,7 @@ function setUI() {
             pauseButton.style.visibility = "hidden";
         }
 
-        backButton.style.visibility = "visible";
-
-        setsText.style.visibility = "visible";
-        repsText.style.visibility = "visible";
-        setsInput.style.visibility = "visible";
-        repsInput.style.visibility = "visible";
-        SetsAndRepsText.style.visibility = "visible";
-
-        setsText.style.color = "black";
-        repsText.style.color = "black";
+        mainBackButton.style.visibility = "visible";
     } else if (screenState === "title") {
         /* stopped */
         /* title screen */
@@ -479,11 +511,15 @@ function setUI() {
         insightButton.style.visibility = "visible";
     
         startButton.style.visibility = "visible";
+
+        /* insight screen */
+        insightBackButton.style.visibility = "hidden";
+        insightText.style.visibility = "hidden";
     
         /* main screen */
         resumeButton.style.visibility = "hidden";
         pauseButton.style.visibility = "hidden";
-        backButton.style.visibility = "hidden";
+        mainBackButton.style.visibility = "hidden";
 
         setsText.style.visibility = "hidden";
         repsText.style.visibility = "hidden";
@@ -512,10 +548,14 @@ function setUI() {
 
         startButton.style.visibility = "hidden";
 
+        /* insight screen */
+        insightBackButton.style.visibility = "visible";
+        insightText.style.visibility = "visible";
+
         /* main screen */
         resumeButton.style.visibility = "hidden";
         pauseButton.style.visibility = "hidden";
-        backButton.style.visibility = "hidden";
+        mainBackButton.style.visibility = "hidden";
 
         setsText.style.visibility = "hidden";
         repsText.style.visibility = "hidden";
@@ -528,42 +568,4 @@ function setUI() {
         inhaleTimeText.style.color = "black";
         exhaleTimeText.style.color = "black";
     }
-}
-
-/**
-*for showing debug text
-*/
-function showDebugText() {
-    ctx.font = "16px Arial";
-    ctx.fillStyle = "black";
-    ctx.textAlign = "start";
-
-    /* show values */    
-    ctx.fillText(`Canvas Width : ${canvas.width}`, 10, 200);
-    ctx.fillText(`Canvas Height : ${canvas.height}`, 10, 220);
-
-    ctx.fillText(`timeStamp : ${timeStamp}`, 10, 260);
-    ctx.fillText(`startTime : ${startTime}`, 10, 280);
-    ctx.fillText(`elapsed : ${elapsed}`, 10, 300);
-
-    ctx.fillText(`isSVG : ${isSVG}`, 10, 340);
-
-    ctx.fillText(`inhaleTime : ${inhaleTime}`, 10, 420);
-    ctx.fillText(`exhaleTime : ${exhaleTime}`, 10, 440);
-    ctx.fillText(`setSets : ${setSets}`, 10, 460);
-    ctx.fillText(`setReps : ${setReps}`, 10, 480);
-
-    ctx.fillText(`doneSets : ${doneSets}`, 10, 520);
-    ctx.fillText(`doneReps : ${doneReps}`, 10, 540);
-
-    if (circleObj[0] !== undefined) {
-        ctx.fillText(`circleObj[0].x : ${circleObj[0].x}`, 10, 580);
-        ctx.fillText(`circleObj[0].y : ${circleObj[0].y}`, 10, 600);
-        ctx.fillText(`circleObj[0].radius : ${circleObj[0].radius}`, 10, 620);
-        ctx.fillText(`circleObj[0].alpha : ${circleObj[0].alpha}`, 10, 640);
-    }
-
-    ctx.fillText(`sfx1.volume : ${cirlce_sfx1.volume}`, 10, 680);
-
-    ctx.fillText(`sfxCircleDirection : ${sfxCircleDirection}`, 10, 720);
 }

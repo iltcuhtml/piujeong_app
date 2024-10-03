@@ -20,6 +20,10 @@ const insightButton = document.getElementById("insightButton");
 
 const startButton = document.getElementById("startButton");
 
+/* insight screen */
+const insightBackButton = document.getElementById("insightBackButton");
+const insightText = document.getElementById("insightText");
+
 /* main screen */
 const setsText = document.getElementById("setsText");
 const repsText = document.getElementById("repsText");
@@ -29,18 +33,14 @@ const SetsAndRepsText = document.getElementById("SetsAndRepsText");
 
 const resumeButton = document.getElementById("resumeButton");
 const pauseButton = document.getElementById("pauseButton");
-const backButton = document.getElementById("backButton");
+const mainBackButton = document.getElementById("mainBackButton");
 
 let isSVG = true; // (true : show circle and board as svg image)
                   //
                   // (false : don't show circle and board as svg image)
 
-let debugMod = false;   // (true : show debug text)
-                        //
-                        // (false : don't show debug text)
-
-let explainTextLanguage = "Kr";     // ("Kr" : Korean)
-                                    // ("En" : English)
+let textLanguage = "Kr";    // ("Kr" : Korean)
+                            // ("En" : English)
 
 let timeStamp = 0, timeDifference = 0, 
     startTime = 0, elapsed = 0;

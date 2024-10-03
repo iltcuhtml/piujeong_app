@@ -15,15 +15,13 @@ function main(_timeStamp) {
     setUI();
 
     if (screenState !== "title" && screenState !== "insight") {
+        insightScreen();
         mainScreen();
     } else if (screenState === "title") {
+        insightScreen();
         titleScreen();
     } else if (screenState === "insight") {
         insightScreen();
-    }
-
-    if (debugMod) {
-        showDebugText();
     }
 
     requestAnimationFrame(main);
