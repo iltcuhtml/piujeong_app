@@ -2,16 +2,16 @@
 *for making circles
 */
 class circle {
-    constructor() {                 // /* init circle */
-        this.x = canvas.width / 2;  // set circle's x position as the middle of the screen
+    constructor() {
+        this.x = canvas.width / 2;
 
         this.y = canvas.height
                  - canvas.width / 8
-                 - unit;            // set circle's y position as the bottom of the screen
+                 - unit;
 
-        this.radius = unit / 4;     // set circle's radius
+        this.radius = unit / 4;
 
-        this.alpha = 1;             // set circle's aplha value as 1
+        this.alpha = 1;
     }
 
     /**
@@ -19,7 +19,6 @@ class circle {
     */
     draw() {
         if (!isSVG) {
-            /* not drawing svg image */
             ctx.fillStyle = "#D495C0";
     
             ctx.beginPath();
@@ -27,7 +26,6 @@ class circle {
             ctx.fill();
 
         } else {
-            /* drawing svg image */
             if (elapsed <= inhaleTime) {
                 drawRotatedImage(circleImg, 0, 0, circleImg_XY_Size, circleImg_XY_Size,
                                  this.x, this.y,

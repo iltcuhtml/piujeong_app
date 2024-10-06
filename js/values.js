@@ -52,7 +52,7 @@ let screenState = "title";      // ("title"   : the title screen is showen)
                                 // ("pause"   : the main screen is showen and paused)
                                 // ("end"     : the main screen is showen and end)
 
-let inhaleTime = 5000, exhaleTime = 5000; // init inhaleTime & exhaleTime as 5000 (ms)
+let inhaleTime = 5000, exhaleTime = 5000;
 let setSets = 1, setReps = 10;
 
 let doneSets = 0, doneReps = 0;
@@ -74,15 +74,15 @@ let sfxHitNum = 1, sfxEndNum = 1;
 
 const sfxHit1 = new Audio();
       sfxHit1.src = "sfx/sfxHit1.m4a";
-      sfxHit1.volume = 1;           // set sfxHit1 volume as 1 (100%)
+      sfxHit1.volume = 1;
 
 const sfxHit2 = new Audio();
       sfxHit2.src = "sfx/sfxHit2.m4a";
-      sfxHit2.volume = 1;           // set sfxHit2 volume as 1 (100%)
+      sfxHit2.volume = 1;
 
 const sfxEnd1 = new Audio();
       sfxEnd1.src = "sfx/sfxEnd1.m4a";
-      sfxEnd1.volume = 1;           // set sfxEnd1 volume as 1 (100%)
+      sfxEnd1.volume = 1;
 
 let sfxCircleDirection = "down";    // set sfxCircleDirection as "down"
                                     // ("up" : "down" sfx has been played and the circle is moving up)

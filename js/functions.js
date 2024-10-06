@@ -69,24 +69,18 @@ function titleScreen() {
     }
 
     inhaleTimeInput.onchange = () => {
-        /* check if inhaleTimeInput's value is bigger than 0 */
         if (parseFloat(inhaleTimeInput.value) > 0) {
-            /* set the inhaleTime as inhaleTimeInput's value */
             inhaleTime = parseFloat(inhaleTimeInput.value) * 1000;
         }
-        
-        /* reset the inhaleTimeInput's value as inhaleTime */
+
         inhaleTimeInput.value = inhaleTime / 1000;
     }
 
     exhaleTimeInput.onchange = () => {
-        /* check if exhaleTimeInput's value is bigger than 0 */
         if (parseFloat(exhaleTimeInput.value) > 0) {
-            /* set the exhaleTime as exhaleTimeInput's value */
             exhaleTime = parseFloat(exhaleTimeInput.value) * 1000;
         }
-        
-        /* reset the exhaleTimeInput's value as exhaleTime */
+
         exhaleTimeInput.value = exhaleTime / 1000;
     }
 
@@ -117,8 +111,6 @@ function insightScreen() {
  */
 function mainScreen() {
     resumeButton.onclick = () => {
-        startTime = timeStamp - timeDifference;
-
         if (screenState === "end") {
             sfxEnd1.pause();
             sfxEnd1.currentTime = 0;
@@ -133,25 +125,23 @@ function mainScreen() {
     }
     
     setsInput.onchange = () => {
-        /* check if setsInput's value (INT) is bigger than doneSets */
         if (parseInt(setsInput.value) > doneSets) {
-            /* set the setSets as setsInput's value (INT) */
             setSets = parseInt(setsInput.value);
         }
-
-        /* reset the setsInput's value as setSets */
+        
         setsInput.value = setSets;
     }
 
     repsInput.onchange = () => {
-        /* check if repsInput's value (INT) is bigger than doneReps */
         if (parseInt(repsInput.value) > doneReps) {
-            /* set the setReps as repsInput's value (INT) */
             setReps = parseInt(repsInput.value);
         }
-
-        /* reset the repsInput's value as setReps */
+        
         repsInput.value = setReps;
+    }
+
+    if (screenState === "pause") {
+        startTime = timeStamp - timeDifference;
     }
 
     /* play sfx */
@@ -198,17 +188,12 @@ function mainScreen() {
                          Math.PI);
     }
 
-    // TODO : fix circle rotation bug when it pauses
-
     /* update circle */
     for (let i = 0; i < circleObj.length; i++) {
         ctx.globalAlpha = circleObj[i].alpha;
 
         circleObj[i].draw();
-        
-        /* check if sets are NOT done */
         circleObj[i].x = canvas.width / 2;
-
         circleObj[i].radius = unit / 4;
 
         if (screenState === "resume") {
@@ -226,7 +211,6 @@ function mainScreen() {
 
     ctx.globalAlpha = 1;
 
-    /* set SetsAndRepsText's text as "'doneSets' Sets | Enter | 'doneReps' Reps" */
     SetsAndRepsText.innerText = `${doneSets} Sets\n${doneReps} Reps`;
 
     pauseButton.onclick = () => {
