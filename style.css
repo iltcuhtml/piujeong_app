@@ -155,7 +155,6 @@ button:active {
 #insightText {
     position: absolute;
     left: 50vw;
-    transform: translate(-50%, 0%);
     
     /* this is necessary for 
      * the insightBackButton to be pressed */

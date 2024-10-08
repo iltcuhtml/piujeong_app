@@ -44,27 +44,27 @@ function playSFX(sfxType) {
 function titleScreen() {
     if (textLanguage === "Kr") {
         explainText.innerHTML = `
-        <b>
-            소나기를 피해 정자에 들어가듯이<br>
-            호흡명상을 통해 괴로움의 비를 피한다.<br>
-            <br>
-            정자에 서서 내리는 비를 바라보는 것처럼<br>
-            괴로움 밖에서 고요히 괴로움을 관찰하라.<br>
-            <br>
-            그대는 곧 자유가 될 것이다!
-        </b>
+            <b>
+                소나기를 피해 정자에 들어가듯이<br>
+                호흡명상을 통해 괴로움의 비를 피한다.<br>
+                <br>
+                정자에 서서 내리는 비를 바라보는 것처럼<br>
+                괴로움 밖에서 고요히 괴로움을 관찰하라.<br>
+                <br>
+                그대는 곧 자유가 될 것이다!
+            </b>
         `;
     } else if (textLanguage === "En") {
         explainText.innerHTML = `
-        <b>
-            Like going into the pavilion to escape the rain, <br>
-            avoid the rain of distress through breathing meditation.<br>
-            <br>
-            Like standing in the pavilion watching the rain, <br>
-            observe the suffering silently outside the suffering.<br>
-            <br>
-            You will soon be free!
-        </b>
+            <b>
+                Like going into the pavilion to escape the rain, <br>
+                avoid the rain of distress through breathing meditation.<br>
+                <br>
+                Like standing in the pavilion watching the rain, <br>
+                observe the suffering silently outside the suffering.<br>
+                <br>
+                You will soon be free!
+            </b>
         `;
     }
 
@@ -101,8 +101,70 @@ function titleScreen() {
  *for showing insight screen
  */
 function insightScreen() {
+    if (textLanguage === "Kr") {
+        insightText.innerHTML = `
+            <h1>&#60;명상의 기본 원리&#62;</h1>
+            <hr>
+            <h2>제3의 길</h2>
+            <p>
+                우리는 어떤 문제상황에서 화가 일어납니다.<br>
+                화를 일으킨 좌절된 욕구를 알아차리기도 전에<br>
+                화라는 감정에 물이 듭니다.<br>
+                그리고 화를 내느냐, 화를 참느냐는<br>
+                갈림길에 섭니다.<br>
+                그러나 화를 내면 상대가 상처를 받을 것이고,<br>
+                화를 참으면 내 상처가  깊어집니다.<br>
+                그런데 여기 제 3의 길이 있습니다.<br>
+                갑자기 내리는 소나기를 피해 집 처마에 들어가듯이<br>
+                들숨, 날숨의 호흡을 통해 괴로움의 비를 피할 수 있습니다.<br>
+                처마에 서서 내리는 비를 바라보는 것처럼<br>
+                호흡을 통해 괴로움 밖에서 괴로움을 관찰할 수 있습니다.<br>
+                이런 이치를 알고 평소에 호흡명상을 숙달해두면<br>
+                우리 몸이 자동으로 기억해 괴로운 감정에 대처합니다.<br>
+            </p>
+            <hr>
+            <h2>감각과 생각</h2>
+            <p>
+                ‘괴롭다’라는 것은 지금 당신이 뭔가 ‘괴로운 생각’ 속에<br>
+                빠져 있다는 뜻입니다.<br>
+                이때 당신의 ‘주의(attention)’를<br>
+                신체의 감각으로 데려와 보세요.<br>
+                마음이 한결 편안해 질 겁니다.<br>
+                감각의 집중을 통해<br>
+                괴로운 생각에서 빠져나왔기 때문입니다.<br>
+                들숨, 날숨이 닿을 때마다 느껴지는 코의 감각에<br>
+                온전히 주의를 집중해 보세요.<br>
+                당신은 분명 마음의 평화를 얻게 될 것입니다.<br>
+            </p>
+            <hr>
+            <h2>감정, 몸에 대한 해석</h2>
+            <p>
+                감정은 어떤 자극에 대한 자동 반응입니다.<br>
+                그래서 쉽게 통제할 수 없습니다.<br>
+                그러나 실은 이 감정은<br>
+                신체의 미묘한 움직임에 대한 자동 해석입니다.<br>
+                예를 들어 극단의 불안과 공포를 주는 공황발작 같은 경우에<br>
+                심장을 천천히 뛰게 하는 약으로 불안과 공포를 줄여준다고 합니다.<br>
+                진정된 몸에 대한 ‘자동 해석’으로<br>
+                편안한 감정이란 ‘반응’이 나타난 것입니다.<br>
+                따라서 바른 자세를 하고,<br>
+                일정한 간격으로 들숨과 날숨을 반복하면,<br>
+                몸과 마음은 저절로 편안해집니다.<br>
+            </p>
+            <hr>
+            <b>GENERAL DIRECTOR : KIM GWON TAE</b><br>
+            <b>SYSTEM ENGINEER : JO YE CHAN</b><br>
+            <b>GRAPHIC DESIGNER : PARK JIN SOO</b><br>
+            <b>TO INQUIRE : <a href="mailto:munsachul@naver.com">munsachul@naver.com</a></b>
+        `;
+    }
+
     insightBackButton.onclick = () => {
         screenState = "title";
+
+        insightText.innerHTML = `
+            Not Loaded
+        `;
     }
 }
 
@@ -242,13 +304,13 @@ function setUI() {
 
         if (textLanguage === "Kr") {
             explainText.style.transform = "translate(-45%, -50%)";
+            explainText.style.fontSize = "3vw";
             explainText.style.width = "60vw";
         } else if (textLanguage == "En") {
             explainText.style.transform = "translate(-50%, -50%)";
+            explainText.style.fontSize = "3vw";
             explainText.style.width = "82.5vw";
         }
-
-        explainText.style.fontSize = "3vw";
 
         inhaleTimeText.style.top = "calc(55vh - 4vw)";
         inhaleTimeText.style.fontSize = "4vw";
@@ -285,10 +347,10 @@ function setUI() {
         insightBackButton.style.borderRadius = "1vw";
 
         if (textLanguage === "Kr") {
+            insightText.style.transform = "translate(-50%, 0%)";
+            insightText.style.fontSize = "3vw";
             insightText.style.width = "80vw";
         }
-
-        insightText.style.fontSize = "2.5vw";
 
         /* main screen */
         setsText.style.top = `calc(${boardHight * 0.5}px - 3vw)`;
@@ -386,10 +448,10 @@ function setUI() {
         insightBackButton.style.borderRadius = "0.375vw";
         
         if (textLanguage === "Kr") {
+            insightText.style.transform = "translate(-50%, 0%)";
+            insightText.style.fontSize = "1.125vw";
             insightText.style.width = "30vw";
         }
-        
-        insightText.style.fontSize = "0.9375vw";
 
         /* main screen */
         setsText.style.top = `calc(${boardHight * 0.5}px - 1.125vw)`;
