@@ -339,7 +339,7 @@ function setUI() {
         startButton.style.borderRadius = "4vw";
 
         /* insight screen */
-        insightBackButton.style.top = "8vw";
+        insightBackButton.style.top = "7vw";
         insightBackButton.style.left = "75vw";
         insightBackButton.style.fontSize = "4.5vw";
         insightBackButton.style.width = "12vw";
@@ -348,8 +348,8 @@ function setUI() {
 
         if (textLanguage === "Kr") {
             insightText.style.transform = "translate(-50%, 0%)";
-            insightText.style.fontSize = "3vw";
-            insightText.style.width = "80vw";
+            insightText.style.fontSize = "2vw";
+            insightText.style.width = "62.5vw";
         }
 
         /* main screen */
@@ -398,7 +398,7 @@ function setUI() {
         mainBackButton.style.height = "6vw";
         mainBackButton.style.borderRadius = "1vw";
     } else {
-        /* for not phone */
+        /* not for phone */
         /* title screen */
         titleText.style.fontSize = "3vw";
         titleTextSub.style.fontSize = "1.5vw";
@@ -440,7 +440,7 @@ function setUI() {
         startButton.style.borderRadius = "1.5vw";
 
         /* insight screen */
-        insightBackButton.style.top = "3vw";
+        insightBackButton.style.top = "2.5vw";
         insightBackButton.style.left = "59.375vw";
         insightBackButton.style.fontSize = "1.6875vw";
         insightBackButton.style.width = "4.5vw";
@@ -449,8 +449,8 @@ function setUI() {
         
         if (textLanguage === "Kr") {
             insightText.style.transform = "translate(-50%, 0%)";
-            insightText.style.fontSize = "1.125vw";
-            insightText.style.width = "30vw";
+            insightText.style.fontSize = "0.75vw";
+            insightText.style.width = "25vw";
         }
 
         /* main screen */

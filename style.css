@@ -1,26 +1,3 @@
-input:focus {
-    border: 0.15vw solid gold;
-    outline: 0.15vw solid gold;
-}
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-button:active {
-    border: 0.15vw solid gold;
-    outline: 0.15vw solid gold;
-}
-
-#insightButton:active {
-    color: gold;
-
-    border: none;
-    outline: none;
-}
-
 /* canvas */
 #canvas {
     position: absolute;
@@ -90,7 +67,7 @@ button:active {
     color: black;
     text-align: center;
 
-    border: 0.1vw solid gray;
+    border: 0.1vw solid black;
 
     visibility: visible;
 }
@@ -104,7 +81,7 @@ button:active {
     color: black;
     text-align: center;
 
-    border: 0.1vw solid gray;
+    border: 0.1vw solid black;
 
     visibility: visible;
 }
@@ -133,7 +110,7 @@ button:active {
     color: black;
     text-align: center;
 
-    border: 0.1vw solid gray;
+    border: 0.1vw solid black;
 
     visibility: visible;
 }
@@ -147,18 +124,18 @@ button:active {
     color: black;
     text-align: center;
     
-    border: 0.1vw solid gray;
+    border: 0.1vw solid black;
 
+    /* this is necessary for 
+     * the insightBackButton to be pressed */
+    z-index: 1;
+    
     visibility: hidden;
 }
 
 #insightText {
     position: absolute;
     left: 50vw;
-    
-    /* this is necessary for 
-     * the insightBackButton to be pressed */
-    z-index: -1;
 
     color: black;
 
@@ -193,7 +170,7 @@ button:active {
     color: black;
     text-align: center;
 
-    border: 0.1vw solid gray;
+    border: 0.1vw solid black;
 
     visibility: hidden;
 }
@@ -207,7 +184,7 @@ button:active {
     color: black;
     text-align: center;
 
-    border: 0.1vw solid gray;
+    border: 0.1vw solid black;
 
     visibility: hidden;
 }
@@ -229,7 +206,7 @@ button:active {
     color: black;
     text-align: center;
     
-    border: 0.1vw solid gray;
+    border: 0.1vw solid black;
 
     visibility: hidden;
 }
@@ -242,7 +219,7 @@ button:active {
     color: black;
     text-align: center;
     
-    border: 0.1vw solid gray;
+    border: 0.1vw solid black;
 
     visibility: hidden;
 }
@@ -255,7 +232,30 @@ button:active {
     color: black;
     text-align: center;
     
-    border: 0.1vw solid gray;
+    border: 0.1vw solid black;
 
     visibility: hidden;
+}
+
+input:focus {
+    border: 0.15vw solid gold;
+    outline: 0.15vw solid gold;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+button:active {
+    border: 0.15vw solid gold;
+    outline: 0.15vw solid gold;
+}
+
+#insightButton:active {
+    color: gold;
+
+    border: none;
+    outline: none;
 }
